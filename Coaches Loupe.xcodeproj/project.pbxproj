@@ -1,0 +1,332 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		73284B1713054B4D0083654A /* AppDelegate+Shot.m in Sources */ = {isa = PBXBuildFile; fileRef = 73284B1613054B4D0083654A /* AppDelegate+Shot.m */; };
+		733829821305397E00CC5790 /* LoupeImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 733829811305397E00CC5790 /* LoupeImageView.m */; };
+		739DC8D51305352800F12692 /* LoupeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 739DC8D41305352800F12692 /* LoupeView.m */; };
+		739DC8D8130537D300F12692 /* dribbble.png in Resources */ = {isa = PBXBuildFile; fileRef = 739DC8D6130537D300F12692 /* dribbble.png */; };
+		739DC8D9130537D300F12692 /* frame.png in Resources */ = {isa = PBXBuildFile; fileRef = 739DC8D7130537D300F12692 /* frame.png */; };
+		73D57C2A13052E3600440072 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73D57C2913052E3600440072 /* Cocoa.framework */; };
+		73D57C3413052E3600440072 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 73D57C3213052E3600440072 /* InfoPlist.strings */; };
+		73D57C3713052E3600440072 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 73D57C3613052E3600440072 /* main.m */; };
+		73D57C3A13052E3600440072 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 73D57C3813052E3600440072 /* Credits.rtf */; };
+		73D57C3D13052E3600440072 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 73D57C3C13052E3600440072 /* AppDelegate.m */; };
+		73D57C4013052E3600440072 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73D57C3E13052E3600440072 /* MainMenu.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		73284B1613054B4D0083654A /* AppDelegate+Shot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Shot.m"; sourceTree = "<group>"; };
+		733829801305397E00CC5790 /* LoupeImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoupeImageView.h; sourceTree = "<group>"; };
+		733829811305397E00CC5790 /* LoupeImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoupeImageView.m; sourceTree = "<group>"; };
+		739DC8D31305352800F12692 /* LoupeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoupeView.h; sourceTree = "<group>"; };
+		739DC8D41305352800F12692 /* LoupeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoupeView.m; sourceTree = "<group>"; };
+		739DC8D6130537D300F12692 /* dribbble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dribbble.png; sourceTree = "<group>"; };
+		739DC8D7130537D300F12692 /* frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frame.png; sourceTree = "<group>"; };
+		73D57C2513052E3600440072 /* Coaches Loupe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Coaches Loupe.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		73D57C2913052E3600440072 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		73D57C2C13052E3600440072 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		73D57C2D13052E3600440072 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		73D57C2E13052E3600440072 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		73D57C3113052E3600440072 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		73D57C3313052E3600440072 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		73D57C3513052E3600440072 /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Prefix.pch; path = Source/Prefix.pch; sourceTree = "<group>"; };
+		73D57C3613052E3600440072 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		73D57C3913052E3600440072 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		73D57C3B13052E3600440072 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		73D57C3C13052E3600440072 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		73D57C3F13052E3600440072 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		73D57C2213052E3600440072 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				73D57C2A13052E3600440072 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		739DC8CA13052FDA00F12692 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				739DC8D6130537D300F12692 /* dribbble.png */,
+				739DC8D7130537D300F12692 /* frame.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		73D57C1A13052E3600440072 = {
+			isa = PBXGroup;
+			children = (
+				73D57C2F13052E3600440072 /* Source */,
+				73D57C3013052E3600440072 /* Resources */,
+				73D57C2813052E3600440072 /* Frameworks */,
+				73D57C2613052E3600440072 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		73D57C2613052E3600440072 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				73D57C2513052E3600440072 /* Coaches Loupe.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		73D57C2813052E3600440072 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				73D57C2C13052E3600440072 /* AppKit.framework */,
+				73D57C2D13052E3600440072 /* CoreData.framework */,
+				73D57C2E13052E3600440072 /* Foundation.framework */,
+				73D57C2913052E3600440072 /* Cocoa.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		73D57C2F13052E3600440072 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				73D57C3B13052E3600440072 /* AppDelegate.h */,
+				73D57C3C13052E3600440072 /* AppDelegate.m */,
+				73284B1613054B4D0083654A /* AppDelegate+Shot.m */,
+				739DC8D31305352800F12692 /* LoupeView.h */,
+				739DC8D41305352800F12692 /* LoupeView.m */,
+				733829801305397E00CC5790 /* LoupeImageView.h */,
+				733829811305397E00CC5790 /* LoupeImageView.m */,
+				73D57C3613052E3600440072 /* main.m */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		73D57C3013052E3600440072 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				739DC8CA13052FDA00F12692 /* Images */,
+				73D57C3E13052E3600440072 /* MainMenu.xib */,
+				73D57C3113052E3600440072 /* Info.plist */,
+				73D57C3213052E3600440072 /* InfoPlist.strings */,
+				73D57C3513052E3600440072 /* Prefix.pch */,
+				73D57C3813052E3600440072 /* Credits.rtf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		73D57C2413052E3600440072 /* Coaches Loupe */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 73D57C4313052E3600440072 /* Build configuration list for PBXNativeTarget "Coaches Loupe" */;
+			buildPhases = (
+				73D57C2113052E3600440072 /* Sources */,
+				73D57C2213052E3600440072 /* Frameworks */,
+				73D57C2313052E3600440072 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Coaches Loupe";
+			productName = "Coaches Loupe";
+			productReference = 73D57C2513052E3600440072 /* Coaches Loupe.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		73D57C1C13052E3600440072 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "InScopeApps {+}";
+			};
+			buildConfigurationList = 73D57C1F13052E3600440072 /* Build configuration list for PBXProject "Coaches Loupe" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 73D57C1A13052E3600440072;
+			productRefGroup = 73D57C2613052E3600440072 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				73D57C2413052E3600440072 /* Coaches Loupe */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		73D57C2313052E3600440072 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				73D57C3413052E3600440072 /* InfoPlist.strings in Resources */,
+				73D57C3A13052E3600440072 /* Credits.rtf in Resources */,
+				73D57C4013052E3600440072 /* MainMenu.xib in Resources */,
+				739DC8D8130537D300F12692 /* dribbble.png in Resources */,
+				739DC8D9130537D300F12692 /* frame.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		73D57C2113052E3600440072 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				73D57C3713052E3600440072 /* main.m in Sources */,
+				73D57C3D13052E3600440072 /* AppDelegate.m in Sources */,
+				739DC8D51305352800F12692 /* LoupeView.m in Sources */,
+				733829821305397E00CC5790 /* LoupeImageView.m in Sources */,
+				73284B1713054B4D0083654A /* AppDelegate+Shot.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		73D57C3213052E3600440072 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				73D57C3313052E3600440072 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		73D57C3813052E3600440072 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				73D57C3913052E3600440072 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		73D57C3E13052E3600440072 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				73D57C3F13052E3600440072 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		73D57C4113052E3600440072 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		73D57C4213052E3600440072 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		73D57C4413052E3600440072 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Source/Prefix.pch;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		73D57C4513052E3600440072 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Source/Prefix.pch;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		73D57C1F13052E3600440072 /* Build configuration list for PBXProject "Coaches Loupe" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				73D57C4113052E3600440072 /* Debug */,
+				73D57C4213052E3600440072 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		73D57C4313052E3600440072 /* Build configuration list for PBXNativeTarget "Coaches Loupe" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				73D57C4413052E3600440072 /* Debug */,
+				73D57C4513052E3600440072 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 73D57C1C13052E3600440072 /* Project object */;
+}

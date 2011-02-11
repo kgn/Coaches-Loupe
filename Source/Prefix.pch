@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'Coaches Loupe' target in the 'Coaches Loupe' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif
