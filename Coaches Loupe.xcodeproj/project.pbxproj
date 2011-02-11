@@ -10,7 +10,7 @@
 		73284B1713054B4D0083654A /* AppDelegate+Shot.m in Sources */ = {isa = PBXBuildFile; fileRef = 73284B1613054B4D0083654A /* AppDelegate+Shot.m */; };
 		733829821305397E00CC5790 /* LoupeImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 733829811305397E00CC5790 /* LoupeImageView.m */; };
 		739DC8D51305352800F12692 /* LoupeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 739DC8D41305352800F12692 /* LoupeView.m */; };
-		739DC8D8130537D300F12692 /* dribbble.png in Resources */ = {isa = PBXBuildFile; fileRef = 739DC8D6130537D300F12692 /* dribbble.png */; };
+		739DC8D8130537D300F12692 /* dribbble_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 739DC8D6130537D300F12692 /* dribbble_button.png */; };
 		739DC8D9130537D300F12692 /* frame.png in Resources */ = {isa = PBXBuildFile; fileRef = 739DC8D7130537D300F12692 /* frame.png */; };
 		73D57C2A13052E3600440072 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73D57C2913052E3600440072 /* Cocoa.framework */; };
 		73D57C3413052E3600440072 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 73D57C3213052E3600440072 /* InfoPlist.strings */; };
@@ -18,6 +18,7 @@
 		73D57C3A13052E3600440072 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 73D57C3813052E3600440072 /* Credits.rtf */; };
 		73D57C3D13052E3600440072 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 73D57C3C13052E3600440072 /* AppDelegate.m */; };
 		73D57C4013052E3600440072 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73D57C3E13052E3600440072 /* MainMenu.xib */; };
+		73F8D9141305E35500C0E2F7 /* cloud_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 73F8D9131305E35500C0E2F7 /* cloud_button.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,7 +27,7 @@
 		733829811305397E00CC5790 /* LoupeImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoupeImageView.m; sourceTree = "<group>"; };
 		739DC8D31305352800F12692 /* LoupeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoupeView.h; sourceTree = "<group>"; };
 		739DC8D41305352800F12692 /* LoupeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoupeView.m; sourceTree = "<group>"; };
-		739DC8D6130537D300F12692 /* dribbble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dribbble.png; sourceTree = "<group>"; };
+		739DC8D6130537D300F12692 /* dribbble_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dribbble_button.png; sourceTree = "<group>"; };
 		739DC8D7130537D300F12692 /* frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frame.png; sourceTree = "<group>"; };
 		73D57C2513052E3600440072 /* Coaches Loupe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Coaches Loupe.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		73D57C2913052E3600440072 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -41,6 +42,7 @@
 		73D57C3B13052E3600440072 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		73D57C3C13052E3600440072 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		73D57C3F13052E3600440072 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		73F8D9131305E35500C0E2F7 /* cloud_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cloud_button.png; path = "../../../../Dev/Projects/Coaches Loupe/Images/cloud_button.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +60,8 @@
 		739DC8CA13052FDA00F12692 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				739DC8D6130537D300F12692 /* dribbble.png */,
+				739DC8D6130537D300F12692 /* dribbble_button.png */,
+				73F8D9131305E35500C0E2F7 /* cloud_button.png */,
 				739DC8D7130537D300F12692 /* frame.png */,
 			);
 			path = Images;
@@ -174,8 +177,9 @@
 				73D57C3413052E3600440072 /* InfoPlist.strings in Resources */,
 				73D57C3A13052E3600440072 /* Credits.rtf in Resources */,
 				73D57C4013052E3600440072 /* MainMenu.xib in Resources */,
-				739DC8D8130537D300F12692 /* dribbble.png in Resources */,
+				739DC8D8130537D300F12692 /* dribbble_button.png in Resources */,
 				739DC8D9130537D300F12692 /* frame.png in Resources */,
+				73F8D9141305E35500C0E2F7 /* cloud_button.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

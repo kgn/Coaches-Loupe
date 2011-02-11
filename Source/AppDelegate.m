@@ -50,4 +50,9 @@
     [self save:sender];
 }
 
+- (IBAction)precipitate:(id)sender{
+    //call save for now
+    [self save:sender];
+}
+
 @end

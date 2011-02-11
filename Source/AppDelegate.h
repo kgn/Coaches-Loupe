@@ -17,6 +17,7 @@
 
 - (IBAction)save:(id)sender;
 - (IBAction)shoot:(id)sender;
+- (IBAction)precipitate:(id)sender;
 
 @end
 
