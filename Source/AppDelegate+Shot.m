@@ -21,4 +21,10 @@
                                    kCGNullWindowID, kCGWindowImageDefault);
 }
 
+- (NSData *)shotData{
+    CGImageRef image = [self shotImage];
+    NSBitmapImageRep *bits = [[[NSBitmapImageRep alloc] initWithCGImage:image] autorelease];
+    return [bits representationUsingType:NSPNGFileType properties:nil];
+}
+
 @end

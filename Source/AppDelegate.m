@@ -37,20 +37,12 @@
 }
 
 - (IBAction)save:(id)sender{
-    CGImageRef image = [self shotImage];
-    NSBitmapImageRep *bits = [[NSBitmapImageRep alloc] initWithCGImage:image];
-    NSData *data = [bits representationUsingType:NSPNGFileType properties:nil];
+    NSData *data = [self shotData];
     [data writeToFile:[@"~/Desktop/shot.png" stringByExpandingTildeInPath] atomically:YES];
-    [bits release];
 }
 
 
 - (IBAction)shoot:(id)sender{ 
-    //call save for now
-    [self save:sender];
-}
-
-- (IBAction)precipitate:(id)sender{
     //call save for now
     [self save:sender];
 }

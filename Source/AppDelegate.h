@@ -5,9 +5,11 @@
 //  Created by David Keegan on 2/11/11.
 //
 
+#import "CLAPIEngine.h"
+
 #define frameBottomRightOffset 11.0f
 
-@interface AppDelegate : NSObject <NSApplicationDelegate> {
+@interface AppDelegate : NSObject <NSApplicationDelegate, CLAPIEngineDelegate> {
     NSWindow *window;
     NSView *loupe;
 }
@@ -17,7 +19,6 @@
 
 - (IBAction)save:(id)sender;
 - (IBAction)shoot:(id)sender;
-- (IBAction)precipitate:(id)sender;
 - (IBAction)moveWindow:(id)sender;
 
 @end
@@ -25,9 +26,12 @@
 @interface AppDelegate (Shot)
 
 - (CGImageRef)shotImage;
+- (NSData *)shotData;
 
 @end
 
-@implementation AppDelegate (CloudApp)
+@interface AppDelegate (CloudApp)
+
+- (IBAction)precipitate:(id)sender;
 
 @end
