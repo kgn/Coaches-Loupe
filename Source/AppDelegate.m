@@ -55,4 +55,19 @@
     [self save:sender];
 }
 
+- (IBAction)moveWindow:(id)sender{
+    NSInteger tag = [sender tag];
+    NSPoint windowPoint = self.window.frame.origin;
+    if(tag == 0){
+        windowPoint.y += 1.0f;
+    }else if(tag == 1){
+        windowPoint.y -= 1.0f;
+    }else if(tag == 2){
+        windowPoint.x -= 1.0f;
+    }else if(tag == 3){
+        windowPoint.x += 1.0f;
+    }
+    [self.window setFrameOrigin:windowPoint];
+}
+
 @end

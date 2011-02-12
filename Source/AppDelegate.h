@@ -18,6 +18,7 @@
 - (IBAction)save:(id)sender;
 - (IBAction)shoot:(id)sender;
 - (IBAction)precipitate:(id)sender;
+- (IBAction)moveWindow:(id)sender;
 
 @end
 
@@ -27,3 +28,6 @@
 
 @end
 
+@implementation AppDelegate (CloudApp)
+
+@end
