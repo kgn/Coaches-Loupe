@@ -320,7 +320,7 @@
 				<string key="NSClassName">NSFontManager</string>
 			</object>
 			<object class="NSCustomView" id="1056804933">
-				<nil key="NSNextResponder"/>
+				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">268</int>
 				<object class="NSMutableArray" key="NSSubviews">
 					<bool key="EncodedWithXMLCoder">YES</bool>
@@ -329,6 +329,7 @@
 						<int key="NSvFlags">289</int>
 						<string key="NSFrame">{{414, 68}, {23, 23}}</string>
 						<reference key="NSSuperview" ref="1056804933"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="905801261"/>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSButtonCell" key="NSCell" id="678880298">
@@ -358,6 +359,8 @@
 						<int key="NSvFlags">289</int>
 						<string key="NSFrame">{{414, 43}, {23, 23}}</string>
 						<reference key="NSSuperview" ref="1056804933"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSButtonCell" key="NSCell" id="574262351">
 							<int key="NSCellFlags">67239424</int>
@@ -394,6 +397,7 @@
 						</object>
 						<string key="NSFrameSize">{441, 341}</string>
 						<reference key="NSSuperview" ref="1056804933"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="484748325"/>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSImageCell" key="NSCell" id="637782855">
@@ -412,6 +416,8 @@
 					</object>
 				</object>
 				<string key="NSFrameSize">{441, 341}</string>
+				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="753145540"/>
 				<string key="NSClassName">LoupeView</string>
 			</object>
@@ -562,6 +568,38 @@
 						<reference key="destination" ref="609285721"/>
 					</object>
 					<int key="connectionID">592</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: canUploadToCloudApp</string>
+						<reference key="source" ref="484748325"/>
+						<reference key="destination" ref="976324537"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="484748325"/>
+							<reference key="NSDestination" ref="976324537"/>
+							<string key="NSLabel">enabled: canUploadToCloudApp</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">canUploadToCloudApp</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">594</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: canUploadToDribbble</string>
+						<reference key="source" ref="905801261"/>
+						<reference key="destination" ref="976324537"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="905801261"/>
+							<reference key="NSDestination" ref="976324537"/>
+							<string key="NSLabel">enabled: canUploadToDribbble</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">canUploadToDribbble</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">598</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -1103,7 +1141,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">592</int>
+			<int key="maxID">598</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">

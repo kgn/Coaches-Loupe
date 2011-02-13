@@ -12,6 +12,11 @@
 @synthesize window;
 @synthesize loupe;
 
+@synthesize canUploadToDribbble;
+
+@synthesize cloudApp;
+@synthesize canUploadToCloudApp;
+
 + (void)initialize{
     if([self class] == [AppDelegate class]){
         [PreferencesController registerUserDefaults];
@@ -40,6 +45,15 @@
     windowPoint.y += frameBottomRightOffset;
     [self.window setFrameOrigin:windowPoint];
     [self.window makeKeyAndOrderFront:self];
+    
+    
+    //CloudApp
+    self.cloudApp = [CLAPIEngine engineWithDelegate:self];
+    [self setupCloudApp];
+    [[NSNotificationCenter defaultCenter] addObserver:self 
+                                             selector:@selector(changeCloudAppPassword:) 
+                                                 name:CloudAppPasswordChangeNotification 
+                                               object:nil];
 }
 
 @end

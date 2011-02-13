@@ -15,6 +15,8 @@
     [data writeToFile:[imagePath stringByExpandingTildeInPath] atomically:YES];
 }
 
+//TODO: it's anoying that the menu flashes when you use the hotkeys for this
+//TODO: move 10px if shift is down
 - (IBAction)moveWindow:(id)sender{
     NSInteger tag = [sender tag];
     NSPoint windowPoint = self.window.frame.origin;
@@ -31,7 +33,6 @@
 }
 
 - (IBAction)showPreferences:(id)sender{
-    //[preferencesWindow makeKeyAndOrderFront:self];
     [[PreferencesController sharedPrefsWindowController] showWindow:nil];
     (void)sender;
 }
@@ -39,8 +40,13 @@
 - (BOOL)validateUserInterfaceItem:(id<NSValidatedUserInterfaceItem>)anItem{
     SEL action = [anItem action];
     if(action == @selector(shoot:)){
-        //TODO: if dribbble is authenticated enable this
-        return NO;
+        if(!self.canUploadToDribbble){
+            return NO;
+        }
+    }else if(action == @selector(precipitate:)){
+        if(!self.canUploadToCloudApp){
+            return NO;
+        }
     }
     return YES;
 }

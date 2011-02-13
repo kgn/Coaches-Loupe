@@ -7,7 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7300B8721307AE0300DB56D0 /* Keychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 7300B8711307AE0300DB56D0 /* Keychain.m */; };
+		7300B88B130875D900DB56D0 /* switch_toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 7300B88A130875D900DB56D0 /* switch_toolbar.png */; };
 		730448B01307650B0044B510 /* AppDelegate+Actions.m in Sources */ = {isa = PBXBuildFile; fileRef = 730448AF1307650B0044B510 /* AppDelegate+Actions.m */; };
+		730448B313076F0E0044B510 /* AGKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 730448B213076F0E0044B510 /* AGKeychain.m */; };
+		730448B513076F290044B510 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 730448B413076F290044B510 /* Security.framework */; };
+		730448B713076F340044B510 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 730448B613076F340044B510 /* CoreFoundation.framework */; };
 		731A2B15130721260081A79E /* CLAPIDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 731A2ACE130721260081A79E /* CLAPIDeserializer.m */; };
 		731A2B16130721260081A79E /* CLAPISerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 731A2AD0130721260081A79E /* CLAPISerializer.m */; };
 		731A2B17130721260081A79E /* NSMutableURLRequest+NPPOSTBody.m in Sources */ = {isa = PBXBuildFile; fileRef = 731A2AD3130721260081A79E /* NSMutableURLRequest+NPPOSTBody.m */; };
@@ -51,7 +56,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7300B8701307AE0300DB56D0 /* Keychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Keychain.h; path = "../../../../Dev/Projects/Coaches Loupe/Source/Keychain.h"; sourceTree = "<group>"; };
+		7300B8711307AE0300DB56D0 /* Keychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Keychain.m; path = "../../../../Dev/Projects/Coaches Loupe/Source/Keychain.m"; sourceTree = "<group>"; };
+		7300B88A130875D900DB56D0 /* switch_toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = switch_toolbar.png; sourceTree = "<group>"; };
 		730448AF1307650B0044B510 /* AppDelegate+Actions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "AppDelegate+Actions.m"; path = "../../../../Dev/Projects/Coaches Loupe/Source/AppDelegate+Actions.m"; sourceTree = "<group>"; };
+		730448B113076F0E0044B510 /* AGKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGKeychain.h; sourceTree = "<group>"; };
+		730448B213076F0E0044B510 /* AGKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGKeychain.m; sourceTree = "<group>"; };
+		730448B413076F290044B510 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		730448B613076F340044B510 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		731A2ACD130721260081A79E /* CLAPIDeserializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLAPIDeserializer.h; sourceTree = "<group>"; };
 		731A2ACE130721260081A79E /* CLAPIDeserializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLAPIDeserializer.m; sourceTree = "<group>"; };
 		731A2ACF130721260081A79E /* CLAPISerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLAPISerializer.h; sourceTree = "<group>"; };
@@ -151,6 +163,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				73D57C2A13052E3600440072 /* Cocoa.framework in Frameworks */,
+				730448B513076F290044B510 /* Security.framework in Frameworks */,
+				730448B713076F340044B510 /* CoreFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,6 +174,8 @@
 		731A2ACA130721160081A79E /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				730448B113076F0E0044B510 /* AGKeychain.h */,
+				730448B213076F0E0044B510 /* AGKeychain.m */,
 				733E73EB1307609F002957D6 /* DBPrefsWindowController.h */,
 				733E73EC1307609F002957D6 /* DBPrefsWindowController.m */,
 				731A2ACB130721260081A79E /* CloudApp */,
@@ -316,6 +332,7 @@
 		739DC8CA13052FDA00F12692 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				7300B88A130875D900DB56D0 /* switch_toolbar.png */,
 				733E73F0130760FE002957D6 /* cloud_toolbar.png */,
 				733E73F1130760FE002957D6 /* dribbble_toolbar.png */,
 				73F8D9131305E35500C0E2F7 /* cloud_button.png */,
@@ -345,6 +362,8 @@
 		73D57C2813052E3600440072 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				730448B613076F340044B510 /* CoreFoundation.framework */,
+				730448B413076F290044B510 /* Security.framework */,
 				73D57C2C13052E3600440072 /* AppKit.framework */,
 				73D57C2D13052E3600440072 /* CoreData.framework */,
 				73D57C2E13052E3600440072 /* Foundation.framework */,
@@ -362,6 +381,8 @@
 				73284B1613054B4D0083654A /* AppDelegate+Screenshot.m */,
 				733E73E013075FBF002957D6 /* AppDelegate+Dribbble.m */,
 				731A2B2D130721490081A79E /* AppDelegate+CloudApp.m */,
+				7300B8701307AE0300DB56D0 /* Keychain.h */,
+				7300B8711307AE0300DB56D0 /* Keychain.m */,
 				731A2B2F130721A50081A79E /* PassMouseViews.h */,
 				731A2B30130721A50081A79E /* PassMouseViews.m */,
 				733E73E813076091002957D6 /* PreferencesController.h */,
@@ -445,6 +466,7 @@
 				733E73EF130760B4002957D6 /* Preferences.xib in Resources */,
 				733E73F2130760FE002957D6 /* cloud_toolbar.png in Resources */,
 				733E73F3130760FE002957D6 /* dribbble_toolbar.png in Resources */,
+				7300B88B130875D900DB56D0 /* switch_toolbar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,6 +509,8 @@
 				733E73EA13076091002957D6 /* PreferencesController.m in Sources */,
 				733E73ED1307609F002957D6 /* DBPrefsWindowController.m in Sources */,
 				730448B01307650B0044B510 /* AppDelegate+Actions.m in Sources */,
+				730448B313076F0E0044B510 /* AGKeychain.m in Sources */,
+				7300B8721307AE0300DB56D0 /* Keychain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
