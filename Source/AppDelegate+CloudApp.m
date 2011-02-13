@@ -39,12 +39,10 @@
     [pasteboard setString:htmlString forType:NSHTMLPboardType];
     [pasteboard setString:urlString forType:NSPasteboardTypeString];
     
-    //ring the bell
     if(UserDefaultPlaySoundValue){
         [[NSSound soundNamed:UserDefaultDoneSoundValue] play];
     }
     
-    //grrr
     if(UserDefaultGrowlValue){
         [GrowlApplicationBridge notifyWithTitle:@"Screenshot precipitated"
                                     description:urlString 

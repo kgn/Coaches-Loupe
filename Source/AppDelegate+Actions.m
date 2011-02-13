@@ -13,6 +13,10 @@
     NSData *data = [self shotData];
     NSString *imagePath = [NSString stringWithFormat:@"~/Desktop/%@", [self shotName]];
     [data writeToFile:[imagePath stringByExpandingTildeInPath] atomically:YES];
+    
+    if(UserDefaultPlaySoundValue){
+        [[NSSound soundNamed:UserDefaultDoneSoundValue] play];
+    }    
 }
 
 //TODO: it's anoying that the menu flashes when you use the hotkeys for this
