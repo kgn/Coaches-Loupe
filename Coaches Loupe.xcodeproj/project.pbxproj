@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		730448B01307650B0044B510 /* AppDelegate+Actions.m in Sources */ = {isa = PBXBuildFile; fileRef = 730448AF1307650B0044B510 /* AppDelegate+Actions.m */; };
 		731A2B15130721260081A79E /* CLAPIDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 731A2ACE130721260081A79E /* CLAPIDeserializer.m */; };
 		731A2B16130721260081A79E /* CLAPISerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 731A2AD0130721260081A79E /* CLAPISerializer.m */; };
 		731A2B17130721260081A79E /* NSMutableURLRequest+NPPOSTBody.m in Sources */ = {isa = PBXBuildFile; fileRef = 731A2AD3130721260081A79E /* NSMutableURLRequest+NPPOSTBody.m */; };
@@ -50,6 +51,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		730448AF1307650B0044B510 /* AppDelegate+Actions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "AppDelegate+Actions.m"; path = "../../../../Dev/Projects/Coaches Loupe/Source/AppDelegate+Actions.m"; sourceTree = "<group>"; };
 		731A2ACD130721260081A79E /* CLAPIDeserializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLAPIDeserializer.h; sourceTree = "<group>"; };
 		731A2ACE130721260081A79E /* CLAPIDeserializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLAPIDeserializer.m; sourceTree = "<group>"; };
 		731A2ACF130721260081A79E /* CLAPISerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLAPISerializer.h; sourceTree = "<group>"; };
@@ -356,6 +358,7 @@
 			children = (
 				73D57C3B13052E3600440072 /* AppDelegate.h */,
 				73D57C3C13052E3600440072 /* AppDelegate.m */,
+				730448AF1307650B0044B510 /* AppDelegate+Actions.m */,
 				73284B1613054B4D0083654A /* AppDelegate+Screenshot.m */,
 				733E73E013075FBF002957D6 /* AppDelegate+Dribbble.m */,
 				731A2B2D130721490081A79E /* AppDelegate+CloudApp.m */,
@@ -483,6 +486,7 @@
 				733E73E113075FBF002957D6 /* AppDelegate+Dribbble.m in Sources */,
 				733E73EA13076091002957D6 /* PreferencesController.m in Sources */,
 				733E73ED1307609F002957D6 /* DBPrefsWindowController.m in Sources */,
+				730448B01307650B0044B510 /* AppDelegate+Actions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,6 +6,7 @@
 //
 
 #import "CLAPIEngine.h"
+#import "PreferencesController.h"
 
 #define frameBottomRightOffset 11.0f
 
@@ -17,17 +18,13 @@
 @property (retain, nonatomic) IBOutlet NSWindow *window;
 @property (assign) IBOutlet NSView *loupe;
 
+@end
+
+@interface AppDelegate (Actions)
+
 - (IBAction)save:(id)sender;
 - (IBAction)moveWindow:(id)sender;
 - (IBAction)showPreferences:(id)sender;
-
-@end
-
-@interface AppDelegate (Screenshot)
-
-- (CGImageRef)shotImage;
-- (NSData *)shotData;
-- (NSString *)shotName;
 
 @end
 
@@ -40,5 +37,13 @@
 @interface AppDelegate (CloudApp)
 
 - (IBAction)precipitate:(id)sender;
+
+@end
+
+@interface AppDelegate (Screenshot)
+
+- (CGImageRef)shotImage;
+- (NSData *)shotData;
+- (NSString *)shotName;
 
 @end
