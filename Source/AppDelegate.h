@@ -19,6 +19,7 @@
 
 - (IBAction)save:(id)sender;
 - (IBAction)moveWindow:(id)sender;
+- (IBAction)showPreferences:(id)sender;
 
 @end
 

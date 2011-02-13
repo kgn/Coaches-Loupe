@@ -6,11 +6,18 @@
 //
 
 #import "AppDelegate.h"
+#import "PreferencesController.h"
 
 @implementation AppDelegate
 
 @synthesize window;
 @synthesize loupe;
+
++ (void)initialize{
+    if([self class] == [AppDelegate class]){
+        [PreferencesController registerUserDefaults];
+    }
+}
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification{
     self.window = [[NSWindow alloc] initWithContentRect:self.loupe.frame
@@ -55,6 +62,12 @@
         windowPoint.x += 1.0f;
     }
     [self.window setFrameOrigin:windowPoint];
+}
+
+- (IBAction)showPreferences:(id)sender{
+    //[preferencesWindow makeKeyAndOrderFront:self];
+    [[PreferencesController sharedPrefsWindowController] showWindow:nil];
+    (void)sender;
 }
 
 - (BOOL)validateUserInterfaceItem:(id<NSValidatedUserInterfaceItem>)anItem{
