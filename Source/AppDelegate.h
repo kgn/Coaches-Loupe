@@ -23,10 +23,11 @@
 
 @end
 
-@interface AppDelegate (Shot)
+@interface AppDelegate (Screenshot)
 
 - (CGImageRef)shotImage;
 - (NSData *)shotData;
+- (NSString *)shotName;
 
 @end
 

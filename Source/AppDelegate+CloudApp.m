@@ -14,7 +14,7 @@
 	engine.email = @"user@email.com";
 	engine.password = @"password";
     
-	[engine uploadFileWithName:@"Shot.png" fileData:[self shotData] userInfo:nil];
+	[engine uploadFileWithName:[self shotName] fileData:[self shotData] userInfo:nil];
 }
 
 - (void)requestDidFailWithError:(NSError *)error connectionIdentifier:(NSString *)connectionIdentifier userInfo:(id)userInfo {

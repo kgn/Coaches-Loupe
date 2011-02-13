@@ -38,7 +38,8 @@
 
 - (IBAction)save:(id)sender{
     NSData *data = [self shotData];
-    [data writeToFile:[@"~/Desktop/shot.png" stringByExpandingTildeInPath] atomically:YES];
+    NSString *imagePath = [NSString stringWithFormat:@"~/Desktop/%@", [self shotName]];
+    [data writeToFile:[imagePath stringByExpandingTildeInPath] atomically:YES];
 }
 
 
