@@ -1,7 +1,7 @@
 Coaches Loupe
 ========
 
-*This is still in early alpha, it currently only saves shots to the desktop.*
+*This is still in early alpha, it currently only saves shots to the desktop and uploads to [CloudApp](http://getcloudapp.com).*
 
 [http://coachesloupe.com/](http://coachesloupe.com/ "Coaches Loupe")
 
