@@ -5,13 +5,17 @@
 //  Created by David Keegan on 2/11/11.
 //
 
+#import <Growl/Growl.h>
+
 #import "Keychain.h"
 #import "CLAPIEngine.h"
 #import "PreferencesController.h"
 
 #define frameBottomRightOffset 11.0f
 
-@interface AppDelegate : NSObject <NSApplicationDelegate, CLAPIEngineDelegate> {
+#define AppName [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"]
+
+@interface AppDelegate : NSObject <NSApplicationDelegate, GrowlApplicationBridgeDelegate, CLAPIEngineDelegate> {
     NSWindow *window;
     NSView *loupe;
     

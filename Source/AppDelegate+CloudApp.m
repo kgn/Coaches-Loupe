@@ -32,15 +32,27 @@
 
 - (void)fileUploadDidSucceedWithResultingItem:(CLWebItem *)item connectionIdentifier:(NSString *)connectionIdentifier userInfo:(id)userInfo{
     //copy to pasteboard
-    NSString *html = [NSString stringWithFormat:@"<a href=\"%@\">%@</a>", item.URL, item.name];    
+    NSString *urlString = [item.URL absoluteString];
+    NSString *htmlString = [NSString stringWithFormat:@"<a href=\"%@\">%@</a>", item.URL, item.name];    
     NSPasteboard *pasteboard = [NSPasteboard generalPasteboard];
     [pasteboard declareTypes:[NSArray arrayWithObjects:NSHTMLPboardType, NSPasteboardTypeString, nil] owner:nil];
-    [pasteboard setString:html forType:NSHTMLPboardType];
-    [pasteboard setString:[item.URL absoluteString] forType:NSPasteboardTypeString];
+    [pasteboard setString:htmlString forType:NSHTMLPboardType];
+    [pasteboard setString:urlString forType:NSPasteboardTypeString];
     
     //ring the bell
     if(UserDefaultPlaySoundValue){
         [[NSSound soundNamed:UserDefaultDoneSoundValue] play];
+    }
+    
+    //grrr
+    if(UserDefaultGrowlValue){
+        [GrowlApplicationBridge notifyWithTitle:@"Screenshot precipitated"
+                                    description:urlString 
+                               notificationName:AppName
+                                       iconData:nil 
+                                       priority:0 
+                                       isSticky:NO 
+                                   clickContext:urlString];
     }
 }
 

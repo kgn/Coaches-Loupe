@@ -46,6 +46,7 @@
     [self.window setFrameOrigin:windowPoint];
     [self.window makeKeyAndOrderFront:self];
     
+    [GrowlApplicationBridge setGrowlDelegate:self];
     
     //CloudApp
     self.cloudApp = [CLAPIEngine engineWithDelegate:self];
@@ -54,6 +55,22 @@
                                              selector:@selector(changeCloudAppPassword:) 
                                                  name:CloudAppPasswordChangeNotification 
                                                object:nil];
+}
+
+#pragma -
+#pragma Growl
+
+- (NSDictionary *)registrationDictionaryForGrowl{
+    NSArray *notificationArray = [NSArray arrayWithObject:AppName];
+    NSDictionary *notificationDict = [NSDictionary dictionaryWithObjectsAndKeys:
+                                      notificationArray, GROWL_NOTIFICATIONS_ALL,
+                                      notificationArray, GROWL_NOTIFICATIONS_DEFAULT,
+                                      nil];
+    return notificationDict;
+}
+
+-(void)growlNotificationWasClicked:(id)context{
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:context]];
 }
 
 @end

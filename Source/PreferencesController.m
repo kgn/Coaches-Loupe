@@ -69,7 +69,8 @@
 + (void)registerUserDefaults{
     NSDictionary *userDefaultsDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
                                             @"Glass", UserDefaultDoneSoundKey, 
-                                            [NSNumber numberWithBool:YES], UserDefaultPlaySoundKey, 
+                                            [NSNumber numberWithBool:YES], UserDefaultPlaySoundKey,
+                                            [NSNumber numberWithBool:YES], UserDefaultGrowlKey,
                                             nil];
     
     [[NSUserDefaults standardUserDefaults] registerDefaults:userDefaultsDictionary];

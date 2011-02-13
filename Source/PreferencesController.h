@@ -16,6 +16,9 @@
 #define UserDefaultDoneSoundKey @"doneSound"
 #define UserDefaultDoneSoundValue [[NSUserDefaults standardUserDefaults] valueForKey:UserDefaultDoneSoundKey]
 
+#define UserDefaultGrowlKey @"useGrowl"
+#define UserDefaultGrowlValue [[NSUserDefaults standardUserDefaults] valueForKey:UserDefaultGrowlKey]
+
 #define UserDefaultCloudUserKey @"cloudUser"
 #define UserDefaultCloudUserValue [[NSUserDefaults standardUserDefaults] valueForKey:UserDefaultCloudUserKey]
 

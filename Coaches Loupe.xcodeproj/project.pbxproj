@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		7300B8721307AE0300DB56D0 /* Keychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 7300B8711307AE0300DB56D0 /* Keychain.m */; };
 		7300B88B130875D900DB56D0 /* switch_toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 7300B88A130875D900DB56D0 /* switch_toolbar.png */; };
+		7300B88D130876E900DB56D0 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7300B88C130876E900DB56D0 /* Growl.framework */; };
+		7300B88F1308770100DB56D0 /* Growl.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 7300B88C130876E900DB56D0 /* Growl.framework */; };
 		730448B01307650B0044B510 /* AppDelegate+Actions.m in Sources */ = {isa = PBXBuildFile; fileRef = 730448AF1307650B0044B510 /* AppDelegate+Actions.m */; };
 		730448B313076F0E0044B510 /* AGKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 730448B213076F0E0044B510 /* AGKeychain.m */; };
 		730448B513076F290044B510 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 730448B413076F290044B510 /* Security.framework */; };
@@ -55,10 +57,25 @@
 		73F8D9141305E35500C0E2F7 /* cloud_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 73F8D9131305E35500C0E2F7 /* cloud_button.png */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		7300B88E130876F400DB56D0 /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				7300B88F1308770100DB56D0 /* Growl.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		7300B8701307AE0300DB56D0 /* Keychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Keychain.h; path = "../../../../Dev/Projects/Coaches Loupe/Source/Keychain.h"; sourceTree = "<group>"; };
 		7300B8711307AE0300DB56D0 /* Keychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Keychain.m; path = "../../../../Dev/Projects/Coaches Loupe/Source/Keychain.m"; sourceTree = "<group>"; };
 		7300B88A130875D900DB56D0 /* switch_toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = switch_toolbar.png; sourceTree = "<group>"; };
+		7300B88C130876E900DB56D0 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Growl.framework; path = "../../../Dev/Projects/Coaches Loupe/Frameworks/Growl.framework"; sourceTree = "<group>"; };
 		730448AF1307650B0044B510 /* AppDelegate+Actions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "AppDelegate+Actions.m"; path = "../../../../Dev/Projects/Coaches Loupe/Source/AppDelegate+Actions.m"; sourceTree = "<group>"; };
 		730448B113076F0E0044B510 /* AGKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGKeychain.h; sourceTree = "<group>"; };
 		730448B213076F0E0044B510 /* AGKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGKeychain.m; sourceTree = "<group>"; };
@@ -165,6 +182,7 @@
 				73D57C2A13052E3600440072 /* Cocoa.framework in Frameworks */,
 				730448B513076F290044B510 /* Security.framework in Frameworks */,
 				730448B713076F340044B510 /* CoreFoundation.framework in Frameworks */,
+				7300B88D130876E900DB56D0 /* Growl.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +380,7 @@
 		73D57C2813052E3600440072 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7300B88C130876E900DB56D0 /* Growl.framework */,
 				730448B613076F340044B510 /* CoreFoundation.framework */,
 				730448B413076F290044B510 /* Security.framework */,
 				73D57C2C13052E3600440072 /* AppKit.framework */,
@@ -418,6 +437,7 @@
 				73D57C2113052E3600440072 /* Sources */,
 				73D57C2213052E3600440072 /* Frameworks */,
 				73D57C2313052E3600440072 /* Resources */,
+				7300B88E130876F400DB56D0 /* Copy Frameworks */,
 			);
 			buildRules = (
 			);
@@ -580,6 +600,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Dev/Projects/Coaches Loupe/Frameworks\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -607,6 +631,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Dev/Projects/Coaches Loupe/Frameworks\"",
+				);
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Source/Prefix.pch;
