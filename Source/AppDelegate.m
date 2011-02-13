@@ -28,8 +28,8 @@
                                               styleMask:NSBorderlessWindowMask 
                                                 backing:NSBackingStoreBuffered 
                                                   defer:NO];
-    
-    [self.window setLevel:NSMainMenuWindowLevel+1];
+    //TODO: figure out how to allow the window to go over the status bar
+    [self.window setLevel:NSMainMenuWindowLevel];
     [self.window setBackgroundColor:[NSColor clearColor]];
     [self.window setMovableByWindowBackground:YES];
     [self.window setOpaque:NO];
