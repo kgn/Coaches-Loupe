@@ -70,7 +70,9 @@
 }
 
 -(void)growlNotificationWasClicked:(id)context{
-    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:context]];
+    if([context isKindOfClass:[NSString class]]){
+        [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:context]];
+    }
 }
 
 @end
