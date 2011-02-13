@@ -42,12 +42,6 @@
     [data writeToFile:[imagePath stringByExpandingTildeInPath] atomically:YES];
 }
 
-
-- (IBAction)shoot:(id)sender{ 
-    //call save for now
-    [self save:sender];
-}
-
 - (IBAction)moveWindow:(id)sender{
     NSInteger tag = [sender tag];
     NSPoint windowPoint = self.window.frame.origin;
@@ -61,6 +55,15 @@
         windowPoint.x += 1.0f;
     }
     [self.window setFrameOrigin:windowPoint];
+}
+
+- (BOOL)validateUserInterfaceItem:(id<NSValidatedUserInterfaceItem>)anItem{
+    SEL action = [anItem action];
+    if(action == @selector(shoot:)){
+        //TODO: if dribbble is authenticated enable this
+        return NO;
+    }
+    return YES;
 }
 
 @end

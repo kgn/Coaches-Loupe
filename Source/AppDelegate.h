@@ -18,7 +18,6 @@
 @property (assign) IBOutlet NSView *loupe;
 
 - (IBAction)save:(id)sender;
-- (IBAction)shoot:(id)sender;
 - (IBAction)moveWindow:(id)sender;
 
 @end
@@ -28,6 +27,12 @@
 - (CGImageRef)shotImage;
 - (NSData *)shotData;
 - (NSString *)shotName;
+
+@end
+
+@interface AppDelegate (Dribbble)
+
+- (IBAction)shoot:(id)sender;
 
 @end
 

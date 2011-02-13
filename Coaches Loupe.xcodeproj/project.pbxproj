@@ -33,6 +33,7 @@
 		731A2B2E130721490081A79E /* AppDelegate+CloudApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 731A2B2D130721490081A79E /* AppDelegate+CloudApp.m */; };
 		731A2B31130721A50081A79E /* PassMouseViews.m in Sources */ = {isa = PBXBuildFile; fileRef = 731A2B30130721A50081A79E /* PassMouseViews.m */; };
 		73284B1713054B4D0083654A /* AppDelegate+Screenshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 73284B1613054B4D0083654A /* AppDelegate+Screenshot.m */; };
+		733E73E113075FBF002957D6 /* AppDelegate+Dribbble.m in Sources */ = {isa = PBXBuildFile; fileRef = 733E73E013075FBF002957D6 /* AppDelegate+Dribbble.m */; };
 		739DC8D8130537D300F12692 /* dribbble_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 739DC8D6130537D300F12692 /* dribbble_button.png */; };
 		739DC8D9130537D300F12692 /* frame.png in Resources */ = {isa = PBXBuildFile; fileRef = 739DC8D7130537D300F12692 /* frame.png */; };
 		73D57C2A13052E3600440072 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73D57C2913052E3600440072 /* Cocoa.framework */; };
@@ -113,6 +114,7 @@
 		731A2B2F130721A50081A79E /* PassMouseViews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PassMouseViews.h; path = "../../../../Dev/Projects/Coaches Loupe/Source/PassMouseViews.h"; sourceTree = "<group>"; };
 		731A2B30130721A50081A79E /* PassMouseViews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PassMouseViews.m; path = "../../../../Dev/Projects/Coaches Loupe/Source/PassMouseViews.m"; sourceTree = "<group>"; };
 		73284B1613054B4D0083654A /* AppDelegate+Screenshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Screenshot.m"; sourceTree = "<group>"; };
+		733E73E013075FBF002957D6 /* AppDelegate+Dribbble.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "AppDelegate+Dribbble.m"; path = "../../../../Dev/Projects/Coaches Loupe/Source/AppDelegate+Dribbble.m"; sourceTree = "<group>"; };
 		739DC8D6130537D300F12692 /* dribbble_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dribbble_button.png; sourceTree = "<group>"; };
 		739DC8D7130537D300F12692 /* frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frame.png; sourceTree = "<group>"; };
 		73D57C2513052E3600440072 /* Coaches Loupe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Coaches Loupe.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -342,6 +344,7 @@
 				73D57C3B13052E3600440072 /* AppDelegate.h */,
 				73D57C3C13052E3600440072 /* AppDelegate.m */,
 				73284B1613054B4D0083654A /* AppDelegate+Screenshot.m */,
+				733E73E013075FBF002957D6 /* AppDelegate+Dribbble.m */,
 				731A2B2D130721490081A79E /* AppDelegate+CloudApp.m */,
 				731A2B2F130721A50081A79E /* PassMouseViews.h */,
 				731A2B30130721A50081A79E /* PassMouseViews.m */,
@@ -458,6 +461,7 @@
 				731A2B2B130721260081A79E /* CJSONSerializer.m in Sources */,
 				731A2B2E130721490081A79E /* AppDelegate+CloudApp.m in Sources */,
 				731A2B31130721A50081A79E /* PassMouseViews.m in Sources */,
+				733E73E113075FBF002957D6 /* AppDelegate+Dribbble.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
