@@ -54,9 +54,13 @@
 		733E73E113075FBF002957D6 /* AppDelegate+Dribbble.m in Sources */ = {isa = PBXBuildFile; fileRef = 733E73E013075FBF002957D6 /* AppDelegate+Dribbble.m */; };
 		733E73EA13076091002957D6 /* PreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 733E73E913076091002957D6 /* PreferencesController.m */; };
 		733E73ED1307609F002957D6 /* DBPrefsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 733E73EC1307609F002957D6 /* DBPrefsWindowController.m */; };
+		7367886C1308F4D10090FF67 /* AppDelegate+Court.m in Sources */ = {isa = PBXBuildFile; fileRef = 7367886B1308F4D10090FF67 /* AppDelegate+Court.m */; };
 		73D57C2A13052E3600440072 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73D57C2913052E3600440072 /* Cocoa.framework */; };
 		73D57C3713052E3600440072 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 73D57C3613052E3600440072 /* main.m */; };
 		73D57C3D13052E3600440072 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 73D57C3C13052E3600440072 /* AppDelegate.m */; };
+		73DAAF7D130900D800814EA2 /* court_button_alt.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DAAF7A130900D800814EA2 /* court_button_alt.png */; };
+		73DAAF7E130900D800814EA2 /* court_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DAAF7B130900D800814EA2 /* court_button.png */; };
+		73DAAF7F130900D800814EA2 /* court.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DAAF7C130900D800814EA2 /* court.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -167,6 +171,7 @@
 		733E73E913076091002957D6 /* PreferencesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesController.m; sourceTree = "<group>"; };
 		733E73EB1307609F002957D6 /* DBPrefsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBPrefsWindowController.h; sourceTree = "<group>"; };
 		733E73EC1307609F002957D6 /* DBPrefsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBPrefsWindowController.m; sourceTree = "<group>"; };
+		7367886B1308F4D10090FF67 /* AppDelegate+Court.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Court.m"; sourceTree = "<group>"; };
 		73D57C2513052E3600440072 /* Coaches Loupe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Coaches Loupe.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		73D57C2913052E3600440072 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		73D57C2C13052E3600440072 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -176,6 +181,9 @@
 		73D57C3613052E3600440072 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		73D57C3B13052E3600440072 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		73D57C3C13052E3600440072 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		73DAAF7A130900D800814EA2 /* court_button_alt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = court_button_alt.png; path = Images/court_button_alt.png; sourceTree = SOURCE_ROOT; };
+		73DAAF7B130900D800814EA2 /* court_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = court_button.png; path = Images/court_button.png; sourceTree = SOURCE_ROOT; };
+		73DAAF7C130900D800814EA2 /* court.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = court.png; path = Images/court.png; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -351,6 +359,9 @@
 		739DC8CA13052FDA00F12692 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				73DAAF7A130900D800814EA2 /* court_button_alt.png */,
+				73DAAF7B130900D800814EA2 /* court_button.png */,
+				73DAAF7C130900D800814EA2 /* court.png */,
 				731D2F4B13088521009F3C7C /* cloud_button.png */,
 				731D2F4C13088521009F3C7C /* cloud_toolbar.png */,
 				731D2F4D13088521009F3C7C /* dribbble_button.png */,
@@ -401,6 +412,7 @@
 				73D57C3C13052E3600440072 /* AppDelegate.m */,
 				730448AF1307650B0044B510 /* AppDelegate+Actions.m */,
 				73284B1613054B4D0083654A /* AppDelegate+Screenshot.m */,
+				7367886B1308F4D10090FF67 /* AppDelegate+Court.m */,
 				733E73E013075FBF002957D6 /* AppDelegate+Dribbble.m */,
 				731A2B2D130721490081A79E /* AppDelegate+CloudApp.m */,
 				7300B8701307AE0300DB56D0 /* Keychain.h */,
@@ -492,6 +504,9 @@
 				731D2F5913088521009F3C7C /* Icon.icns in Resources */,
 				731D2F5A13088521009F3C7C /* switch_toolbar.png in Resources */,
 				731D2F5D13088543009F3C7C /* Preferences.xib in Resources */,
+				73DAAF7D130900D800814EA2 /* court_button_alt.png in Resources */,
+				73DAAF7E130900D800814EA2 /* court_button.png in Resources */,
+				73DAAF7F130900D800814EA2 /* court.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -536,6 +551,7 @@
 				731D2F3C1308845F009F3C7C /* CJSONDeserializer.m in Sources */,
 				731D2F3D1308845F009F3C7C /* CJSONScanner.m in Sources */,
 				731D2F3E1308845F009F3C7C /* CJSONSerializer.m in Sources */,
+				7367886C1308F4D10090FF67 /* AppDelegate+Court.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

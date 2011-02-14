@@ -11,13 +11,21 @@
 #import "CLAPIEngine.h"
 #import "PreferencesController.h"
 
-#define frameBottomRightOffset 11.0f
+#define frameThinOffset 11.0f
+#define frameThickOffset 30.0f
 
 #define AppName [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"]
 
 @interface AppDelegate : NSObject <NSApplicationDelegate, GrowlApplicationBridgeDelegate, CLAPIEngineDelegate> {
     NSWindow *window;
     NSView *loupe;
+    
+    NSView *uploadView;
+    NSTextField *uploadViewLabel;
+    NSView *failedView;
+    NSTextField *failedViewBigLabel;
+    NSTextField *failedViewSmallLabel;
+    NSButton *failedViewButton;
     
     //TODO: dribbble api
     BOOL canUploadToDribbble;
@@ -28,6 +36,13 @@
 
 @property (retain, nonatomic) IBOutlet NSWindow *window;
 @property (assign) IBOutlet NSView *loupe;
+
+@property (assign) IBOutlet NSView *uploadView;
+@property (assign) IBOutlet NSTextField *uploadViewLabel;
+@property (assign) IBOutlet NSView *failedView;
+@property (assign) IBOutlet NSTextField *failedViewBigLabel;
+@property (assign) IBOutlet NSTextField *failedViewSmallLabel;
+@property (assign) IBOutlet NSButton *failedViewButton;
 
 @property (nonatomic) BOOL canUploadToDribbble;
 
@@ -63,5 +78,20 @@
 - (void)setupCloudApp;
 - (IBAction)precipitate:(id)sender;
 - (void)changeCloudAppPassword:(NSNotification *)aNoficication;
+
+@end
+
+@interface AppDelegate (Court)
+
+- (void)setupCourts;
+
+- (void)showUploadCourtWithAnimation:(BOOL)animation;
+- (void)showUploadCourtWithAnimation;
+- (void)hideUploadCourtWithAnimation:(BOOL)animation;
+- (void)hideUploadCourtWithAnimation;
+- (void)doneWithUploadCourt;
+
+- (void)showFailedCourtWithError:(NSError *)error;
+- (IBAction)hideFailedCourt:(id)sender;
 
 @end

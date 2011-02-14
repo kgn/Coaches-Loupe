@@ -12,6 +12,13 @@
 @synthesize window;
 @synthesize loupe;
 
+@synthesize uploadView;
+@synthesize uploadViewLabel;
+@synthesize failedView;
+@synthesize failedViewBigLabel;
+@synthesize failedViewSmallLabel;
+@synthesize failedViewButton;
+
 @synthesize canUploadToDribbble;
 
 @synthesize cloudApp;
@@ -21,6 +28,10 @@
     if([self class] == [AppDelegate class]){
         [PreferencesController registerUserDefaults];
     }
+}
+
+- (void)awakeFromNib{
+    [self setupCourts];    
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification{
@@ -41,11 +52,18 @@
     [self.window center];
     //move the window to accomidate the bottom right corner style
     NSPoint windowPoint = self.window.frame.origin;
-    windowPoint.x += frameBottomRightOffset;
-    windowPoint.y += frameBottomRightOffset;
+    windowPoint.x += frameThinOffset;
+    windowPoint.y += frameThinOffset;
     [self.window setFrameOrigin:windowPoint];
     [self.window makeKeyAndOrderFront:self];
     
+    //add court views
+    [self.uploadView setAlphaValue:0.0f];
+    [self.loupe addSubview:self.uploadView];
+    [self.failedView setAlphaValue:0.0f];
+    [self.loupe addSubview:self.failedView];
+    
+    //setup growl
     [GrowlApplicationBridge setGrowlDelegate:self];
     
     //CloudApp

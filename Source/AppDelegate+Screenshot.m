@@ -1,5 +1,5 @@
 //
-//  AppDelegate+Shot.m
+//  AppDelegate+Screenshot.m
 //  Coaches Loupe
 //
 //  Created by David Keegan on 2/11/11.
@@ -13,8 +13,8 @@
     NSRect shotRect = self.window.frame;
     NSRect screenRect = [[NSScreen mainScreen] frame];
     //convert into screen shot space: 0, 0 = top left of main screen
-    shotRect.origin.y = screenRect.size.height-NSMaxY(shotRect)+frameBottomRightOffset;
-    shotRect.origin.x += frameBottomRightOffset;
+    shotRect.origin.y = screenRect.size.height-NSMaxY(shotRect)+frameThinOffset;
+    shotRect.origin.x += frameThinOffset;
     shotRect.size = NSMakeSize(400.0f, 300.0f);
     return CGWindowListCreateImage(NSRectToCGRect(shotRect), 
                                    kCGWindowListOptionOnScreenOnly, 

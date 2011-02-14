@@ -1,5 +1,5 @@
 //
-//  CloudApp.m
+//  AppDelegate+CloudApp.m
 //  Coaches Loupe
 //
 //  Created by David Keegan on 2/12/11.
@@ -23,14 +23,17 @@
 }
 
 - (IBAction)precipitate:(id)sender{
+    [self showUploadCourtWithAnimation];
 	[self.cloudApp uploadFileWithName:[self shotName] fileData:[self shotData] userInfo:nil];
 }
 
 - (void)requestDidFailWithError:(NSError *)error connectionIdentifier:(NSString *)connectionIdentifier userInfo:(id)userInfo{
-	NSLog(@"[FAIL]: %@, %@", connectionIdentifier, error);
+    [self showFailedCourtWithError:error];
 }
 
 - (void)fileUploadDidSucceedWithResultingItem:(CLWebItem *)item connectionIdentifier:(NSString *)connectionIdentifier userInfo:(id)userInfo{
+    [self doneWithUploadCourt];
+    
     //copy to pasteboard
     NSString *urlString = [item.URL absoluteString];
     NSString *htmlString = [NSString stringWithFormat:@"<a href=\"%@\">%@</a>", item.URL, item.name];    
