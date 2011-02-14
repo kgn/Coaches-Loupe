@@ -14,3 +14,11 @@ Developed by [David Keegan](http://inscopeapps.com/)
 ![Uploading](https://github.com/InScopeApps/Coaches-Loupe/raw/master/Screenshots/Uploading.png "Uploading")
 
 ![Preferences](https://github.com/InScopeApps/Coaches-Loupe/raw/master/Screenshots/Preferences.png "Preferences")
+
+Libraries used:
+========
+
+* [CloudApp](https://github.com/cloudapp/objective-c)
+* [TouchJSON](https://github.com/TouchCode/TouchJSON)
+* [DBPrefsWindowController](http://www.mere-mortal-software.com/blog/details.php?d=2007-03-11)
+* [AGKeychain](http://homepage.mac.com/agerson/examples/keychain/)
