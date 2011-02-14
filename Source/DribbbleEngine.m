@@ -7,6 +7,13 @@
 
 #import "DribbbleEngine.h"
 
+@implementation DBWebItem
+
+@synthesize name;
+@synthesize URL;
+
+@end
+
 @implementation DribbbleEngine
 
 @synthesize username, password;

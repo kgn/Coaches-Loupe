@@ -34,4 +34,8 @@ static NSImage *dribbbleUploadImage = nil;
     [self showFailedCourtWithError:error];
 }
 
+- (void)fileUploadDidSucceedWithResultingItem:(DBWebItem *)item connectionIdentifier:(NSString *)connectionIdentifier userInfo:(id)userInfo{
+    [self screenshotUploadedWithName:item.name toURL:item.URL forAction:@"Screenshot dribbled"];
+}
+
 @end

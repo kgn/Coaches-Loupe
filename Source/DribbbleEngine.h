@@ -5,6 +5,16 @@
 //  Created by David Keegan on 2/14/11.
 //
 
+@interface DBWebItem : NSObject {
+    NSString *name;
+    NSURL *URL;
+}
+
+@property (copy, nonatomic) NSString *name;
+@property (copy, nonatomic) NSURL *URL;
+
+@end
+
 @protocol DribbbleEngineDelegate;
 
 @interface DribbbleEngine : NSObject {
@@ -33,5 +43,6 @@
 
 @optional
 - (void)requestDidFailWithError:(NSError *)error connectionIdentifier:(NSString *)connectionIdentifier userInfo:(id)userInfo;
+- (void)fileUploadDidSucceedWithResultingItem:(DBWebItem *)item connectionIdentifier:(NSString *)connectionIdentifier userInfo:(id)userInfo;
 
 @end

@@ -37,6 +37,7 @@
     self.uploadViewImage.image = image;
     [self.loupe addSubview:self.uploadView];
     if(animation){
+        //This is required for the animation to happen
         [self performSelector:@selector(fadeInUploadCourt) 
                    withObject:nil
                    afterDelay:0.0f];

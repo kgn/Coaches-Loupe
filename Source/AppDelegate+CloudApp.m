@@ -35,29 +35,7 @@ static NSImage *cloupUploadImage = nil;
 }
 
 - (void)fileUploadDidSucceedWithResultingItem:(CLWebItem *)item connectionIdentifier:(NSString *)connectionIdentifier userInfo:(id)userInfo{
-    [self doneWithUploadCourt];
-    
-    //copy to pasteboard
-    NSString *urlString = [item.URL absoluteString];
-    NSString *htmlString = [NSString stringWithFormat:@"<a href=\"%@\">%@</a>", item.URL, item.name];    
-    NSPasteboard *pasteboard = [NSPasteboard generalPasteboard];
-    [pasteboard declareTypes:[NSArray arrayWithObjects:NSHTMLPboardType, NSPasteboardTypeString, nil] owner:nil];
-    [pasteboard setString:htmlString forType:NSHTMLPboardType];
-    [pasteboard setString:urlString forType:NSPasteboardTypeString];
-    
-    if(UserDefaultPlaySoundValue){
-        [[NSSound soundNamed:UserDefaultDoneSoundValue] play];
-    }
-    
-    if(UserDefaultGrowlValue){
-        [GrowlApplicationBridge notifyWithTitle:@"Screenshot precipitated"
-                                    description:urlString 
-                               notificationName:AppName
-                                       iconData:nil 
-                                       priority:0 
-                                       isSticky:NO 
-                                   clickContext:urlString];
-    }
+    [self screenshotUploadedWithName:item.name toURL:item.URL forAction:@"Screenshot precipitated"];
 }
 
 @end
