@@ -53,7 +53,7 @@
         numberOfItemsFound++;
     }
 	
-	NSLog(@"%d items found\n", numberOfItemsFound);
+	//NSLog(@"%d items found\n", numberOfItemsFound);
     CFRelease (search);
 	return numberOfItemsFound;
 }

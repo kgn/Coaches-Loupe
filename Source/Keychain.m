@@ -28,12 +28,7 @@
         if([AGKeychain checkForExistanceOfKeychainItem:item withItemKind:kind forUsername:username]){
             [AGKeychain deleteKeychainItem:item withItemKind:kind forUsername:username];
         }
-        
-        if([AGKeychain addKeychainItem:item withItemKind:kind forUsername:username withPassword:password]){
-            NSLog(@"Stored password");
-        }else{
-            NSLog(@"Stored NOT password");
-        }
+        [AGKeychain addKeychainItem:item withItemKind:kind forUsername:username withPassword:password];
     }    
 }
 
