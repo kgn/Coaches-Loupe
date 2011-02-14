@@ -11,8 +11,8 @@
 #import "CLAPIEngine.h"
 #import "PreferencesController.h"
 
-#define frameThinOffset 11.0f
-#define frameThickOffset 30.0f
+#define frameThinOffset 21.0f
+#define frameThickOffset 40.0f
 
 #define AppName [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"]
 
