@@ -445,6 +445,7 @@
 						</object>
 						<string key="NSFrame">{{176, 61}, {48, 48}}</string>
 						<reference key="NSSuperview" ref="397372816"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="816389670"/>
 						<int key="NSViewLayerContentsRedrawPolicy">2</int>
 						<bool key="NSEnabled">YES</bool>
@@ -467,6 +468,7 @@
 						<int key="NSvFlags">290</int>
 						<string key="NSFrame">{{17, 34}, {366, 22}}</string>
 						<reference key="NSSuperview" ref="397372816"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView"/>
 						<int key="NSViewLayerContentsRedrawPolicy">2</int>
 						<bool key="NSEnabled">YES</bool>
@@ -512,6 +514,7 @@
 						</object>
 						<string key="NSFrameSize">{400, 300}</string>
 						<reference key="NSSuperview" ref="397372816"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="25185503"/>
 						<int key="NSViewLayerContentsRedrawPolicy">2</int>
 						<bool key="NSEnabled">YES</bool>
@@ -532,13 +535,13 @@
 				</object>
 				<string key="NSFrameSize">{400, 300}</string>
 				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="524798238"/>
-				<bool key="NSViewIsLayerTreeHost">YES</bool>
 				<int key="NSViewLayerContentsRedrawPolicy">2</int>
 				<string key="NSClassName">LoupeView</string>
 			</object>
 			<object class="NSCustomView" id="235469283">
-				<nil key="NSNextResponder"/>
+				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">268</int>
 				<object class="NSMutableArray" key="NSSubviews">
 					<bool key="EncodedWithXMLCoder">YES</bool>
@@ -547,6 +550,7 @@
 						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{17, 51}, {366, 42}}</string>
 						<reference key="NSSuperview" ref="235469283"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="390848353"/>
 						<int key="NSViewLayerContentsRedrawPolicy">2</int>
 						<bool key="NSEnabled">YES</bool>
@@ -569,6 +573,7 @@
 						<int key="NSvFlags">290</int>
 						<string key="NSFrame">{{17, 101}, {366, 22}}</string>
 						<reference key="NSSuperview" ref="235469283"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="371377754"/>
 						<int key="NSViewLayerContentsRedrawPolicy">2</int>
 						<bool key="NSEnabled">YES</bool>
@@ -587,6 +592,7 @@
 						<int key="NSvFlags">289</int>
 						<string key="NSFrame">{{141, 16}, {119, 29}}</string>
 						<reference key="NSSuperview" ref="235469283"/>
+						<reference key="NSWindow"/>
 						<int key="NSViewLayerContentsRedrawPolicy">2</int>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSButtonCell" key="NSCell" id="247008026">
@@ -628,6 +634,7 @@
 						</object>
 						<string key="NSFrameSize">{400, 300}</string>
 						<reference key="NSSuperview" ref="235469283"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="548791971"/>
 						<int key="NSViewLayerContentsRedrawPolicy">2</int>
 						<bool key="NSEnabled">YES</bool>
@@ -644,8 +651,9 @@
 					</object>
 				</object>
 				<string key="NSFrameSize">{400, 300}</string>
+				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="720989669"/>
-				<bool key="NSViewIsLayerTreeHost">YES</bool>
 				<int key="NSViewLayerContentsRedrawPolicy">2</int>
 				<string key="NSClassName">LoupeView</string>
 			</object>
