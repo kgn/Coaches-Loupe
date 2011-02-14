@@ -424,7 +424,7 @@
 				<string key="NSClassName">LoupeView</string>
 			</object>
 			<object class="NSCustomView" id="397372816">
-				<nil key="NSNextResponder"/>
+				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">268</int>
 				<object class="NSMutableArray" key="NSSubviews">
 					<bool key="EncodedWithXMLCoder">YES</bool>
@@ -433,14 +433,16 @@
 						<int key="NSvFlags">290</int>
 						<string key="NSFrame">{{17, 34}, {366, 22}}</string>
 						<reference key="NSSuperview" ref="397372816"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<int key="NSViewLayerContentsRedrawPolicy">2</int>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSTextFieldCell" key="NSCell" id="77301653">
 							<int key="NSCellFlags">68288064</int>
 							<int key="NSCellFlags2">138413056</int>
 							<string key="NSContents">Uploading...</string>
-							<object class="NSFont" key="NSSupport" id="30566713">
-								<string key="NSName">LucidaGrande</string>
+							<object class="NSFont" key="NSSupport" id="283736368">
+								<string key="NSName">LucidaGrande-Bold</string>
 								<double key="NSSize">18</double>
 								<int key="NSfFlags">16</int>
 							</object>
@@ -477,6 +479,8 @@
 						</object>
 						<string key="NSFrameSize">{400, 300}</string>
 						<reference key="NSSuperview" ref="397372816"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="816389670"/>
 						<int key="NSViewLayerContentsRedrawPolicy">2</int>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSImageCell" key="NSCell" id="781486883">
@@ -495,10 +499,12 @@
 					</object>
 				</object>
 				<string key="NSFrameSize">{400, 300}</string>
+				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="524798238"/>
 				<bool key="NSViewIsLayerTreeHost">YES</bool>
 				<int key="NSViewLayerContentsRedrawPolicy">2</int>
-				<string key="NSClassName">NSView</string>
+				<string key="NSClassName">LoupeView</string>
 			</object>
 			<object class="NSCustomView" id="235469283">
 				<reference key="NSNextResponder"/>
@@ -541,7 +547,7 @@
 							<int key="NSCellFlags">68288064</int>
 							<int key="NSCellFlags2">138413056</int>
 							<string key="NSContents">Failed</string>
-							<reference key="NSSupport" ref="30566713"/>
+							<reference key="NSSupport" ref="283736368"/>
 							<reference key="NSControlView" ref="548791971"/>
 							<reference key="NSBackgroundColor" ref="509501938"/>
 							<reference key="NSTextColor" ref="1067706059"/>
@@ -617,13 +623,12 @@
 				<reference key="NSNextKeyView" ref="720989669"/>
 				<bool key="NSViewIsLayerTreeHost">YES</bool>
 				<int key="NSViewLayerContentsRedrawPolicy">2</int>
-				<string key="NSClassName">NSView</string>
+				<string key="NSClassName">LoupeView</string>
 			</object>
 			<object class="NSButton" id="596236545">
-				<reference key="NSNextResponder"/>
+				<nil key="NSNextResponder"/>
 				<int key="NSvFlags">268</int>
 				<string key="NSFrameSize">{96, 32}</string>
-				<reference key="NSSuperview"/>
 				<bool key="NSEnabled">YES</bool>
 				<object class="NSButtonCell" key="NSCell" id="421957122">
 					<int key="NSCellFlags">67239424</int>
@@ -1393,12 +1398,14 @@
 					<string>585.IBPluginDependency</string>
 					<string>585.ImportedFromIB2</string>
 					<string>599.IBPluginDependency</string>
+					<string>600.CustomClassName</string>
 					<string>600.IBPluginDependency</string>
 					<string>601.IBPluginDependency</string>
 					<string>602.IBPluginDependency</string>
 					<string>603.IBPluginDependency</string>
 					<string>606.IBPluginDependency</string>
 					<string>607.IBPluginDependency</string>
+					<string>608.CustomClassName</string>
 					<string>608.IBPluginDependency</string>
 					<string>609.IBPluginDependency</string>
 					<string>610.IBPluginDependency</string>
@@ -1530,12 +1537,14 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>LoupeImageView</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>LoupeImageView</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>

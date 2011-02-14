@@ -57,12 +57,6 @@
     [self.window setFrameOrigin:windowPoint];
     [self.window makeKeyAndOrderFront:self];
     
-    //add court views
-    [self.uploadView setAlphaValue:0.0f];
-    [self.loupe addSubview:self.uploadView];
-    [self.failedView setAlphaValue:0.0f];
-    [self.loupe addSubview:self.failedView];
-    
     //setup growl
     [GrowlApplicationBridge setGrowlDelegate:self];
     
