@@ -7,11 +7,9 @@
 
 #import "Keychain.h"
 
-#define DribbbleKeychainItem @"LoupeDribbble"
-#define DribbbleKeychainKind @"LoupeDribbblePassword"
-
-#define CloudAppKeychainItem @"LoupeCloudApp"
-#define CloudAppKeychainKind @"LoupeCloudAppPassword"
+#define KeychainItem [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"]
+#define DribbbleKeychainKind @"Dribbble Password"
+#define CloudAppKeychainKind @"CloudApp Password"
 
 @implementation Keychain
 
@@ -36,22 +34,22 @@
 #pragma dribbble
 
 + (NSString *)dribbblePasswordForUser:(NSString *)username{
-    return [Keychain passwordForUser:username forItem:DribbbleKeychainItem ofKind:DribbbleKeychainKind];
+    return [Keychain passwordForUser:username forItem:KeychainItem ofKind:DribbbleKeychainKind];
 }
 
 + (void)setDribbblePassword:(NSString *)password forUser:(NSString *)username{
-    [Keychain setPassword:password forUser:username forItem:DribbbleKeychainItem ofKind:DribbbleKeychainKind];
+    [Keychain setPassword:password forUser:username forItem:KeychainItem ofKind:DribbbleKeychainKind];
 }
 
 #pragma -
 #pragma CloudApp
 
 + (NSString *)cloudPasswordForUser:(NSString *)username{
-    return [Keychain passwordForUser:username forItem:CloudAppKeychainItem ofKind:CloudAppKeychainKind];
+    return [Keychain passwordForUser:username forItem:KeychainItem ofKind:CloudAppKeychainKind];
 }
 
 + (void)setCloudPassword:(NSString *)password forUser:(NSString *)username{
-    [Keychain setPassword:password forUser:username forItem:CloudAppKeychainItem ofKind:CloudAppKeychainKind];
+    [Keychain setPassword:password forUser:username forItem:KeychainItem ofKind:CloudAppKeychainKind];
 }
 
 @end
