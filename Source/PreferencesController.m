@@ -12,6 +12,7 @@
 @synthesize cloudView;
 @synthesize dribbbleView;
 @synthesize cloudPassword;
+@synthesize dribbblePassword;
 @synthesize generalView;
 
 @synthesize sounds;
@@ -41,8 +42,8 @@
 }
 
 - (void)awakeFromNib{
-    NSString *username = UserDefaultCloudUserValue;
-    self.cloudPassword.stringValue = [Keychain cloudPasswordForUser:username] ?: @"";
+    self.cloudPassword.stringValue = [Keychain cloudPasswordForUser:UserDefaultCloudUserValue] ?: @"";
+    self.dribbblePassword.stringValue = [Keychain dribbblePasswordForUser:UserDefaultDribbbleUserValue] ?: @"";    
     
     [self populateSounds];
 }
@@ -54,6 +55,12 @@
 	
 	[self setShiftSlowsAnimation:YES];
     [self setCrossFade:YES];
+}
+
+- (IBAction)dribbblePasswordChanged:(id)sender{
+    NSNotification *notification = [NSNotification notificationWithName:DribbblePasswordChangeNotification 
+                                                                 object:[sender stringValue]];
+    [[NSNotificationCenter defaultCenter] postNotification:notification];
 }
 
 - (IBAction)cloudAppPasswordChanged:(id)sender{

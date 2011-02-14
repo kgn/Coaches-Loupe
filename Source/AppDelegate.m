@@ -20,6 +20,7 @@
 @synthesize failedViewSmallLabel;
 @synthesize failedViewButton;
 
+@synthesize dribbble;
 @synthesize canUploadToDribbble;
 
 @synthesize cloudApp;
@@ -61,12 +62,20 @@
     //setup growl
     [GrowlApplicationBridge setGrowlDelegate:self];
     
+    //dribbble
+    self.dribbble = [DribbbleEngine engineWithDelegate:self];
+    [self setupDribbble];
+    [[NSNotificationCenter defaultCenter] addObserver:self 
+                                             selector:@selector(changeCloudAppPassword:) 
+                                                 name:CloudAppPasswordChangeNotification 
+                                               object:nil];    
+    
     //CloudApp
     self.cloudApp = [CLAPIEngine engineWithDelegate:self];
     [self setupCloudApp];
     [[NSNotificationCenter defaultCenter] addObserver:self 
-                                             selector:@selector(changeCloudAppPassword:) 
-                                                 name:CloudAppPasswordChangeNotification 
+                                             selector:@selector(changeDribbblePassword:) 
+                                                 name:DribbblePasswordChangeNotification 
                                                object:nil];
 }
 

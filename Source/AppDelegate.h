@@ -9,6 +9,7 @@
 
 #import "Keychain.h"
 #import "CLAPIEngine.h"
+#import "DribbbleEngine.h"
 #import "PreferencesController.h"
 
 #define frameThinOffset 21.0f
@@ -16,7 +17,7 @@
 
 #define AppName [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"]
 
-@interface AppDelegate : NSObject <NSApplicationDelegate, GrowlApplicationBridgeDelegate, CLAPIEngineDelegate> {
+@interface AppDelegate : NSObject <NSApplicationDelegate, GrowlApplicationBridgeDelegate, DribbbleEngineDelegate, CLAPIEngineDelegate> {
     NSWindow *window;
     NSView *loupe;
     
@@ -28,7 +29,7 @@
     NSTextField *failedViewSmallLabel;
     NSButton *failedViewButton;
     
-    //TODO: dribbble api
+    DribbbleEngine *dribbble;
     BOOL canUploadToDribbble;
     
     CLAPIEngine *cloudApp;
@@ -47,6 +48,7 @@
 @property (assign) IBOutlet NSTextField *failedViewSmallLabel;
 @property (assign) IBOutlet NSButton *failedViewButton;
 
+@property (retain, nonatomic) DribbbleEngine *dribbble;
 @property (nonatomic) BOOL canUploadToDribbble;
 
 @property (retain, nonatomic) CLAPIEngine *cloudApp;
@@ -72,7 +74,9 @@
 
 @interface AppDelegate (Dribbble)
 
+- (void)setupDribbble;
 - (IBAction)shoot:(id)sender;
+- (void)changeDribbblePassword:(NSNotification *)aNoficication;
 
 @end
 
