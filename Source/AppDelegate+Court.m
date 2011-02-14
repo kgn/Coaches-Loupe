@@ -24,16 +24,22 @@
     [[self.failedViewButton cell] setBackgroundStyle:NSBackgroundStyleLowered];
 }
 
+- (void)fadeInUploadCourt{        
+    [NSAnimationContext beginGrouping];
+    [[NSAnimationContext currentContext] setDuration:fadeInDuration];
+    [(NSView *)[self.uploadView animator] setAlphaValue:1.0f];
+    [NSAnimationContext endGrouping];
+}
+
 - (void)showUploadCourtWithAnimation:(BOOL)animation withImage:(NSImage *)image{
     [self.uploadView setAlphaValue:0.0f];
-    [self.loupe addSubview:self.uploadView];  
     self.uploadViewLabel.stringValue = @"Uploading...";
     self.uploadViewImage.image = image;
+    [self.loupe addSubview:self.uploadView];
     if(animation){
-        [NSAnimationContext beginGrouping];
-        [[NSAnimationContext currentContext] setDuration:fadeInDuration];
-        [(NSView *)[self.uploadView animator] setAlphaValue:1.0f];
-        [NSAnimationContext endGrouping];
+        [self performSelector:@selector(fadeInUploadCourt) 
+                   withObject:nil
+                   afterDelay:0.0f];
     }else{
         [self.uploadView setAlphaValue:1.0f];
     }
