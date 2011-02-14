@@ -7,6 +7,8 @@
 
 #import "AppDelegate.h"
 
+static NSImage *cloupUploadImage = nil;
+
 @implementation AppDelegate (CloudApp)
 
 - (void)setupCloudApp{
@@ -23,7 +25,8 @@
 }
 
 - (IBAction)precipitate:(id)sender{
-    [self showUploadCourtWithAnimation];
+    cloupUploadImage = [NSImage imageNamed:@"cloud_upload.png"];
+    [self showUploadCourtWithAnimationWithImage:cloupUploadImage];
 	[self.cloudApp uploadFileWithName:[self shotName] fileData:[self shotData] userInfo:nil];
 }
 

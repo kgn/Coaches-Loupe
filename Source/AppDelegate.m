@@ -14,6 +14,7 @@
 
 @synthesize uploadView;
 @synthesize uploadViewLabel;
+@synthesize uploadViewImage;
 @synthesize failedView;
 @synthesize failedViewBigLabel;
 @synthesize failedViewSmallLabel;

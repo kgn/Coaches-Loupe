@@ -22,6 +22,7 @@
     
     NSView *uploadView;
     NSTextField *uploadViewLabel;
+    NSImageView *uploadViewImage;
     NSView *failedView;
     NSTextField *failedViewBigLabel;
     NSTextField *failedViewSmallLabel;
@@ -39,6 +40,8 @@
 
 @property (assign) IBOutlet NSView *uploadView;
 @property (assign) IBOutlet NSTextField *uploadViewLabel;
+@property (assign) IBOutlet NSImageView *uploadViewImage;
+
 @property (assign) IBOutlet NSView *failedView;
 @property (assign) IBOutlet NSTextField *failedViewBigLabel;
 @property (assign) IBOutlet NSTextField *failedViewSmallLabel;
@@ -85,8 +88,8 @@
 
 - (void)setupCourts;
 
-- (void)showUploadCourtWithAnimation:(BOOL)animation;
-- (void)showUploadCourtWithAnimation;
+- (void)showUploadCourtWithAnimation:(BOOL)animation withImage:(NSImage *)image;
+- (void)showUploadCourtWithAnimationWithImage:(NSImage *)image;
 - (void)hideUploadCourtWithAnimation:(BOOL)animation;
 - (void)hideUploadCourtWithAnimation;
 - (void)doneWithUploadCourt;

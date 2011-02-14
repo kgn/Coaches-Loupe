@@ -322,7 +322,7 @@
 				<string key="NSClassName">NSFontManager</string>
 			</object>
 			<object class="NSCustomView" id="1056804933">
-				<reference key="NSNextResponder"/>
+				<nil key="NSNextResponder"/>
 				<int key="NSvFlags">268</int>
 				<object class="NSMutableArray" key="NSSubviews">
 					<bool key="EncodedWithXMLCoder">YES</bool>
@@ -331,7 +331,6 @@
 						<int key="NSvFlags">289</int>
 						<string key="NSFrame">{{414, 68}, {23, 23}}</string>
 						<reference key="NSSuperview" ref="1056804933"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="905801261"/>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSButtonCell" key="NSCell" id="678880298">
@@ -361,8 +360,6 @@
 						<int key="NSvFlags">289</int>
 						<string key="NSFrame">{{414, 43}, {23, 23}}</string>
 						<reference key="NSSuperview" ref="1056804933"/>
-						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSButtonCell" key="NSCell" id="574262351">
 							<int key="NSCellFlags">67239424</int>
@@ -399,7 +396,6 @@
 						</object>
 						<string key="NSFrameSize">{441, 341}</string>
 						<reference key="NSSuperview" ref="1056804933"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="484748325"/>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSImageCell" key="NSCell" id="637782855">
@@ -418,8 +414,6 @@
 					</object>
 				</object>
 				<string key="NSFrameSize">{441, 341}</string>
-				<reference key="NSSuperview"/>
-				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="753145540"/>
 				<string key="NSClassName">LoupeView</string>
 			</object>
@@ -428,13 +422,47 @@
 				<int key="NSvFlags">268</int>
 				<object class="NSMutableArray" key="NSSubviews">
 					<bool key="EncodedWithXMLCoder">YES</bool>
+					<object class="NSImageView" id="25185503">
+						<reference key="NSNextResponder" ref="397372816"/>
+						<int key="NSvFlags">293</int>
+						<object class="NSMutableSet" key="NSDragTypes">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="NSArray" key="set.sortedObjects">
+								<bool key="EncodedWithXMLCoder">YES</bool>
+								<string>Apple PDF pasteboard type</string>
+								<string>Apple PICT pasteboard type</string>
+								<string>Apple PNG pasteboard type</string>
+								<string>NSFilenamesPboardType</string>
+								<string>NeXT Encapsulated PostScript v1.2 pasteboard type</string>
+								<string>NeXT TIFF v4.0 pasteboard type</string>
+							</object>
+						</object>
+						<string key="NSFrame">{{176, 61}, {48, 48}}</string>
+						<reference key="NSSuperview" ref="397372816"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="816389670"/>
+						<int key="NSViewLayerContentsRedrawPolicy">2</int>
+						<bool key="NSEnabled">YES</bool>
+						<object class="NSImageCell" key="NSCell" id="30571696">
+							<int key="NSCellFlags">130560</int>
+							<int key="NSCellFlags2">33554432</int>
+							<object class="NSCustomResource" key="NSContents">
+								<string key="NSClassName">NSImage</string>
+								<string key="NSResourceName">cloud_upload</string>
+							</object>
+							<int key="NSAlign">0</int>
+							<int key="NSScale">2</int>
+							<int key="NSStyle">0</int>
+							<bool key="NSAnimates">NO</bool>
+						</object>
+						<bool key="NSEditable">YES</bool>
+					</object>
 					<object class="NSTextField" id="816389670">
 						<reference key="NSNextResponder" ref="397372816"/>
 						<int key="NSvFlags">290</int>
 						<string key="NSFrame">{{17, 34}, {366, 22}}</string>
 						<reference key="NSSuperview" ref="397372816"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<int key="NSViewLayerContentsRedrawPolicy">2</int>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSTextFieldCell" key="NSCell" id="77301653">
@@ -480,7 +508,7 @@
 						<string key="NSFrameSize">{400, 300}</string>
 						<reference key="NSSuperview" ref="397372816"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="816389670"/>
+						<reference key="NSNextKeyView" ref="25185503"/>
 						<int key="NSViewLayerContentsRedrawPolicy">2</int>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSImageCell" key="NSCell" id="781486883">
@@ -507,7 +535,7 @@
 				<string key="NSClassName">LoupeView</string>
 			</object>
 			<object class="NSCustomView" id="235469283">
-				<reference key="NSNextResponder"/>
+				<nil key="NSNextResponder"/>
 				<int key="NSvFlags">268</int>
 				<object class="NSMutableArray" key="NSSubviews">
 					<bool key="EncodedWithXMLCoder">YES</bool>
@@ -516,7 +544,6 @@
 						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{17, 51}, {366, 42}}</string>
 						<reference key="NSSuperview" ref="235469283"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="390848353"/>
 						<int key="NSViewLayerContentsRedrawPolicy">2</int>
 						<bool key="NSEnabled">YES</bool>
@@ -539,14 +566,13 @@
 						<int key="NSvFlags">290</int>
 						<string key="NSFrame">{{17, 101}, {366, 22}}</string>
 						<reference key="NSSuperview" ref="235469283"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="371377754"/>
 						<int key="NSViewLayerContentsRedrawPolicy">2</int>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSTextFieldCell" key="NSCell" id="1015750815">
 							<int key="NSCellFlags">68288064</int>
 							<int key="NSCellFlags2">138413056</int>
-							<string key="NSContents">Failed</string>
+							<string key="NSContents">Deflected</string>
 							<reference key="NSSupport" ref="283736368"/>
 							<reference key="NSControlView" ref="548791971"/>
 							<reference key="NSBackgroundColor" ref="509501938"/>
@@ -558,8 +584,6 @@
 						<int key="NSvFlags">289</int>
 						<string key="NSFrame">{{141, 16}, {119, 29}}</string>
 						<reference key="NSSuperview" ref="235469283"/>
-						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<int key="NSViewLayerContentsRedrawPolicy">2</int>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSButtonCell" key="NSCell" id="247008026">
@@ -601,7 +625,6 @@
 						</object>
 						<string key="NSFrameSize">{400, 300}</string>
 						<reference key="NSSuperview" ref="235469283"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="548791971"/>
 						<int key="NSViewLayerContentsRedrawPolicy">2</int>
 						<bool key="NSEnabled">YES</bool>
@@ -618,8 +641,6 @@
 					</object>
 				</object>
 				<string key="NSFrameSize">{400, 300}</string>
-				<reference key="NSSuperview"/>
-				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="720989669"/>
 				<bool key="NSViewIsLayerTreeHost">YES</bool>
 				<int key="NSViewLayerContentsRedrawPolicy">2</int>
@@ -895,6 +916,14 @@
 						<reference key="destination" ref="390848353"/>
 					</object>
 					<int key="connectionID">627</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">uploadViewImage</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="25185503"/>
+					</object>
+					<int key="connectionID">632</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -1205,6 +1234,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="524798238"/>
 							<reference ref="816389670"/>
+							<reference ref="25185503"/>
 						</object>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">uploading</string>
@@ -1320,6 +1350,20 @@
 						<reference key="object" ref="247008026"/>
 						<reference key="parent" ref="390848353"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">630</int>
+						<reference key="object" ref="25185503"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="30571696"/>
+						</object>
+						<reference key="parent" ref="397372816"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">631</int>
+						<reference key="object" ref="30571696"/>
+						<reference key="parent" ref="25185503"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -1415,6 +1459,8 @@
 					<string>621.IBPluginDependency</string>
 					<string>622.IBPluginDependency</string>
 					<string>623.IBPluginDependency</string>
+					<string>630.IBPluginDependency</string>
+					<string>631.IBPluginDependency</string>
 					<string>72.IBAttributePlaceholdersKey</string>
 					<string>72.IBPluginDependency</string>
 					<string>72.ImportedFromIB2</string>
@@ -1554,6 +1600,8 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<object class="NSMutableDictionary">
 						<string key="NS.key.0">ToolTip</string>
 						<object class="IBToolTipAttribute" key="NS.object.0">
@@ -1594,7 +1642,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">627</int>
+			<int key="maxID">632</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1672,6 +1720,7 @@
 							<string>failedViewSmallLabel</string>
 							<string>loupe</string>
 							<string>uploadView</string>
+							<string>uploadViewImage</string>
 							<string>uploadViewLabel</string>
 							<string>window</string>
 						</object>
@@ -1683,6 +1732,7 @@
 							<string>NSTextField</string>
 							<string>NSView</string>
 							<string>NSView</string>
+							<string>NSImageView</string>
 							<string>NSTextField</string>
 							<string>NSWindow</string>
 						</object>
@@ -1697,6 +1747,7 @@
 							<string>failedViewSmallLabel</string>
 							<string>loupe</string>
 							<string>uploadView</string>
+							<string>uploadViewImage</string>
 							<string>uploadViewLabel</string>
 							<string>window</string>
 						</object>
@@ -1725,6 +1776,10 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">uploadView</string>
 								<string key="candidateClassName">NSView</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">uploadViewImage</string>
+								<string key="candidateClassName">NSImageView</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">uploadViewLabel</string>
@@ -1778,6 +1833,7 @@
 				<string>NSMenuCheckmark</string>
 				<string>NSMenuMixedState</string>
 				<string>cloud_button</string>
+				<string>cloud_upload</string>
 				<string>court</string>
 				<string>court_button</string>
 				<string>court_button_alt</string>
@@ -1789,6 +1845,7 @@
 				<string>{9, 8}</string>
 				<string>{7, 2}</string>
 				<string>{23, 23}</string>
+				<string>{48, 48}</string>
 				<string>{400, 300}</string>
 				<string>{119, 29}</string>
 				<string>{119, 29}</string>

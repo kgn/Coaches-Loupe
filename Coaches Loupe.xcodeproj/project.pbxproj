@@ -55,6 +55,8 @@
 		733E73EA13076091002957D6 /* PreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 733E73E913076091002957D6 /* PreferencesController.m */; };
 		733E73ED1307609F002957D6 /* DBPrefsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 733E73EC1307609F002957D6 /* DBPrefsWindowController.m */; };
 		7367886C1308F4D10090FF67 /* AppDelegate+Court.m in Sources */ = {isa = PBXBuildFile; fileRef = 7367886B1308F4D10090FF67 /* AppDelegate+Court.m */; };
+		738FD3A113091D380064C037 /* cloud_upload.png in Resources */ = {isa = PBXBuildFile; fileRef = 738FD39F13091D380064C037 /* cloud_upload.png */; };
+		738FD3A213091D380064C037 /* dribbble-upload.png in Resources */ = {isa = PBXBuildFile; fileRef = 738FD3A013091D380064C037 /* dribbble-upload.png */; };
 		73D57C2A13052E3600440072 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73D57C2913052E3600440072 /* Cocoa.framework */; };
 		73D57C3713052E3600440072 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 73D57C3613052E3600440072 /* main.m */; };
 		73D57C3D13052E3600440072 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 73D57C3C13052E3600440072 /* AppDelegate.m */; };
@@ -172,6 +174,8 @@
 		733E73EB1307609F002957D6 /* DBPrefsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBPrefsWindowController.h; sourceTree = "<group>"; };
 		733E73EC1307609F002957D6 /* DBPrefsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBPrefsWindowController.m; sourceTree = "<group>"; };
 		7367886B1308F4D10090FF67 /* AppDelegate+Court.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Court.m"; sourceTree = "<group>"; };
+		738FD39F13091D380064C037 /* cloud_upload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cloud_upload.png; path = Images/cloud_upload.png; sourceTree = SOURCE_ROOT; };
+		738FD3A013091D380064C037 /* dribbble-upload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dribbble-upload.png"; path = "Images/dribbble-upload.png"; sourceTree = SOURCE_ROOT; };
 		73D57C2513052E3600440072 /* Coaches Loupe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Coaches Loupe.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		73D57C2913052E3600440072 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		73D57C2C13052E3600440072 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -359,6 +363,8 @@
 		739DC8CA13052FDA00F12692 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				738FD39F13091D380064C037 /* cloud_upload.png */,
+				738FD3A013091D380064C037 /* dribbble-upload.png */,
 				73DAAF7A130900D800814EA2 /* court_button_alt.png */,
 				73DAAF7B130900D800814EA2 /* court_button.png */,
 				73DAAF7C130900D800814EA2 /* court.png */,
@@ -507,6 +513,8 @@
 				73DAAF7D130900D800814EA2 /* court_button_alt.png in Resources */,
 				73DAAF7E130900D800814EA2 /* court_button.png in Resources */,
 				73DAAF7F130900D800814EA2 /* court.png in Resources */,
+				738FD3A113091D380064C037 /* cloud_upload.png in Resources */,
+				738FD3A213091D380064C037 /* dribbble-upload.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
