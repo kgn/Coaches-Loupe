@@ -42,7 +42,7 @@
 
 - (void)awakeFromNib{
     NSString *username = UserDefaultCloudUserValue;
-    self.cloudPassword.stringValue = [Keychain cloudPasswordForUser:username];
+    self.cloudPassword.stringValue = [Keychain cloudPasswordForUser:username] ?: @"";
     
     [self populateSounds];
 }
