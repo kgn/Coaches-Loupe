@@ -23,11 +23,13 @@
     
     @private
     NSString *_authenticationToken;
+    BOOL _isLoggedin;
 }
 
 @property (copy, nonatomic) NSString *username, *password;
 @property (assign) id<DribbbleEngineDelegate> delegate;
 @property (copy, nonatomic) NSString *_authenticationToken;
+@property (nonatomic) BOOL _isLoggedin;
 
 + (id)engine;
 + (id)engineWithDelegate:(id<DribbbleEngineDelegate>)aDelegate;
