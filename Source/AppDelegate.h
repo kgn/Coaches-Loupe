@@ -54,7 +54,9 @@
 @property (retain, nonatomic) CLAPIEngine *cloudApp;
 @property (nonatomic) BOOL canUploadToCloudApp;
 
-- (void)screenshotUploadedWithName:(NSString *)name toURL:(NSURL *)url forAction:(NSString *)action;
+@end
+
+@interface AppDelegate (Growl)
 
 @end
 
@@ -68,9 +70,10 @@
 
 @interface AppDelegate (Screenshot)
 
-- (CGImageRef)shotImage;
+- (CGImageRef)shotImageRef;
 - (NSData *)shotData;
 - (NSString *)shotName;
+- (void)screenshotUploadedWithName:(NSString *)name toURL:(NSURL *)url forAction:(NSString *)action;
 
 @end
 

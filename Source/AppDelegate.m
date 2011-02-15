@@ -33,7 +33,7 @@
 }
 
 - (void)awakeFromNib{
-    [self setupCourts];    
+    [self setupCourts];
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification{
@@ -66,61 +66,17 @@
     self.dribbble = [DribbbleEngine engineWithDelegate:self];
     [self setupDribbble];
     [[NSNotificationCenter defaultCenter] addObserver:self 
-                                             selector:@selector(changeCloudAppPassword:) 
-                                                 name:CloudAppPasswordChangeNotification 
-                                               object:nil];    
+                                             selector:@selector(changeDribbblePassword:) 
+                                                 name:DribbblePasswordChangeNotification 
+                                               object:nil];
     
     //CloudApp
     self.cloudApp = [CLAPIEngine engineWithDelegate:self];
     [self setupCloudApp];
     [[NSNotificationCenter defaultCenter] addObserver:self 
-                                             selector:@selector(changeDribbblePassword:) 
-                                                 name:DribbblePasswordChangeNotification 
-                                               object:nil];
-}
-
-- (void)screenshotUploadedWithName:(NSString *)name toURL:(NSURL *)url forAction:(NSString *)action{
-    [self doneWithUploadCourt];
-    
-    //copy to pasteboard
-    NSString *urlString = [url absoluteString];
-    NSString *htmlString = [NSString stringWithFormat:@"<a href=\"%@\">%@</a>", urlString, name];
-    NSPasteboard *pasteboard = [NSPasteboard generalPasteboard];
-    [pasteboard declareTypes:[NSArray arrayWithObjects:NSHTMLPboardType, NSPasteboardTypeString, nil] owner:nil];
-    [pasteboard setString:htmlString forType:NSHTMLPboardType];
-    [pasteboard setString:urlString forType:NSPasteboardTypeString];
-    
-    if(UserDefaultPlaySoundValue){
-        [[NSSound soundNamed:UserDefaultDoneSoundValue] play];
-    }
-    
-    if(UserDefaultGrowlValue){
-        [GrowlApplicationBridge notifyWithTitle:action
-                                    description:urlString 
-                               notificationName:AppName
-                                       iconData:nil 
-                                       priority:0 
-                                       isSticky:NO 
-                                   clickContext:urlString];
-    }
-}
-
-#pragma -
-#pragma Growl
-
-- (NSDictionary *)registrationDictionaryForGrowl{
-    NSArray *notificationArray = [NSArray arrayWithObject:AppName];
-    NSDictionary *notificationDict = [NSDictionary dictionaryWithObjectsAndKeys:
-                                      notificationArray, GROWL_NOTIFICATIONS_ALL,
-                                      notificationArray, GROWL_NOTIFICATIONS_DEFAULT,
-                                      nil];
-    return notificationDict;
-}
-
--(void)growlNotificationWasClicked:(id)context{
-    if([context isKindOfClass:[NSString class]]){
-        [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:context]];
-    }
+                                             selector:@selector(changeCloudAppPassword:) 
+                                                 name:CloudAppPasswordChangeNotification 
+                                               object:nil];    
 }
 
 @end

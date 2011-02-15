@@ -14,7 +14,6 @@ static NSImage *dribbbleUploadImage = nil;
 - (void)setupDribbble{
     self.dribbble.username = UserDefaultDribbbleUserValue;
     self.dribbble.password = [Keychain dribbblePasswordForUser:self.dribbble.username];
-    //self.dribbble.clearsCookies = YES;
     self.canUploadToDribbble = [self.dribbble isReady];
 }
 
