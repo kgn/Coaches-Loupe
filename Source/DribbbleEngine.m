@@ -22,6 +22,24 @@
 @synthesize _isLoggedin;
 @synthesize delegate;
 
+//Modified from: http://forums.macrumors.com/showthread.php?t=229602
+- (NSString *)boundryString{
+    char randoms[16];
+    char aRandom = 0;
+    for(int i = 0; i < 16; i++){
+        while(YES){
+            aRandom = (char)random() + 128;
+            if(((aRandom >= '0') && (aRandom <= '9')) || ((aRandom >= 'a') && (aRandom <= 'z'))){
+                randoms[i] = aRandom;
+                break; // we found an alphanumeric character, move on
+            }
+        }
+    }
+    NSString *randString = [NSString stringWithUTF8String:randoms];
+    //boundries lead with --
+    return [NSString stringWithFormat:@"--%@----", randString];
+}
+
 - (NSString *)encodeArgs:(NSDictionary *)args{
     NSMutableArray *argsAndValues = [[NSMutableArray alloc] init];
     for(NSString *key in [args allKeys]){
@@ -84,10 +102,10 @@
                                                      self.password, @"password",
                                                      nil]];
         
-        NSData *htmlBodyData = [htmlBodyString dataUsingEncoding:NSUTF8StringEncoding];
-        [request setValue:[NSString stringWithFormat:@"%d", [htmlBodyData length]] forHTTPHeaderField:@"Content-Length"];
+        NSData *body = [htmlBodyString dataUsingEncoding:NSUTF8StringEncoding];
+        [request setValue:[NSString stringWithFormat:@"%d", [body length]] forHTTPHeaderField:@"Content-Length"];
         [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-        [request setHTTPBody:htmlBodyData];
+        [request setHTTPBody:body];
         
         NSError *error = nil;
         NSURLResponse *response;
@@ -149,13 +167,80 @@
 }
 
 -(void)uploadFileWithName:(NSString *)fileName fileData:(NSData *)fileData userInfo:(id)userInfo{
+    NSError *error = nil;
     if([self login]){
+        //Upload image
+        NSString *newline = @"\r\n";
+        NSString *boundry = [self boundryString];
+        //boundries lead with --
+        NSString *boundryHeader = [NSString stringWithFormat:@"--%@", boundry];
+        NSURL *shotsURL = [NSURL URLWithString:@"http://dribbble.com/shots"];
+        
+        //build the authenticity_token section
+        NSMutableArray *authenticityArray = [[NSMutableArray alloc] init];
+        [authenticityArray addObject:boundryHeader];
+        [authenticityArray addObject:@"Content-Disposition: form-data; name=\"authenticity_token\""];
+        [authenticityArray addObject:@""];
+        [authenticityArray addObject:self._authenticationToken];
+        [authenticityArray addObject:@""];
+        NSString *authenticityString = [authenticityArray componentsJoinedByString:newline];
+        [authenticityArray release];
+        
+        //build the image section
+        NSMutableArray *uploadArray = [[NSMutableArray alloc] init];
+        [uploadArray addObject:boundryHeader];
+        [uploadArray addObject:[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"screenshot[file]\"; filename=\"%@\"", fileName]];
+        [uploadArray addObject:@"Content-Type: image/png"];
+        [uploadArray addObject:newline];
+        NSString *uploadString = [uploadArray componentsJoinedByString:newline];
+        [uploadArray release];        
+        
+        //add the sections to the body, then add the image data
+        NSMutableData *body = [[NSMutableData alloc] init];
+        [body appendData:[authenticityString dataUsingEncoding:NSUTF8StringEncoding]];
+        [body appendData:[uploadString dataUsingEncoding:NSUTF8StringEncoding]];
+        [body appendData:fileData];
+        
+        //setup the request
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:shotsURL 
+                                                                    cachePolicy:NSURLRequestReloadIgnoringCacheData 
+                                                                timeoutInterval:20.0f];
+        [request setHTTPMethod:@"POST"];
+        [request setValue:[NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundry] forHTTPHeaderField:@"Content-Type"];
+        [request setValue:@"http://dribbble.com/shots/new" forHTTPHeaderField:@"Referer"];
+        [request setValue:@"http://dribbble.com" forHTTPHeaderField:@"Origin"];//is this needed
+        [request setValue:[NSString stringWithFormat:@"%d", [body length]] forHTTPHeaderField:@"Content-Length"];
+        [request setHTTPBody:body];
+
+        //is this needed
+        NSURL *root = [NSURL URLWithString:@"http://dribbble.com"];
+        NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:root];
+        NSDictionary *headers = [NSHTTPCookie requestHeaderFieldsWithCookies:cookies];
+        [request setAllHTTPHeaderFields:headers];
+        
+        NSError *uploadError = nil;
+        NSURLResponse *response;
+        NSData *data = [NSURLConnection sendSynchronousRequest:request
+                                             returningResponse:&response
+                                                         error:&uploadError];
+        
+        //temp code to see the html we get back
+        NSString *responceString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        NSLog(@"%@", responceString);
+        [responceString release];
+        
+        [body release];
+        [request release];
+        
         [self.delegate fileUploadDidSucceedWithResultingItem:nil connectionIdentifier:self._authenticationToken userInfo:userInfo];
     }else{
-        NSError *error = [NSError errorWithDomain:@"DribbbleEngine" code:100 
-                                         userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
-                                                   @"Login failed", NSLocalizedDescriptionKey, nil]];
-        [self.delegate requestDidFailWithError:error connectionIdentifier:self._authenticationToken userInfo:userInfo];            
+        error = [NSError errorWithDomain:@"DribbbleEngine" code:100 
+                                userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
+                                          @"Login failed", NSLocalizedDescriptionKey, nil]];            
+    }
+    
+    if(error){
+        [self.delegate requestDidFailWithError:error connectionIdentifier:self._authenticationToken userInfo:userInfo];
     }
 }
 
