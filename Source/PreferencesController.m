@@ -24,7 +24,7 @@
                              contentsOfDirectoryAtPath:@"/System/Library/Sounds" error:&error] 
                             sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
     
-    if(error != nil){
+    if(error){
         [[NSAlert alertWithError:error] runModal];
     }else{
         NSMutableArray *soundList = [[NSMutableArray alloc] init];
