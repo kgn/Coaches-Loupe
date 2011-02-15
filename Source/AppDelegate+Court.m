@@ -71,14 +71,18 @@
 
 - (void)doneWithUploadCourt{
     self.uploadViewLabel.stringValue = @"Done!";
-    [self performSelector:@selector(hideUploadCourtWithAnimation) 
+    [self performSelector:@selector(hideUploadCourtWithAnimation)
                withObject:nil 
                afterDelay:1.0f];
 }
 
 - (void)showFailedCourtWithError:(NSError *)error{
     [self.failedView setAlphaValue:1.0f];
-    self.failedViewSmallLabel.stringValue = [error localizedDescription];
+    if(error && [error respondsToSelector:@selector(localizedDescription)]){
+        self.failedViewSmallLabel.stringValue = [error localizedDescription];
+    }else{
+        self.failedViewSmallLabel.stringValue = @"An unknown error occured.";
+    }
     [self.loupe addSubview:self.failedView];
     [self hideUploadCourtWithAnimation:NO];
 }

@@ -29,7 +29,7 @@
     NSURL *loginURL = [NSURL URLWithString:@"http://dribbble.com/session/new"];
     NSURLRequest *request = [NSURLRequest requestWithURL:loginURL
                                              cachePolicy:NSURLRequestReturnCacheDataElseLoad
-                                         timeoutInterval:30];
+                                         timeoutInterval:20.0f];
     NSData *data = [NSURLConnection sendSynchronousRequest:request
                                          returningResponse:&response
                                                      error:&error];
@@ -37,7 +37,7 @@
     //get the authenticity_token input
     TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:data];
     NSArray *elements  = [xpathParser search:@"//div/form/div/input"];
-    if(elements){
+    if(elements && [elements count] > 0){
         TFHppleElement *element = [elements objectAtIndex:0];
         NSDictionary *attrinutes = [element attributes];
         //make sure we have the right node
@@ -48,6 +48,21 @@
     
     [xpathParser release];
     return token;
+}
+
+#pragma -
+#pragma Public
+
+- (NSString *)encodeArgs:(NSDictionary *)args{
+    NSMutableArray *argsAndValues = [[NSMutableArray alloc] init];
+    for(NSString *key in [args allKeys]){
+        NSString *escapedKey = [key stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSString *value = [[args objectForKey:key] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        [argsAndValues addObject:[NSString stringWithFormat:@"%@=%@", escapedKey, value]];
+    }
+    NSString *argsAndValuesString = [argsAndValues componentsJoinedByString:@"&"];
+    [argsAndValues release];
+    return argsAndValuesString;
 }
 
 - (id)initWithDelegate:(id<DribbbleEngineDelegate>)aDelegate{
@@ -70,31 +85,49 @@
 	return self.username != nil && [self.username length] > 0 && self.password != nil && [self.password length] > 0;
 }
 
-//STUB: artificial wait to simulate uploading with an error
-- (void)placeholderFailWithUserInfo:(id)userInfo{
-    if([self.delegate respondsToSelector:@selector(requestDidFailWithError:connectionIdentifier:userInfo:)]){
-        NSError *error = [NSError errorWithDomain:@"DribbbleEngine" 
-                                             code:100 
-                                         userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
-                                                   @"Uploading to dribbble is not yet supported.", 
-                                                   NSLocalizedDescriptionKey,
-                                                   nil]];
-        [self.delegate requestDidFailWithError:error connectionIdentifier:self._authenticationToken userInfo:userInfo];
-    }
-}
-
 -(void)uploadFileWithName:(NSString *)fileName fileData:(NSData *)fileData userInfo:(id)userInfo{
     if([self isReady]){
         //TODO: Do this in another thread
         if(!self._authenticationToken){
             self._authenticationToken = [self authenticationToken];
         }
-        NSLog(@"%@", self._authenticationToken);
         
-        //Always error for now...
-        [self performSelector:@selector(placeholderFailWithUserInfo:) 
-                   withObject:userInfo 
-                   afterDelay:1.0f];
+        //login
+        NSURL *sessionURL = [NSURL URLWithString:@"http://dribbble.com/session"];
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:sessionURL 
+                                                                    cachePolicy:NSURLRequestReloadIgnoringCacheData 
+                                                                timeoutInterval:20.0f]; 
+        [request setHTTPMethod:@"POST"];
+        NSString *htmlBodyString = [self encodeArgs:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                     self._authenticationToken, @"authenticity_token", 
+                                                     self.username, @"login",
+                                                     self.password, @"password",
+                                                     nil]];
+               
+        NSData *htmlBodyData = [htmlBodyString dataUsingEncoding:NSUTF8StringEncoding];
+        [request setValue:[NSString stringWithFormat:@"%d", [htmlBodyData length]] forHTTPHeaderField:@"Content-Length"];
+        [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+        [request setHTTPBody:htmlBodyData];
+        
+        NSError *error = nil;
+        NSURLResponse *response;
+        NSData *data = [NSURLConnection sendSynchronousRequest:request
+                                             returningResponse:&response
+                                                         error:&error];
+        [request release];
+        
+        NSString *responceString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        NSLog(@"%@", responceString);
+        [responceString release];
+        
+//        if(message){
+//            error = [NSError errorWithDomain:@"DribbbleEngine" 
+//                                        code:100 
+//                                    userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
+//                                              message, NSLocalizedDescriptionKey, nil]];
+//        }
+//        [self.delegate requestDidFailWithError:error connectionIdentifier:self._authenticationToken userInfo:userInfo];
+        [self.delegate fileUploadDidSucceedWithResultingItem:nil connectionIdentifier:self._authenticationToken userInfo:userInfo];
     }
 }
 
