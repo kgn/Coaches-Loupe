@@ -65,11 +65,10 @@
     return token;
 }
 
-- (void)login{
+- (BOOL)login{
     if(![self isReady]){
         self._isLoggedin = NO;
         self._authenticationToken = nil;
-        return;
     }
     if(!self._isLoggedin){
         self._authenticationToken = [self authenticationToken];
@@ -107,6 +106,7 @@
         
         [xpathParser release];
     }
+    return self._isLoggedin;
 }
 
 #pragma -
@@ -149,14 +149,12 @@
 }
 
 -(void)uploadFileWithName:(NSString *)fileName fileData:(NSData *)fileData userInfo:(id)userInfo{
-    [self login];
-    if(self._isLoggedin){
+    if([self login]){
         [self.delegate fileUploadDidSucceedWithResultingItem:nil connectionIdentifier:self._authenticationToken userInfo:userInfo];
     }else{
-        NSError *error = [NSError errorWithDomain:@"DribbbleEngine" 
-                                    code:100 
-                                userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
-                                          @"Login failed", NSLocalizedDescriptionKey, nil]];
+        NSError *error = [NSError errorWithDomain:@"DribbbleEngine" code:100 
+                                         userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                   @"Login failed", NSLocalizedDescriptionKey, nil]];
         [self.delegate requestDidFailWithError:error connectionIdentifier:self._authenticationToken userInfo:userInfo];            
     }
 }
