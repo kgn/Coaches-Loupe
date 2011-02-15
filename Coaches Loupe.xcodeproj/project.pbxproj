@@ -58,6 +58,10 @@
 		7367886C1308F4D10090FF67 /* AppDelegate+Court.m in Sources */ = {isa = PBXBuildFile; fileRef = 7367886B1308F4D10090FF67 /* AppDelegate+Court.m */; };
 		738FD3A113091D380064C037 /* cloud_upload.png in Resources */ = {isa = PBXBuildFile; fileRef = 738FD39F13091D380064C037 /* cloud_upload.png */; };
 		738FD3A213091D380064C037 /* dribbble_upload.png in Resources */ = {isa = PBXBuildFile; fileRef = 738FD3A013091D380064C037 /* dribbble_upload.png */; };
+		73C3FA811309FFB9008B661F /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 73C3FA801309FFB8008B661F /* libxml2.2.dylib */; };
+		73C3FA89130A003E008B661F /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C3FA84130A003E008B661F /* TFHpple.m */; };
+		73C3FA8A130A003E008B661F /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C3FA86130A003E008B661F /* TFHppleElement.m */; };
+		73C3FA8B130A003E008B661F /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C3FA88130A003E008B661F /* XPathQuery.m */; };
 		73D57C2A13052E3600440072 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73D57C2913052E3600440072 /* Cocoa.framework */; };
 		73D57C3713052E3600440072 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 73D57C3613052E3600440072 /* main.m */; };
 		73D57C3D13052E3600440072 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 73D57C3C13052E3600440072 /* AppDelegate.m */; };
@@ -179,6 +183,13 @@
 		7367886B1308F4D10090FF67 /* AppDelegate+Court.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Court.m"; sourceTree = "<group>"; };
 		738FD39F13091D380064C037 /* cloud_upload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cloud_upload.png; path = Images/cloud_upload.png; sourceTree = SOURCE_ROOT; };
 		738FD3A013091D380064C037 /* dribbble_upload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dribbble_upload.png; path = Images/dribbble_upload.png; sourceTree = SOURCE_ROOT; };
+		73C3FA801309FFB8008B661F /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = ../../../../../../usr/lib/libxml2.2.dylib; sourceTree = "<group>"; };
+		73C3FA83130A003E008B661F /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHpple.h; sourceTree = "<group>"; };
+		73C3FA84130A003E008B661F /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHpple.m; sourceTree = "<group>"; };
+		73C3FA85130A003E008B661F /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHppleElement.h; sourceTree = "<group>"; };
+		73C3FA86130A003E008B661F /* TFHppleElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHppleElement.m; sourceTree = "<group>"; };
+		73C3FA87130A003E008B661F /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
+		73C3FA88130A003E008B661F /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
 		73D57C2513052E3600440072 /* Coaches Loupe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Coaches Loupe.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		73D57C2913052E3600440072 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		73D57C2C13052E3600440072 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -202,6 +213,7 @@
 				730448B513076F290044B510 /* Security.framework in Frameworks */,
 				730448B713076F340044B510 /* CoreFoundation.framework in Frameworks */,
 				731D2EDD13088423009F3C7C /* Growl.framework in Frameworks */,
+				73C3FA811309FFB9008B661F /* libxml2.2.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,6 +223,8 @@
 		731A2ACA130721160081A79E /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				734CE35F1309B81B0097E608 /* DribbbleEngine.h */,
+				734CE3601309B81B0097E608 /* DribbbleEngine.m */,
 				730448B113076F0E0044B510 /* AGKeychain.h */,
 				730448B213076F0E0044B510 /* AGKeychain.m */,
 				733E73EB1307609F002957D6 /* DBPrefsWindowController.h */,
@@ -218,8 +232,8 @@
 				731D2EDE1308845F009F3C7C /* CloudApp */,
 				731D2EF61308845F009F3C7C /* IFUnicodeURL */,
 				731D2F141308845F009F3C7C /* TouchJSON */,
-				734CE35F1309B81B0097E608 /* DribbbleEngine.h */,
-				734CE3601309B81B0097E608 /* DribbbleEngine.m */,
+				73C3FA82130A003E008B661F /* Hpple */,
+				73C3FA801309FFB8008B661F /* libxml2.2.dylib */,
 			);
 			name = Library;
 			sourceTree = "<group>";
@@ -382,6 +396,20 @@
 				731D2F5113088521009F3C7C /* switch_toolbar.png */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		73C3FA82130A003E008B661F /* Hpple */ = {
+			isa = PBXGroup;
+			children = (
+				73C3FA83130A003E008B661F /* TFHpple.h */,
+				73C3FA84130A003E008B661F /* TFHpple.m */,
+				73C3FA85130A003E008B661F /* TFHppleElement.h */,
+				73C3FA86130A003E008B661F /* TFHppleElement.m */,
+				73C3FA87130A003E008B661F /* XPathQuery.h */,
+				73C3FA88130A003E008B661F /* XPathQuery.m */,
+			);
+			name = Hpple;
+			path = ../../../../Dev/Projects/CoachesLoupe/Source/Hpple;
 			sourceTree = "<group>";
 		};
 		73D57C1A13052E3600440072 = {
@@ -566,6 +594,9 @@
 				731D2F3E1308845F009F3C7C /* CJSONSerializer.m in Sources */,
 				7367886C1308F4D10090FF67 /* AppDelegate+Court.m in Sources */,
 				734CE3611309B81B0097E608 /* DribbbleEngine.m in Sources */,
+				73C3FA89130A003E008B661F /* TFHpple.m in Sources */,
+				73C3FA8A130A003E008B661F /* TFHppleElement.m in Sources */,
+				73C3FA8B130A003E008B661F /* XPathQuery.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -661,6 +692,7 @@
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_LABEL = YES;
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = Info.plist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUN_CLANG_STATIC_ANALYZER = YES;
@@ -691,6 +723,7 @@
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_LABEL = YES;
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = Info.plist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUN_CLANG_STATIC_ANALYZER = YES;

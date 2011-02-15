@@ -22,12 +22,12 @@
     id<DribbbleEngineDelegate> delegate;
     
     @private
-    NSString *authenticationToken;
+    NSString *_authenticationToken;
 }
 
 @property (copy, nonatomic) NSString *username, *password;
 @property (assign) id<DribbbleEngineDelegate> delegate;
-@property (copy, nonatomic) NSString *authenticationToken;
+@property (copy, nonatomic) NSString *_authenticationToken;
 
 + (id)engine;
 + (id)engineWithDelegate:(id<DribbbleEngineDelegate>)aDelegate;
