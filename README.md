@@ -22,3 +22,4 @@ Libraries used:
 * [TouchJSON](https://github.com/TouchCode/TouchJSON)
 * [DBPrefsWindowController](http://www.mere-mortal-software.com/blog/details.php?d=2007-03-11)
 * [AGKeychain](http://homepage.mac.com/agerson/examples/keychain/)
+* [Hpple](https://github.com/topfunky/hpple)
