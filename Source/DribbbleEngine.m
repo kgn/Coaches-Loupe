@@ -22,6 +22,25 @@
 @synthesize _isLoggedin;
 @synthesize delegate;
 
+#pragma -
+#pragma url/http stuff
+
+- (NSString *)boundryString{
+    NSUInteger length = 16;
+    NSString *characters = @"0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    NSMutableString *randomString = [[NSMutableString alloc] initWithCapacity:length];
+    for(NSUInteger i = 0; i<length; ++i){
+        NSUInteger randomIndex = arc4random() % [characters length];
+        NSString *character = [characters substringWithRange:NSMakeRange(randomIndex, 1)];
+        [randomString appendString:character];
+    }
+    
+    //boundries lead with --
+    NSString *boundryString = [NSString stringWithFormat:@"--%@----", randomString];
+    [randomString release];
+    return boundryString;
+}
+
 - (NSString *)urlEncodeString:(NSString *)aString{
     //Modified from: http://code.google.com/p/google-toolbox-for-mac/source/browse/trunk/Foundation/GTMNSString%2BURLArguments.m
     CFStringRef escaped = 
@@ -31,24 +50,6 @@
                                             (CFStringRef)@"!*'();:@&=+$,/?%#[]",
                                             kCFStringEncodingUTF8);
     return [(NSString *)escaped autorelease];
-}
-
-//Modified from: http://forums.macrumors.com/showthread.php?t=229602
-- (NSString *)boundryString{
-    char randoms[16];
-    char aRandom = 0;
-    for(int i = 0; i < 16; i++){
-        while(YES){
-            aRandom = (char)random() + 128;
-            if(((aRandom >= '0') && (aRandom <= '9')) || ((aRandom >= 'a') && (aRandom <= 'z'))){
-                randoms[i] = aRandom;
-                break; // we found an alphanumeric character, move on
-            }
-        }
-    }
-    NSString *randString = [NSString stringWithUTF8String:randoms];
-    //boundries lead with --
-    return [NSString stringWithFormat:@"--%@----", randString];
 }
 
 - (NSString *)urlEncodeArgs:(NSDictionary *)args{
