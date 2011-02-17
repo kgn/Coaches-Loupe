@@ -130,7 +130,10 @@
         if(elements && [elements count] > 0){
             TFHppleElement *element = [elements objectAtIndex:0];
             NSLog(@"%@", [element content]);
-            self._isLoggedin = [[element content] isEqualToString:@"Dribbble - What are you working on?"];
+            //login succeeded
+            if([[element content] isEqualToString:@"Dribbble - What are you working on?"]){
+                self._isLoggedin = YES;
+            }
         }
         
         [xpathParser release];
