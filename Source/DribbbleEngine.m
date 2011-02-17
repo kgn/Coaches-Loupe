@@ -243,10 +243,10 @@
         NSLog(@"header:\n%@", [request allHTTPHeaderFields]);
         
 //        //is this needed
-//        NSURL *root = [NSURL URLWithString:@"http://dribbble.com"];
-//        NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:root];
-//        NSDictionary *headers = [NSHTTPCookie requestHeaderFieldsWithCookies:cookies];
-//        [request setAllHTTPHeaderFields:headers];
+        NSURL *root = [NSURL URLWithString:@"http://dribbble.com"];
+        NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:root];
+        NSDictionary *headers = [NSHTTPCookie requestHeaderFieldsWithCookies:cookies];
+        [request setAllHTTPHeaderFields:headers];
         
         //make request
         NSError *uploadError = nil;
@@ -259,7 +259,9 @@
         TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:data];
         NSArray *elements  = [xpathParser search:@"//title"];
         if(elements && [elements count] > 0){
-            if([[[elements objectAtIndex:0] content] isEqualToString:@"Sorry, something went wrong and we're looking into it. (500)"]){
+            NSString *title = [[elements objectAtIndex:0] content];
+            NSLog(@"%@", title);
+            if([title isEqualToString:@"Sorry, something went wrong and we're looking into it. (500)"]){
                 error = [NSError errorWithDomain:@"DribbbleEngine" code:100 
                                         userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
                                                   @"Failed to upload", NSLocalizedDescriptionKey, nil]];  
