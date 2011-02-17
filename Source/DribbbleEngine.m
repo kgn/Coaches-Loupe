@@ -133,7 +133,7 @@
         NSArray *elements  = [xpathParser search:@"//title"];
         if(elements && [elements count] > 0){
             TFHppleElement *element = [elements objectAtIndex:0];
-            NSLog(@"%@", [element content]);
+            NSLog(@"login: %@", [element content]);
             //login succeeded
             if([[element content] isEqualToString:@"Dribbble - What are you working on?"]){
                 self._isLoggedin = YES;
@@ -260,7 +260,7 @@
         NSArray *elements  = [xpathParser search:@"//title"];
         if(elements && [elements count] > 0){
             NSString *title = [[elements objectAtIndex:0] content];
-            NSLog(@"%@", title);
+            NSLog(@"upload: %@", title);
             if([title isEqualToString:@"Sorry, something went wrong and we're looking into it. (500)"]){
                 error = [NSError errorWithDomain:@"DribbbleEngine" code:100 
                                         userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
