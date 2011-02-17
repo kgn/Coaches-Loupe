@@ -255,7 +255,7 @@
                                              returningResponse:&response
                                                          error:&uploadError];
         
-        //temp code to see the html we get back
+        //check what we got back
         TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:data];
         NSArray *elements  = [xpathParser search:@"//title"];
         if(elements && [elements count] > 0){
@@ -264,7 +264,7 @@
             if([title isEqualToString:@"Sorry, something went wrong and we're looking into it. (500)"]){
                 error = [NSError errorWithDomain:@"DribbbleEngine" code:100 
                                         userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
-                                                  @"Failed to upload", NSLocalizedDescriptionKey, nil]];  
+                                                  @"Upload failed", NSLocalizedDescriptionKey, nil]];  
             }
         }
         [xpathParser release];
