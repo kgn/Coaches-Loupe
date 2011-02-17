@@ -22,7 +22,7 @@
 @synthesize _isLoggedin;
 @synthesize delegate;
 
-- (NSString *)encode:(NSString *)aString{
+- (NSString *)urlEncodeString:(NSString *)aString{
     //Modified from: http://code.google.com/p/google-toolbox-for-mac/source/browse/trunk/Foundation/GTMNSString%2BURLArguments.m
     CFStringRef escaped = 
     CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
@@ -51,11 +51,11 @@
     return [NSString stringWithFormat:@"--%@----", randString];
 }
 
-- (NSString *)encodeArgs:(NSDictionary *)args{
+- (NSString *)urlEncodeArgs:(NSDictionary *)args{
     NSMutableArray *argsAndValues = [[NSMutableArray alloc] init];
     for(NSString *key in [args allKeys]){
-        NSString *escapedKey = [self encode:key];
-        NSString *value = [self encode:[args objectForKey:key]];
+        NSString *escapedKey = [self urlEncodeString:key];
+        NSString *value = [self urlEncodeString:[args objectForKey:key]];
         [argsAndValues addObject:[NSString stringWithFormat:@"%@=%@", escapedKey, value]];
     }
     NSString *argsAndValuesString = [argsAndValues componentsJoinedByString:@"&"];
@@ -107,7 +107,7 @@
                                                                     cachePolicy:NSURLRequestReloadIgnoringCacheData 
                                                                 timeoutInterval:20.0f]; 
         [request setHTTPMethod:@"POST"];
-        NSString *htmlBodyString = [self encodeArgs:[NSDictionary dictionaryWithObjectsAndKeys:
+        NSString *htmlBodyString = [self urlEncodeArgs:[NSDictionary dictionaryWithObjectsAndKeys:
                                                      self._authenticationToken, @"authenticity_token", 
                                                      self.username, @"login",
                                                      self.password, @"password",
