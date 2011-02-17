@@ -33,7 +33,7 @@
 
 - (void)showUploadCourtWithAnimation:(BOOL)animation withImage:(NSImage *)image{
     [self.uploadView setAlphaValue:0.0f];
-    self.uploadViewLabel.stringValue = @"Uploading...";
+    self.uploadViewLabel.stringValue = @"Driving to the basket...";
     self.uploadViewImage.image = image;
     [self.loupe addSubview:self.uploadView];
     if(animation){
@@ -70,7 +70,7 @@
 }
 
 - (void)doneWithUploadCourt{
-    self.uploadViewLabel.stringValue = @"Done!";
+    self.uploadViewLabel.stringValue = @"Slam dunk!";
     [self performSelector:@selector(hideUploadCourtWithAnimation)
                withObject:nil 
                afterDelay:1.0f];
