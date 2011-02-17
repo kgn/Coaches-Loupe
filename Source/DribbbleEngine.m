@@ -22,6 +22,17 @@
 @synthesize _isLoggedin;
 @synthesize delegate;
 
+- (NSString *)encode:(NSString *)aString{
+    //Modified from: http://code.google.com/p/google-toolbox-for-mac/source/browse/trunk/Foundation/GTMNSString%2BURLArguments.m
+    CFStringRef escaped = 
+    CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
+                                            (CFStringRef)aString,
+                                            NULL,
+                                            (CFStringRef)@"!*'();:@&=+$,/?%#[]",
+                                            kCFStringEncodingUTF8);
+    return [(NSString *)escaped autorelease];
+}
+
 //Modified from: http://forums.macrumors.com/showthread.php?t=229602
 - (NSString *)boundryString{
     char randoms[16];
@@ -43,8 +54,8 @@
 - (NSString *)encodeArgs:(NSDictionary *)args{
     NSMutableArray *argsAndValues = [[NSMutableArray alloc] init];
     for(NSString *key in [args allKeys]){
-        NSString *escapedKey = [key stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        NSString *value = [[args objectForKey:key] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSString *escapedKey = [self encode:key];
+        NSString *value = [self encode:[args objectForKey:key]];
         [argsAndValues addObject:[NSString stringWithFormat:@"%@=%@", escapedKey, value]];
     }
     NSString *argsAndValuesString = [argsAndValues componentsJoinedByString:@"&"];
