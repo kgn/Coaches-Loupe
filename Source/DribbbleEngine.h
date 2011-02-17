@@ -5,6 +5,11 @@
 //  Created by David Keegan on 2/14/11.
 //
 
+//Default prefix is the application name, with non-alphanumeric characters removed
+#define BoundryPrefix [[[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"] \
+                        componentsSeparatedByCharactersInSet:[[NSCharacterSet alphanumericCharacterSet] invertedSet]] \
+                        componentsJoinedByString:@""]
+
 @interface DBWebItem : NSObject {
     NSString *name;
     NSURL *URL;

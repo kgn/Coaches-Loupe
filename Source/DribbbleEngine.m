@@ -36,7 +36,7 @@
     }
     
     //boundries lead with --
-    NSString *boundryString = [NSString stringWithFormat:@"--%@----", randomString];
+    NSString *boundryString = [NSString stringWithFormat:@"--%@%@----", BoundryPrefix, randomString];
     [randomString release];
     return boundryString;
 }
@@ -224,7 +224,7 @@
         [body appendData:[authenticityString dataUsingEncoding:NSUTF8StringEncoding]];
         [body appendData:[uploadString dataUsingEncoding:NSUTF8StringEncoding]];
         
-        //This header data looks correct
+        //The header data looks correct
         NSLog(@"body:\n%@", [[[NSString alloc] initWithData:body encoding:NSUTF8StringEncoding] autorelease]);
         
         [body appendData:fileData];//For now add this here or else we can't log the data
@@ -242,7 +242,7 @@
         
         NSLog(@"header:\n%@", [request allHTTPHeaderFields]);
         
-//        //is this needed
+        //is this needed
         NSURL *root = [NSURL URLWithString:@"http://dribbble.com"];
         NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:root];
         NSDictionary *headers = [NSHTTPCookie requestHeaderFieldsWithCookies:cookies];
