@@ -65,6 +65,9 @@
     return argsAndValuesString;
 }
 
+#pragma -
+#pragma dribbble
+
 //find the authenticity_token from the login page
 - (NSString *)authenticationToken{
     NSError *error;
@@ -184,6 +187,12 @@
 -(void)uploadFileWithName:(NSString *)fileName fileData:(NSData *)fileData userInfo:(id)userInfo{
     NSError *error = nil;
     if([self login]){
+        //Why is this not working?
+        // - content type is text/http not text/http; charset=urf-8
+        // - content length seems smaller
+        // - Accept header is */* not application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+        // - Cookie information is being sent via the header but I don't know much about this
+        
         //Upload image
         NSString *newline = @"\r\n";
         NSString *boundry = [self boundryString];
@@ -214,7 +223,11 @@
         NSMutableData *body = [[NSMutableData alloc] init];
         [body appendData:[authenticityString dataUsingEncoding:NSUTF8StringEncoding]];
         [body appendData:[uploadString dataUsingEncoding:NSUTF8StringEncoding]];
-        [body appendData:fileData];
+        
+        //This header data looks correct
+        NSLog(@"body:\n%@", [[[NSString alloc] initWithData:body encoding:NSUTF8StringEncoding] autorelease]);
+        
+        [body appendData:fileData];//For now add this here or else we can't log the data
         
         //setup the request
         NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:shotsURL 
@@ -226,13 +239,16 @@
         [request setValue:@"http://dribbble.com" forHTTPHeaderField:@"Origin"];//is this needed
         [request setValue:[NSString stringWithFormat:@"%d", [body length]] forHTTPHeaderField:@"Content-Length"];
         [request setHTTPBody:body];
-
-        //is this needed
-        NSURL *root = [NSURL URLWithString:@"http://dribbble.com"];
-        NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:root];
-        NSDictionary *headers = [NSHTTPCookie requestHeaderFieldsWithCookies:cookies];
-        [request setAllHTTPHeaderFields:headers];
         
+        NSLog(@"header:\n%@", [request allHTTPHeaderFields]);
+        
+//        //is this needed
+//        NSURL *root = [NSURL URLWithString:@"http://dribbble.com"];
+//        NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:root];
+//        NSDictionary *headers = [NSHTTPCookie requestHeaderFieldsWithCookies:cookies];
+//        [request setAllHTTPHeaderFields:headers];
+        
+        //make request
         NSError *uploadError = nil;
         NSURLResponse *response;
         NSData *data = [NSURLConnection sendSynchronousRequest:request
@@ -240,14 +256,19 @@
                                                          error:&uploadError];
         
         //temp code to see the html we get back
-        NSString *responceString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-        NSLog(@"%@", responceString);
-        [responceString release];
+        TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:data];
+        NSArray *elements  = [xpathParser search:@"//title"];
+        if(elements && [elements count] > 0){
+            if([[[elements objectAtIndex:0] content] isEqualToString:@"Sorry, something went wrong and we're looking into it. (500)"]){
+                error = [NSError errorWithDomain:@"DribbbleEngine" code:100 
+                                        userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                  @"Failed to upload", NSLocalizedDescriptionKey, nil]];  
+            }
+        }
+        [xpathParser release];
         
         [body release];
         [request release];
-        
-        [self.delegate fileUploadDidSucceedWithResultingItem:nil connectionIdentifier:self._authenticationToken userInfo:userInfo];
     }else{
         error = [NSError errorWithDomain:@"DribbbleEngine" code:100 
                                 userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
@@ -256,6 +277,8 @@
     
     if(error){
         [self.delegate requestDidFailWithError:error connectionIdentifier:self._authenticationToken userInfo:userInfo];
+    }else{
+        [self.delegate fileUploadDidSucceedWithResultingItem:nil connectionIdentifier:self._authenticationToken userInfo:userInfo];
     }
 }
 
