@@ -228,6 +228,9 @@
         NSLog(@"body:\n%@", [[[NSString alloc] initWithData:body encoding:NSUTF8StringEncoding] autorelease]);
         
         [body appendData:fileData];//For now add this here or else we can't log the data
+        [body appendData:[newline dataUsingEncoding:NSUTF8StringEncoding]];
+        [body appendData:[boundryHeader dataUsingEncoding:NSUTF8StringEncoding]];
+        [body appendData:[@"--" dataUsingEncoding:NSUTF8StringEncoding]];//Marks the end
         
         //setup the request
         NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:shotsURL 
@@ -254,6 +257,8 @@
         NSData *data = [NSURLConnection sendSynchronousRequest:request
                                              returningResponse:&response
                                                          error:&uploadError];
+        
+        NSLog(@"html:\n%@", [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease]);
         
         //check what we got back
         TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:data];
