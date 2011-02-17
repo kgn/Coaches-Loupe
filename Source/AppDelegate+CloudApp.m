@@ -25,6 +25,7 @@ static NSImage *cloupUploadImage = nil;
 }
 
 - (IBAction)precipitate:(id)sender{
+    self.isUploading = YES;
     cloupUploadImage = [NSImage imageNamed:@"cloud_upload.png"];
     [self showUploadCourtWithAnimationWithImage:cloupUploadImage];
 	[self.cloudApp uploadFileWithName:[self shotName] fileData:[self shotData] userInfo:nil];
@@ -32,10 +33,12 @@ static NSImage *cloupUploadImage = nil;
 
 - (void)requestDidFailWithError:(NSError *)error connectionIdentifier:(NSString *)connectionIdentifier userInfo:(id)userInfo{
     [self showFailedCourtWithError:error];
+    self.isUploading = NO;    
 }
 
 - (void)fileUploadDidSucceedWithResultingItem:(CLWebItem *)item connectionIdentifier:(NSString *)connectionIdentifier userInfo:(id)userInfo{
     [self screenshotUploadedWithName:item.name toURL:item.URL forAction:@"Screenshot precipitated"];
+    self.isUploading = NO;    
 }
 
 @end

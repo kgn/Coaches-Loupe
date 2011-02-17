@@ -34,6 +34,10 @@
     
     CLAPIEngine *cloudApp;
     BOOL canUploadToCloudApp;
+    
+    
+    //TODO: disable actions when a shot is being uploaded
+    BOOL isUploading;
 }
 
 @property (retain, nonatomic) IBOutlet NSWindow *window;
@@ -53,6 +57,8 @@
 
 @property (retain, nonatomic) CLAPIEngine *cloudApp;
 @property (nonatomic) BOOL canUploadToCloudApp;
+
+@property (nonatomic) BOOL isUploading;
 
 @end
 

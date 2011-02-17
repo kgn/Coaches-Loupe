@@ -26,6 +26,8 @@
 @synthesize cloudApp;
 @synthesize canUploadToCloudApp;
 
+@synthesize isUploading;
+
 + (void)initialize{
     if([self class] == [AppDelegate class]){
         [PreferencesController registerUserDefaults];

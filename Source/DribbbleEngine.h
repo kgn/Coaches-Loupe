@@ -42,14 +42,14 @@
 
 - (BOOL)isReady;
 
--(void)uploadFileWithName:(NSString *)fileName fileData:(NSData *)fileData userInfo:(id)userInfo;
+-(void)shootWithFileName:(NSString *)fileName andData:(NSData *)fileData withUserInfo:(id)userInfo;
 
 @end
 
 @protocol DribbbleEngineDelegate <NSObject>
 
 @optional
-- (void)requestDidFailWithError:(NSError *)error connectionIdentifier:(NSString *)connectionIdentifier userInfo:(id)userInfo;
-- (void)fileUploadDidSucceedWithResultingItem:(DBWebItem *)item connectionIdentifier:(NSString *)connectionIdentifier userInfo:(id)userInfo;
+- (void)dribbbleRequestDidFailWithError:(NSError *)error connectionIdentifier:(NSString *)connectionIdentifier userInfo:(id)userInfo;
+- (void)dribbbleShotUploadDidSucceedWithResultingItem:(DBWebItem *)item connectionIdentifier:(NSString *)connectionIdentifier userInfo:(id)userInfo;
 
 @end

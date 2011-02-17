@@ -184,7 +184,7 @@
 	return self.username != nil && [self.username length] > 0 && self.password != nil && [self.password length] > 0;
 }
 
--(void)uploadFileWithName:(NSString *)fileName fileData:(NSData *)fileData userInfo:(id)userInfo{
+-(void)shootWithFileName:(NSString *)fileName andData:(NSData *)fileData withUserInfo:(id)userInfo{
     NSError *error = nil;
     if([self login]){
         //Why is this not working?
@@ -278,9 +278,9 @@
     }
     
     if(error){
-        [self.delegate requestDidFailWithError:error connectionIdentifier:self._authenticationToken userInfo:userInfo];
+        [self.delegate dribbbleRequestDidFailWithError:error connectionIdentifier:self._authenticationToken userInfo:userInfo];
     }else{
-        [self.delegate fileUploadDidSucceedWithResultingItem:nil connectionIdentifier:self._authenticationToken userInfo:userInfo];
+        [self.delegate dribbbleShotUploadDidSucceedWithResultingItem:nil connectionIdentifier:self._authenticationToken userInfo:userInfo];
     }
 }
 

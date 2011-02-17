@@ -24,17 +24,20 @@ static NSImage *dribbbleUploadImage = nil;
 }
 
 - (IBAction)shoot:(id)sender{
+    self.isUploading = YES;
     dribbbleUploadImage = [NSImage imageNamed:@"dribbble_upload.png"];
     [self showUploadCourtWithAnimationWithImage:dribbbleUploadImage];
-	[self.dribbble uploadFileWithName:[self shotName] fileData:[self shotData] userInfo:nil];
+	[self.dribbble shootWithFileName:[self shotName] andData:[self shotData] withUserInfo:nil];
 }
 
-- (void)requestDidFailWithError:(NSError *)error connectionIdentifier:(NSString *)connectionIdentifier userInfo:(id)userInfo{
+- (void)dribbbleRequestDidFailWithError:(NSError *)error connectionIdentifier:(NSString *)connectionIdentifier userInfo:(id)userInfo{
     [self showFailedCourtWithError:error];
+    self.isUploading = NO;
 }
 
-- (void)fileUploadDidSucceedWithResultingItem:(DBWebItem *)item connectionIdentifier:(NSString *)connectionIdentifier userInfo:(id)userInfo{
+- (void)dribbbleShotUploadDidSucceedWithResultingItem:(DBWebItem *)item connectionIdentifier:(NSString *)connectionIdentifier userInfo:(id)userInfo{
     [self screenshotUploadedWithName:item.name toURL:item.URL forAction:@"Screenshot dribbbled"];
+    self.isUploading = NO;
 }
 
 @end
