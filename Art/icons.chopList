@@ -76,7 +76,7 @@
 	</dict>	
 	<dict>
 		<key>name</key>
-		<string>dribbble_upload</string>
+		<string>cloud_upload</string>
 		<key>extension</key>
 		<string>png</string>
 		<key>x</key>
