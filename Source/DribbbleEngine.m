@@ -308,8 +308,10 @@
                 error = UploadError;
             }
         }else{
-            error = LoginError;            
-        }            
+            error = UploadError;
+        }
+    }else{
+        error = LoginError;            
     }
     
     if(error){
