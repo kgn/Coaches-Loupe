@@ -5,9 +5,11 @@ Coaches Loupe
 
 [http://coachesloupe.com/](http://coachesloupe.com/ "Coaches Loupe")
 
-Head Coach [Ian Tearle](http://iantearle.com/)
+Head Coach [Ian Tearle](http://iantearle.com)
 
-Technical Coach [David Keegan](http://inscopeapps.com/)
+Technical Coach [David Keegan](http://inscopeapps.com)
+
+Assistant Coach [Jonathan Badeen](http://www.badeen.com)
 
 ![Screenshot](https://github.com/InScopeApps/Coaches-Loupe/raw/master/Screenshots/Main.png "Screenshot")
 
