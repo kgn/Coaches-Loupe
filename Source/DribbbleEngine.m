@@ -8,6 +8,14 @@
 #import "DribbbleEngine.h"
 #import "TFHpple.h"
 
+#define LoginError [NSError errorWithDomain:@"DribbbleEngine" code:100 \
+                    userInfo:[NSDictionary dictionaryWithObjectsAndKeys: \
+                    @"Login failed", NSLocalizedDescriptionKey, nil]];
+
+#define UploadError [NSError errorWithDomain:@"DribbbleEngine" code:100 \
+                    userInfo:[NSDictionary dictionaryWithObjectsAndKeys: \
+                    @"Upload failed", NSLocalizedDescriptionKey, nil]];
+
 @implementation DBWebItem
 
 @synthesize name;
@@ -86,11 +94,11 @@
     NSArray *elements  = [xpathParser search:@"//div/form/div/input"];
     if(elements && [elements count] > 0){
         TFHppleElement *element = [elements objectAtIndex:0];
-        NSDictionary *attrinutes = [element attributes];
+        NSDictionary *attributes = [element attributes];
         //make sure we have the right node
-        if([[attrinutes objectForKey:@"name"] isEqualToString:@"authenticity_token"]){
-            token = [attrinutes objectForKey:@"value"];
-            NSLog(@"token: %@", [attrinutes objectForKey:@"value"]);
+        if([[attributes objectForKey:@"name"] isEqualToString:@"authenticity_token"]){
+            token = [attributes objectForKey:@"value"];
+            NSLog(@"token: %@", [attributes objectForKey:@"value"]);
         }
     }
     
@@ -139,10 +147,113 @@
                 self._isLoggedin = YES;
             }
         }
-        
         [xpathParser release];
     }
     return self._isLoggedin;
+}
+
+- (NSString *)uploadImageWithFileName:(NSString *)fileName andData:(NSData *)fileData{
+    NSString *newline = @"\r\n";
+    NSString *boundry = [self boundryString];
+    //boundries lead with --
+    NSString *boundryHeader = [NSString stringWithFormat:@"--%@", boundry];
+    NSURL *shotsURL = [NSURL URLWithString:@"http://dribbble.com/shots"];
+    
+    //build the authenticity_token section
+    NSMutableArray *authenticityArray = [[NSMutableArray alloc] init];
+    [authenticityArray addObject:boundryHeader];
+    [authenticityArray addObject:@"Content-Disposition: form-data; name=\"authenticity_token\""];
+    [authenticityArray addObject:@""];
+    [authenticityArray addObject:self._authenticationToken];
+    [authenticityArray addObject:@""];
+    NSString *authenticityString = [authenticityArray componentsJoinedByString:newline];
+    [authenticityArray release];
+    
+    //build the image section
+    NSMutableArray *uploadArray = [[NSMutableArray alloc] init];
+    [uploadArray addObject:boundryHeader];
+    [uploadArray addObject:[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"screenshot[file]\"; filename=\"%@\"", fileName]];
+    [uploadArray addObject:@"Content-Type: image/png"];
+    [uploadArray addObject:newline];
+    NSString *uploadString = [uploadArray componentsJoinedByString:newline];
+    [uploadArray release];        
+    
+    //add the sections to the body, then add the image data
+    NSMutableData *body = [[NSMutableData alloc] init];
+    [body appendData:[authenticityString dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[uploadString dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    //The header data looks correct
+    NSLog(@"body:\n%@", [[[NSString alloc] initWithData:body encoding:NSUTF8StringEncoding] autorelease]);
+    
+    [body appendData:fileData];//For now add this here or else we can't log the data
+    [body appendData:[newline dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[boundryHeader dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[@"--" dataUsingEncoding:NSUTF8StringEncoding]];//Marks the end
+    
+    //setup the request
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:shotsURL 
+                                                                cachePolicy:NSURLRequestReloadIgnoringCacheData 
+                                                            timeoutInterval:20.0f];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:[NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundry] forHTTPHeaderField:@"Content-Type"];
+    [request setValue:@"http://dribbble.com/shots/new" forHTTPHeaderField:@"Referer"];
+    [request setValue:@"http://dribbble.com" forHTTPHeaderField:@"Origin"];//is this needed
+    [request setValue:[NSString stringWithFormat:@"%d", [body length]] forHTTPHeaderField:@"Content-Length"];
+    [request setHTTPBody:body];
+    
+    NSLog(@"header:\n%@", [request allHTTPHeaderFields]);
+    
+    //is this needed
+    NSURL *root = [NSURL URLWithString:@"http://dribbble.com"];
+    NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:root];
+    NSDictionary *headers = [NSHTTPCookie requestHeaderFieldsWithCookies:cookies];
+    [request setAllHTTPHeaderFields:headers];
+    
+    //make request
+    NSError *uploadError = nil;
+    NSURLResponse *response;
+    NSData *data = [NSURLConnection sendSynchronousRequest:request
+                                         returningResponse:&response
+                                                     error:&uploadError];
+    
+    [body release];
+    [request release];
+    
+    //check what we got back
+    BOOL didUpload = YES;
+    TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:data];
+    NSArray *titleElements  = [xpathParser search:@"//title"];
+    if(titleElements && [titleElements count] > 0){
+        NSString *title = [[titleElements objectAtIndex:0] content];
+        NSLog(@"upload: %@", title);
+        if([title isEqualToString:@"Sorry, something went wrong and we're looking into it. (500)"]){
+            didUpload = NO;
+        }
+    }else{
+        didUpload = NO;
+    }
+    
+    //find the shot url
+    NSString *shotPath = nil;
+    if(didUpload){
+        NSArray *formElements  = [xpathParser search:@"//form"];
+        if(formElements && [formElements count] > 0){
+            for(TFHppleElement *element in formElements){
+                NSDictionary *attributes = [element attributes]; 
+                NSString *action = [attributes objectForKey:@"action"];
+                NSLog(@"%@", action);
+                //ignore search
+                if(![action isEqualToString:@"/search"]){
+                    shotPath = [attributes objectForKey:@"action"];
+                    break;
+                }
+            }
+        }
+    }
+    [xpathParser release];
+    
+    return shotPath;
 }
 
 #pragma -
@@ -187,105 +298,68 @@
 -(void)shootWithFileName:(NSString *)fileName andData:(NSData *)fileData withUserInfo:(id)userInfo{
     NSError *error = nil;
     if([self login]){
-        //Why is this not working?
-        // - content type is text/http not text/http; charset=urf-8
-        // - content length seems smaller
-        // - Accept header is */* not application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-        // - Cookie information is being sent via the header but I don't know much about this
-        
-        //Upload image
-        NSString *newline = @"\r\n";
-        NSString *boundry = [self boundryString];
-        //boundries lead with --
-        NSString *boundryHeader = [NSString stringWithFormat:@"--%@", boundry];
-        NSURL *shotsURL = [NSURL URLWithString:@"http://dribbble.com/shots"];
-        
-        //build the authenticity_token section
-        NSMutableArray *authenticityArray = [[NSMutableArray alloc] init];
-        [authenticityArray addObject:boundryHeader];
-        [authenticityArray addObject:@"Content-Disposition: form-data; name=\"authenticity_token\""];
-        [authenticityArray addObject:@""];
-        [authenticityArray addObject:self._authenticationToken];
-        [authenticityArray addObject:@""];
-        NSString *authenticityString = [authenticityArray componentsJoinedByString:newline];
-        [authenticityArray release];
-        
-        //build the image section
-        NSMutableArray *uploadArray = [[NSMutableArray alloc] init];
-        [uploadArray addObject:boundryHeader];
-        [uploadArray addObject:[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"screenshot[file]\"; filename=\"%@\"", fileName]];
-        [uploadArray addObject:@"Content-Type: image/png"];
-        [uploadArray addObject:newline];
-        NSString *uploadString = [uploadArray componentsJoinedByString:newline];
-        [uploadArray release];        
-        
-        //add the sections to the body, then add the image data
-        NSMutableData *body = [[NSMutableData alloc] init];
-        [body appendData:[authenticityString dataUsingEncoding:NSUTF8StringEncoding]];
-        [body appendData:[uploadString dataUsingEncoding:NSUTF8StringEncoding]];
-        
-        //The header data looks correct
-        NSLog(@"body:\n%@", [[[NSString alloc] initWithData:body encoding:NSUTF8StringEncoding] autorelease]);
-        
-        [body appendData:fileData];//For now add this here or else we can't log the data
-        [body appendData:[newline dataUsingEncoding:NSUTF8StringEncoding]];
-        [body appendData:[boundryHeader dataUsingEncoding:NSUTF8StringEncoding]];
-        [body appendData:[@"--" dataUsingEncoding:NSUTF8StringEncoding]];//Marks the end
-        
-        //setup the request
-        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:shotsURL 
-                                                                    cachePolicy:NSURLRequestReloadIgnoringCacheData 
-                                                                timeoutInterval:20.0f];
-        [request setHTTPMethod:@"POST"];
-        [request setValue:[NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundry] forHTTPHeaderField:@"Content-Type"];
-        [request setValue:@"http://dribbble.com/shots/new" forHTTPHeaderField:@"Referer"];
-        [request setValue:@"http://dribbble.com" forHTTPHeaderField:@"Origin"];//is this needed
-        [request setValue:[NSString stringWithFormat:@"%d", [body length]] forHTTPHeaderField:@"Content-Length"];
-        [request setHTTPBody:body];
-        
-        NSLog(@"header:\n%@", [request allHTTPHeaderFields]);
-        
-        //is this needed
-        NSURL *root = [NSURL URLWithString:@"http://dribbble.com"];
-        NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:root];
-        NSDictionary *headers = [NSHTTPCookie requestHeaderFieldsWithCookies:cookies];
-        [request setAllHTTPHeaderFields:headers];
-        
-        //make request
-        NSError *uploadError = nil;
-        NSURLResponse *response;
-        NSData *data = [NSURLConnection sendSynchronousRequest:request
-                                             returningResponse:&response
-                                                         error:&uploadError];
-        
-        NSLog(@"html:\n%@", [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease]);
-        
-        //check what we got back
-        TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:data];
-        NSArray *elements  = [xpathParser search:@"//title"];
-        if(elements && [elements count] > 0){
-            NSString *title = [[elements objectAtIndex:0] content];
-            NSLog(@"upload: %@", title);
-            if([title isEqualToString:@"Sorry, something went wrong and we're looking into it. (500)"]){
-                error = [NSError errorWithDomain:@"DribbbleEngine" code:100 
-                                        userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
-                                                  @"Upload failed", NSLocalizedDescriptionKey, nil]];  
+        NSString *shotPath = [self uploadImageWithFileName:fileName andData:fileData];
+        if(shotPath){
+            //publish shot
+            NSString *shotURLString = [NSString stringWithFormat:@"http://dribbble.com%@", shotPath];
+            NSLog(@"shot url: %@", shotURLString);
+            NSURL *shotURL = [NSURL URLWithString:shotURLString];
+            NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:shotURL
+                                                                        cachePolicy:NSURLRequestReloadIgnoringCacheData 
+                                                                    timeoutInterval:20.0f]; 
+            [request setHTTPMethod:@"POST"];
+            
+            NSString *bodyString = [self urlEncodeArgs:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                        @"put", @"_method",
+                                                        @"true", @"publish",
+                                                        [fileName stringByDeletingPathExtension], @"screenshot[title]",
+                                                        @"", @"screenshot[tag_list]",
+                                                        @"", @"screenshot[introductory_comment_text]",
+                                                        @"Publish", @"commit",
+                                                        self._authenticationToken, @"authenticity_token", 
+                                                        nil]];
+            
+            NSData *body = [bodyString dataUsingEncoding:NSUTF8StringEncoding];
+            [request setValue:[NSString stringWithFormat:@"%d", [body length]] forHTTPHeaderField:@"Content-Length"];
+            [request setValue:[NSString stringWithFormat:@"%@/edit", shotURL] forHTTPHeaderField:@"Referer"];            
+            [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+            [request setHTTPBody:body];
+            
+            NSError *publishError = nil;
+            NSURLResponse *response;
+            NSData *data = [NSURLConnection sendSynchronousRequest:request
+                                                 returningResponse:&response
+                                                             error:&publishError];
+            [request release];
+            
+            BOOL didPublish = YES;
+            TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:data];
+            NSArray *titleElements  = [xpathParser search:@"//title"];
+            if(titleElements && [titleElements count] > 0){
+                NSString *title = [[titleElements objectAtIndex:0] content];
+                NSLog(@"published: %@", title);
+                if([title isEqualToString:@"Sorry, something went wrong and we're looking into it. (500)"]){
+                    didPublish = NO;
+                }
             }
-        }
-        [xpathParser release];
-        
-        [body release];
-        [request release];
-    }else{
-        error = [NSError errorWithDomain:@"DribbbleEngine" code:100 
-                                userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
-                                          @"Login failed", NSLocalizedDescriptionKey, nil]];            
+            [xpathParser release];
+            
+            if(didPublish){
+                DBWebItem *webItem = [[DBWebItem alloc] init];
+                webItem.name = fileName;
+                webItem.URL = shotURL;
+                [self.delegate dribbbleShotUploadDidSucceedWithResultingItem:webItem connectionIdentifier:self._authenticationToken userInfo:userInfo]; 
+                [webItem release];
+            }else{
+                error = UploadError;
+            }
+        }else{
+            error = LoginError;            
+        }            
     }
     
     if(error){
         [self.delegate dribbbleRequestDidFailWithError:error connectionIdentifier:self._authenticationToken userInfo:userInfo];
-    }else{
-        [self.delegate dribbbleShotUploadDidSucceedWithResultingItem:nil connectionIdentifier:self._authenticationToken userInfo:userInfo];
     }
 }
 
