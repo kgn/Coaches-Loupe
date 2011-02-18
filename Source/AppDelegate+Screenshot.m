@@ -36,7 +36,7 @@
 }
 
 - (void)screenshotUploadedWithName:(NSString *)name toURL:(NSURL *)url forAction:(NSString *)action{
-    [self doneWithUploadCourt];
+    [self performSelectorOnMainThread:@selector(doneWithUploadCourt) withObject:nil waitUntilDone:YES];
     
     //copy to pasteboard
     NSString *urlString = [url absoluteString];
