@@ -29,12 +29,15 @@
     @private
     NSString *_authenticationToken;
     BOOL _isLoggedin;
+    
+    NSOperationQueue *operationQueue;
 }
 
 @property (copy, nonatomic) NSString *username, *password;
 @property (assign) id<DribbbleEngineDelegate> delegate;
 @property (copy, nonatomic) NSString *_authenticationToken;
 @property (nonatomic) BOOL _isLoggedin;
+@property (retain) NSOperationQueue *operationQueue;
 
 + (id)engine;
 + (id)engineWithDelegate:(id<DribbbleEngineDelegate>)aDelegate;

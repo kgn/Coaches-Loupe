@@ -29,6 +29,7 @@
 @synthesize _authenticationToken;
 @synthesize _isLoggedin;
 @synthesize delegate;
+@synthesize operationQueue;
 
 #pragma -
 #pragma url/http stuff
@@ -256,46 +257,11 @@
     return shotPath;
 }
 
-#pragma -
-#pragma Public
-
-- (void)setUsername:(NSString *)newUsername{
-    if(![self.username isEqualToString:newUsername]){
-        [username autorelease];
-        username = [newUsername retain];
-        self._isLoggedin = NO;
-    }
-}
-
-- (void)setPassword:(NSString *)newPassword{
-    if(![self.password isEqualToString:newPassword]){
-        [password autorelease];
-        password = [newPassword retain];
-        self._isLoggedin = NO;
-    }
-}
-
-- (id)initWithDelegate:(id<DribbbleEngineDelegate>)aDelegate{
-    if((self = [super init])){
-        self.delegate = aDelegate;
-        self._authenticationToken = nil;
-    }
-    return self;
-}
-
-+ (id)engine{
-	return [[[[self class] alloc] init] autorelease];
-}
-
-+ (id)engineWithDelegate:(id<DribbbleEngineDelegate>)aDelegate{
-	return [[[[self class] alloc] initWithDelegate:aDelegate] autorelease];
-}
-
-- (BOOL)isReady{
-	return self.username != nil && [self.username length] > 0 && self.password != nil && [self.password length] > 0;
-}
-
--(void)shootWithFileName:(NSString *)fileName andData:(NSData *)fileData withUserInfo:(id)userInfo{
+-(void)synchronousShootWithData:(NSDictionary *)shotData{
+    NSString *fileName = [shotData objectForKey:@"fileName"];
+    NSData *fileData = [shotData objectForKey:@"fileData"];
+    id userInfo = [shotData objectForKey:@"userInfo"];
+    
     NSError *error = nil;
     if([self login]){
         NSString *shotPath = [self uploadImageWithFileName:fileName andData:fileData];
@@ -361,6 +327,61 @@
     if(error){
         [self.delegate dribbbleRequestDidFailWithError:error connectionIdentifier:self._authenticationToken userInfo:userInfo];
     }
+}
+
+#pragma -
+#pragma Public
+
+- (void)setUsername:(NSString *)newUsername{
+    if(![self.username isEqualToString:newUsername]){
+        [username autorelease];
+        username = [newUsername retain];
+        self._isLoggedin = NO;
+    }
+}
+
+- (void)setPassword:(NSString *)newPassword{
+    if(![self.password isEqualToString:newPassword]){
+        [password autorelease];
+        password = [newPassword retain];
+        self._isLoggedin = NO;
+    }
+}
+
+- (id)initWithDelegate:(id<DribbbleEngineDelegate>)aDelegate{
+    if((self = [super init])){
+        self.delegate = aDelegate;
+        self._authenticationToken = nil;
+        
+        self.operationQueue = [[NSOperationQueue alloc] init];
+        [self.operationQueue setMaxConcurrentOperationCount:1];        
+    }
+    return self;
+}
+
++ (id)engine{
+	return [[[[self class] alloc] init] autorelease];
+}
+
++ (id)engineWithDelegate:(id<DribbbleEngineDelegate>)aDelegate{
+	return [[[[self class] alloc] initWithDelegate:aDelegate] autorelease];
+}
+
+- (BOOL)isReady{
+	return self.username != nil && [self.username length] > 0 && self.password != nil && [self.password length] > 0;
+}
+
+-(void)shootWithFileName:(NSString *)fileName andData:(NSData *)fileData withUserInfo:(id)userInfo{
+    NSDictionary *shotData = [NSDictionary dictionaryWithObjectsAndKeys:
+                              fileName, @"fileName",
+                              fileData, @"fileData",
+                              userInfo, @"userInfo",
+                              nil];
+    NSInvocationOperation *operation = [[NSInvocationOperation alloc] initWithTarget:self 
+                                                                            selector:@selector(synchronousShootWithData:) 
+                                                                              object:shotData];
+    [self.operationQueue addOperation:operation];
+    [operation release];
 }
 
 - (void)dealloc{
