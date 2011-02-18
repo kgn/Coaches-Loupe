@@ -70,7 +70,7 @@
     }
     NSString *argsAndValuesString = [argsAndValues componentsJoinedByString:@"&"];
     [argsAndValues release];
-    NSLog(@"args: %@", argsAndValuesString);
+    
     return argsAndValuesString;
 }
 
@@ -99,7 +99,6 @@
         //make sure we have the right node
         if([[attributes objectForKey:@"name"] isEqualToString:@"authenticity_token"]){
             token = [attributes objectForKey:@"value"];
-            NSLog(@"token: %@", [attributes objectForKey:@"value"]);
         }
     }
     
@@ -142,7 +141,6 @@
         NSArray *elements  = [xpathParser search:@"//title"];
         if(elements && [elements count] > 0){
             TFHppleElement *element = [elements objectAtIndex:0];
-            NSLog(@"login: %@", [element content]);
             //login succeeded
             if([[element content] isEqualToString:@"Dribbble - What are you working on?"]){
                 self._isLoggedin = YES;
@@ -182,12 +180,8 @@
     //add the sections to the body, then add the image data
     NSMutableData *body = [[NSMutableData alloc] init];
     [body appendData:[authenticityString dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[uploadString dataUsingEncoding:NSUTF8StringEncoding]];
-    
-    //The header data looks correct
-    NSLog(@"body:\n%@", [[[NSString alloc] initWithData:body encoding:NSUTF8StringEncoding] autorelease]);
-    
-    [body appendData:fileData];//For now add this here or else we can't log the data
+    [body appendData:[uploadString dataUsingEncoding:NSUTF8StringEncoding]];    
+    [body appendData:fileData];
     [body appendData:[newline dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[boundryHeader dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[@"--" dataUsingEncoding:NSUTF8StringEncoding]];//Marks the end
@@ -202,8 +196,6 @@
     [request setValue:@"http://dribbble.com" forHTTPHeaderField:@"Origin"];//is this needed
     [request setValue:[NSString stringWithFormat:@"%d", [body length]] forHTTPHeaderField:@"Content-Length"];
     [request setHTTPBody:body];
-    
-    NSLog(@"header:\n%@", [request allHTTPHeaderFields]);
     
     //is this needed
     NSURL *root = [NSURL URLWithString:@"http://dribbble.com"];
@@ -227,7 +219,6 @@
     NSArray *titleElements  = [xpathParser search:@"//title"];
     if(titleElements && [titleElements count] > 0){
         NSString *title = [[titleElements objectAtIndex:0] content];
-        NSLog(@"upload: %@", title);
         if([title isEqualToString:@"Sorry, something went wrong and we're looking into it. (500)"]){
             didUpload = NO;
         }
@@ -243,7 +234,6 @@
             for(TFHppleElement *element in formElements){
                 NSDictionary *attributes = [element attributes]; 
                 NSString *action = [attributes objectForKey:@"action"];
-                NSLog(@"%@", action);
                 //ignore search
                 if(![action isEqualToString:@"/search"]){
                     shotPath = [attributes objectForKey:@"action"];
@@ -268,7 +258,6 @@
         if(shotPath){
             //publish shot
             NSString *shotURLString = [NSString stringWithFormat:@"http://dribbble.com%@", shotPath];
-            NSLog(@"shot url: %@", shotURLString);
             NSURL *shotURL = [NSURL URLWithString:shotURLString];
             NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:shotURL
                                                                         cachePolicy:NSURLRequestReloadIgnoringCacheData 
@@ -303,7 +292,6 @@
             NSArray *titleElements  = [xpathParser search:@"//title"];
             if(titleElements && [titleElements count] > 0){
                 NSString *title = [[titleElements objectAtIndex:0] content];
-                NSLog(@"published: %@", title);
                 if([title isEqualToString:@"Sorry, something went wrong and we're looking into it. (500)"]){
                     didPublish = NO;
                 }
