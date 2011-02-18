@@ -1,9 +1,11 @@
 Coaches Loupe
 ========
 
-*This is still in early alpha, it currently only saves shots to the desktop and uploads to [CloudApp](http://getcloudapp.com).*
+**Coaches Loupe** uploads screenshots to [Dribbble(http://dribbble.com)] and [CloudApp](http://getcloudapp.com).
 
-[http://coachesloupe.com/](http://coachesloupe.com/ "Coaches Loupe")
+*This is still in alpha, but give it a shot!*
+
+[http://coachesloupe.com](http://coachesloupe.com "Coaches Loupe")
 
 Head Coach [Ian Tearle](http://iantearle.com)
 
