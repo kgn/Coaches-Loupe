@@ -33,7 +33,7 @@
 
 - (void)showUploadCourtWithAnimation:(BOOL)animation withImage:(NSImage *)image{
     [self.uploadView setAlphaValue:0.0f];
-    self.uploadViewLabel.stringValue = @"Driving to the basket...";
+    self.uploadViewLabel.stringValue = @"Drivin' to the net...";
     self.uploadViewImage.image = image;
     [self.loupe addSubview:self.uploadView];
     if(animation){
