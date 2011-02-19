@@ -1,9 +1,9 @@
 Coaches Loupe
 ========
 
-**Coaches Loupe** uploads screenshots to [Dribbble(http://dribbble.com)] and [CloudApp](http://getcloudapp.com).
+Uploads screenshots to [Dribbble](http://dribbble.com) and [CloudApp](http://getcloudapp.com).
 
-*This is still in alpha, but give it a shot!*
+*This is still in beta, but give it a shot!*
 
 [http://coachesloupe.com](http://coachesloupe.com "Coaches Loupe")
 
