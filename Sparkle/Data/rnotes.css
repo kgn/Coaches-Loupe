@@ -1,0 +1,37 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	font-family: "Lucida Grande", Arial, sans-serif;
+	font-size: 11px;
+	margin: 12px;
+}
+
+h1{
+    font-size: 17px;
+    margin-bottom: 4px;
+}
+
+ul{
+	margin-bottom: 12px;
+}
+
+li{
+	border: dotted 1px #ccc;
+	list-style-type: none;
+	margin-bottom: 10px;
+}
+
+li>h2{
+	font-size: 13px;
+	font-weight: bold;
+	background-color: #e6edff;
+	padding: 3px 6px;
+}
+
+li>span{
+	padding: 6px;
+	display: block;
+}

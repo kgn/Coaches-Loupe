@@ -3,3 +3,7 @@ build
 *.pbxuser
 *.perspectivev3
 xcuserdata
+*.zip
+*.app
+dsa_priv.pem
+*.pyc

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/">
+	<channel>
+		<title>Coaches Loupe Updates</title>
+		<link>http://appcast.inscopeapps.com/CoachesLoupe/Appcast.xml</link>
+		<description>AppCast updates for Coaches Loupe</description>
+		<language>en</language>
+
+		<item>
+			<title>Version 0.4</title>
+			<sparkle:releaseNotesLink>http://appcast.inscopeapps.com/CoachesLoupe/0.4.html</sparkle:releaseNotesLink>
+			<pubDate>Sat, 19 Feb 2011 10:39:30 -0800</pubDate>
+			<enclosure url="https://github.com/downloads/InScopeApps/Coaches-Loupe/CoachesLoupe-0.4.zip"
+				sparkle:version="6"
+				sparkle:shortVersionString="0.4"
+				sparkle:dsaSignature="MCwCFDb/ocCjJ2TfGrkJTbFQYYY3GsFMAhQBPtpLi5u4pPTU56uQer/xUJCr+w=="
+				length="1352223"
+				type="application/octet-stream"/>
+		</item>
+
+	</channel>
+</rss>
