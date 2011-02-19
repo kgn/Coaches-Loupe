@@ -28,3 +28,4 @@ Libraries used:
 * [AGKeychain](http://homepage.mac.com/agerson/examples/keychain)
 * [Hpple](https://github.com/topfunky/hpple)
 * [Growl](http://growl.info)
+* [Sparkle](http://sparkle.andymatuschak.org)
