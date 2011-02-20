@@ -38,21 +38,26 @@
 - (void)screenshotUploadedWithName:(NSString *)name toURL:(NSURL *)url forAction:(NSString *)action{
     [self performSelectorOnMainThread:@selector(doneWithUploadCourt) withObject:nil waitUntilDone:YES];
     
-    //copy to pasteboard
     NSString *urlString = [url absoluteString];
     NSString *htmlString = [NSString stringWithFormat:@"<a href=\"%@\">%@</a>", urlString, name];
-    NSPasteboard *pasteboard = [NSPasteboard generalPasteboard];
-    [pasteboard declareTypes:[NSArray arrayWithObjects:NSHTMLPboardType, NSPasteboardTypeString, nil] owner:nil];
-    [pasteboard setString:htmlString forType:NSHTMLPboardType];
-    [pasteboard setString:urlString forType:NSPasteboardTypeString];
     
+    //copy to pasteboard
+    if(UserDefaultCopyToClipboardValue){
+        NSPasteboard *pasteboard = [NSPasteboard generalPasteboard];
+        [pasteboard declareTypes:[NSArray arrayWithObjects:NSHTMLPboardType, NSPasteboardTypeString, nil] owner:nil];
+        [pasteboard setString:htmlString forType:NSHTMLPboardType];
+        [pasteboard setString:urlString forType:NSPasteboardTypeString];
+    }
+    
+    //play sound
     if(UserDefaultPlaySoundValue){
         [[NSSound soundNamed:UserDefaultDoneSoundValue] play];
     }
     
+    //display growl notification
     if(UserDefaultGrowlValue){
         [GrowlApplicationBridge notifyWithTitle:action
-                                    description:urlString 
+                                    description:name 
                                notificationName:AppName
                                        iconData:nil 
                                        priority:0 

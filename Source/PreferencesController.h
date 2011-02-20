@@ -20,6 +20,9 @@
 #define UserDefaultGrowlKey @"useGrowl"
 #define UserDefaultGrowlValue [[NSUserDefaults standardUserDefaults] valueForKey:UserDefaultGrowlKey]
 
+#define UserDefaultCopyToClipboardKey @"copyToClipboard"
+#define UserDefaultCopyToClipboardValue [[NSUserDefaults standardUserDefaults] valueForKey:UserDefaultCopyToClipboardKey]
+
 #define UserDefaultDribbbleUserKey @"dribbbleUser"
 #define UserDefaultDribbbleUserValue [[NSUserDefaults standardUserDefaults] valueForKey:UserDefaultDribbbleUserKey]
 
@@ -32,6 +35,7 @@
     NSSecureTextField *cloudPassword;
     NSSecureTextField *dribbblePassword;
     NSView *generalView;
+    NSView *updatesView;
     NSArray *sounds;
 }
 
@@ -40,6 +44,7 @@
 @property (assign) IBOutlet NSSecureTextField *cloudPassword;
 @property (assign) IBOutlet NSSecureTextField *dribbblePassword;
 @property (assign) IBOutlet NSView *generalView;
+@property (assign) IBOutlet NSView *updatesView;
 
 @property (nonatomic, retain) NSArray *sounds;
 

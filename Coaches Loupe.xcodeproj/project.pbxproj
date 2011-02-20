@@ -68,6 +68,7 @@
 		738FD3A213091D380064C037 /* dribbble_upload.png in Resources */ = {isa = PBXBuildFile; fileRef = 738FD3A013091D380064C037 /* dribbble_upload.png */; };
 		73C3FA811309FFB9008B661F /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 73C3FA801309FFB8008B661F /* libxml2.2.dylib */; };
 		73CAA4F7130A1CC50032A4E3 /* DribbbleEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 73CAA4F6130A1CC50032A4E3 /* DribbbleEngine.m */; };
+		73CF61A513109371005BADF3 /* updates_toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CF61A413109371005BADF3 /* updates_toolbar.png */; };
 		73D57C3713052E3600440072 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 73D57C3613052E3600440072 /* main.m */; };
 		73D57C3D13052E3600440072 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 73D57C3C13052E3600440072 /* AppDelegate.m */; };
 		73DAAF7D130900D800814EA2 /* court_button_alt.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DAAF7A130900D800814EA2 /* court_button_alt.png */; };
@@ -202,6 +203,7 @@
 		73C3FA801309FFB8008B661F /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = /usr/lib/libxml2.2.dylib; sourceTree = "<absolute>"; };
 		73CAA4F5130A1CC50032A4E3 /* DribbbleEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DribbbleEngine.h; sourceTree = "<group>"; };
 		73CAA4F6130A1CC50032A4E3 /* DribbbleEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DribbbleEngine.m; sourceTree = "<group>"; };
+		73CF61A413109371005BADF3 /* updates_toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = updates_toolbar.png; sourceTree = "<group>"; };
 		73D57C2513052E3600440072 /* Coaches Loupe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Coaches Loupe.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		73D57C3113052E3600440072 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		73D57C3613052E3600440072 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -406,6 +408,7 @@
 		739DC8CA13052FDA00F12692 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				73CF61A413109371005BADF3 /* updates_toolbar.png */,
 				738FD39F13091D380064C037 /* cloud_upload.png */,
 				738FD3A013091D380064C037 /* dribbble_upload.png */,
 				73DAAF7A130900D800814EA2 /* court_button_alt.png */,
@@ -525,6 +528,7 @@
 			};
 			buildConfigurationList = 73D57C1F13052E3600440072 /* Build configuration list for PBXProject "Coaches Loupe" */;
 			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -561,6 +565,7 @@
 				738FD3A113091D380064C037 /* cloud_upload.png in Resources */,
 				738FD3A213091D380064C037 /* dribbble_upload.png in Resources */,
 				7351091D131038BC000AAC5D /* dsa_pub.pem in Resources */,
+				73CF61A513109371005BADF3 /* updates_toolbar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

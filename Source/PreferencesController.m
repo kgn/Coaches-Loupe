@@ -14,6 +14,7 @@
 @synthesize cloudPassword;
 @synthesize dribbblePassword;
 @synthesize generalView;
+@synthesize updatesView;
 
 @synthesize sounds;
 
@@ -52,6 +53,7 @@
     [self addView:self.generalView label:@"General" image:[NSImage imageNamed:@"switch_toolbar.png"]];
 	[self addView:self.cloudView label:@"CloudApp" image:[NSImage imageNamed:@"cloud_toolbar.png"]];
     [self addView:self.dribbbleView label:@"Dribbble" image:[NSImage imageNamed:@"dribbble_toolbar.png"]];
+    [self addView:self.updatesView label:@"Updates" image:[NSImage imageNamed:@"updates_toolbar.png"]];
 	
 	[self setShiftSlowsAnimation:YES];
     [self setCrossFade:YES];
@@ -78,6 +80,7 @@
                                             @"Glass", UserDefaultDoneSoundKey, 
                                             [NSNumber numberWithBool:YES], UserDefaultPlaySoundKey,
                                             [NSNumber numberWithBool:YES], UserDefaultGrowlKey,
+                                            [NSNumber numberWithBool:YES], UserDefaultCopyToClipboardKey,
                                             nil];
     
     [[NSUserDefaults standardUserDefaults] registerDefaults:userDefaultsDictionary];
