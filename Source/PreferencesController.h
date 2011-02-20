@@ -18,10 +18,10 @@
 #define UserDefaultDoneSoundValue [[NSUserDefaults standardUserDefaults] valueForKey:UserDefaultDoneSoundKey]
 
 #define UserDefaultGrowlKey @"useGrowl"
-#define UserDefaultGrowlValue [[NSUserDefaults standardUserDefaults] valueForKey:UserDefaultGrowlKey]
+#define UserDefaultGrowlValue [[[NSUserDefaults standardUserDefaults] valueForKey:UserDefaultGrowlKey] boolValue]
 
 #define UserDefaultCopyToClipboardKey @"copyToClipboard"
-#define UserDefaultCopyToClipboardValue [[NSUserDefaults standardUserDefaults] valueForKey:UserDefaultCopyToClipboardKey]
+#define UserDefaultCopyToClipboardValue [[[NSUserDefaults standardUserDefaults] valueForKey:UserDefaultCopyToClipboardKey] boolValue]
 
 #define UserDefaultDribbbleUserKey @"dribbbleUser"
 #define UserDefaultDribbbleUserValue [[NSUserDefaults standardUserDefaults] valueForKey:UserDefaultDribbbleUserKey]
