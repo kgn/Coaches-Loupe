@@ -12,11 +12,11 @@
 
 @interface DBWebItem : NSObject {
     NSString *name;
-    NSURL *URL;
+    NSURL *URL, *shortURL;
 }
 
 @property (copy, nonatomic) NSString *name;
-@property (copy, nonatomic) NSURL *URL;
+@property (copy, nonatomic) NSURL *URL, *shortURL;
 
 @end
 

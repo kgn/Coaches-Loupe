@@ -19,7 +19,7 @@
 @implementation DBWebItem
 
 @synthesize name;
-@synthesize URL;
+@synthesize URL, shortURL;
 
 @end
 
@@ -296,17 +296,33 @@
                     didPublish = NO;
                 }
             }
-            [xpathParser release];
             
             if(didPublish){
+                //find the short url
+                NSString *shortURL = nil;
+                NSArray *inputElements  = [xpathParser search:@"//form/fieldset/input"];
+                if(inputElements && [inputElements count] > 0){
+                    TFHppleElement *element = [inputElements objectAtIndex:0];
+                    NSDictionary *attributes = [element attributes];                     
+                    shortURL = [attributes objectForKey:@"value"];
+                }
+                
+                //build the web item
                 DBWebItem *webItem = [[DBWebItem alloc] init];
                 webItem.name = fileName;
                 webItem.URL = shotURL;
+                if(shortURL){
+                    webItem.shortURL = [NSURL URLWithString:shortURL];
+                }
+                
                 [self.delegate dribbbleShotUploadDidSucceedWithResultingItem:webItem connectionIdentifier:self._authenticationToken userInfo:userInfo]; 
+                
                 [webItem release];
             }else{
                 error = UploadError;
             }
+            
+            [xpathParser release];
         }else{
             error = UploadError;
         }

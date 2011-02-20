@@ -79,7 +79,7 @@
 - (CGImageRef)shotImageRef;
 - (NSData *)shotData;
 - (NSString *)shotName;
-- (void)screenshotUploadedWithName:(NSString *)name toURL:(NSURL *)url forAction:(NSString *)action;
+- (void)screenshotUploadedWithName:(NSString *)name toURL:(NSURL *)url withShortURL:(NSURL*)shortURL forAction:(NSString *)action;
 
 @end
 

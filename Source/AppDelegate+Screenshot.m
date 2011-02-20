@@ -35,18 +35,24 @@
     return filename;
 }
 
-- (void)screenshotUploadedWithName:(NSString *)name toURL:(NSURL *)url forAction:(NSString *)action{
+- (void)screenshotUploadedWithName:(NSString *)name toURL:(NSURL *)url withShortURL:(NSURL*)shortURL forAction:(NSString *)action{
     [self performSelectorOnMainThread:@selector(doneWithUploadCourt) withObject:nil waitUntilDone:YES];
     
+    if(shortURL == nil){
+        shortURL = url;
+    }
+    
     NSString *urlString = [url absoluteString];
-    NSString *htmlString = [NSString stringWithFormat:@"<a href=\"%@\">%@</a>", urlString, name];
+    NSString *shortUrlString = [shortURL absoluteString];    
     
     //copy to pasteboard
     if(UserDefaultCopyToClipboardValue){
+        NSString *htmlString = [NSString stringWithFormat:@"<a href=\"%@\">%@</a>", shortUrlString, name];
+        
         NSPasteboard *pasteboard = [NSPasteboard generalPasteboard];
         [pasteboard declareTypes:[NSArray arrayWithObjects:NSHTMLPboardType, NSPasteboardTypeString, nil] owner:nil];
         [pasteboard setString:htmlString forType:NSHTMLPboardType];
-        [pasteboard setString:urlString forType:NSPasteboardTypeString];
+        [pasteboard setString:shortUrlString forType:NSPasteboardTypeString];
     }
     
     //play sound
