@@ -7,14 +7,14 @@
 		<language>en</language>
 
 		<item>
-			<title>Version 0.4</title>
-			<sparkle:releaseNotesLink>http://appcast.inscopeapps.com/CoachesLoupe/0.4.html</sparkle:releaseNotesLink>
-			<pubDate>Sat, 19 Feb 2011 10:39:30 -0800</pubDate>
-			<enclosure url="https://github.com/downloads/InScopeApps/Coaches-Loupe/CoachesLoupe-0.4.zip"
-				sparkle:version="6"
-				sparkle:shortVersionString="0.4"
-				sparkle:dsaSignature="MCwCFDb/ocCjJ2TfGrkJTbFQYYY3GsFMAhQBPtpLi5u4pPTU56uQer/xUJCr+w=="
-				length="1352223"
+			<title>Version 0.5</title>
+			<sparkle:releaseNotesLink>http://appcast.inscopeapps.com/CoachesLoupe/0.5.html</sparkle:releaseNotesLink>
+			<pubDate>Sat, 19 Feb 2011 16:49:23 -0800</pubDate>
+			<enclosure url="https://github.com/downloads/InScopeApps/Coaches-Loupe/CoachesLoupe-0.5.zip"
+				sparkle:version="7"
+				sparkle:shortVersionString="0.5"
+				sparkle:dsaSignature="MC0CFQCIbMtDPhST3JRGy/+kjb77K7T+cwIUIHiKtN8XFnz/hLc2n854VKCOlKY="
+				length="1362276"
 				type="application/octet-stream"/>
 		</item>
 
