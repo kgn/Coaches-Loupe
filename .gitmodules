@@ -1,0 +1,3 @@
+[submodule "Source/BBBouncePass"]
+	path = Source/BBBouncePass
+	url = git@github.com:InScopeApps/BBBouncePass.git
