@@ -18,7 +18,7 @@
      andAuthenticityToken:(NSString *)authenticityToken;
 
 //Upload an image to dribbble, the image is not published.
-//Returns the shot path, if nil is returned the uploaded failed.
+//Returns the shot path, if nil is returned the upload failed.
 + (NSString *)uploadImageWithName:(NSString *)imageName 
                           andData:(NSData *)imageData 
             withAuthenticityToken:(NSString *)authenticityToken;
