@@ -103,7 +103,7 @@
 }
 
 #pragma -
-#pragma Public
+#pragma Setters
 
 - (void)setUsername:(NSString *)newUsername{
     if(![self.username isEqualToString:newUsername]){
@@ -120,6 +120,9 @@
         self._isLoggedin = NO;
     }
 }
+
+#pragma -
+#pragma Public
 
 - (id)initWithDelegate:(id<BBBouncePassDelegate>)aDelegate{
     if((self = [super init])){

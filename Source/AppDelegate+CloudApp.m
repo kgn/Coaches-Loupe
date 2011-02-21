@@ -37,7 +37,10 @@ static NSImage *cloupUploadImage = nil;
 }
 
 - (void)fileUploadDidSucceedWithResultingItem:(CLWebItem *)item connectionIdentifier:(NSString *)connectionIdentifier userInfo:(id)userInfo{
-    [self screenshotUploadedWithName:item.name toURL:item.URL withShortURL:nil forAction:@"Screenshot precipitated"];
+    [self screenshotUploadedWithName:item.name 
+                               toURL:item.URL 
+                        withShortURL:nil 
+                           forAction:@"Screenshot precipitated"];
     self.isUploading = NO;    
 }
 

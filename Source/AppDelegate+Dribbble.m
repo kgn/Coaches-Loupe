@@ -42,7 +42,10 @@ static NSImage *dribbbleUploadImage = nil;
 }
 
 - (void)dribbbleShotUploadDidSucceedWithResultingShot:(BBBPShot *)shot authenticityToken:(NSString *)authenticityToken shotInfo:(NSDictionary *)shotInfo{
-    [self screenshotUploadedWithName:shot.name toURL:shot.URL withShortURL:shot.shortURL forAction:@"Screenshot dribbbled"];
+    [self screenshotUploadedWithName:shot.name 
+                               toURL:shot.URL 
+                        withShortURL:shot.shortURL 
+                           forAction:@"Screenshot dribbbled"];
     self.isUploading = NO;
 }
 

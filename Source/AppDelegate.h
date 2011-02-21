@@ -17,7 +17,10 @@
 
 #define AppName [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"]
 
-@interface AppDelegate : NSObject <NSApplicationDelegate, GrowlApplicationBridgeDelegate, BBBouncePassDelegate, CLAPIEngineDelegate> {
+@interface AppDelegate : NSObject <NSApplicationDelegate, 
+                                   GrowlApplicationBridgeDelegate, 
+                                   BBBouncePassDelegate, 
+                                   CLAPIEngineDelegate> {
     NSWindow *window;
     NSView *loupe;
     
@@ -79,7 +82,10 @@
 - (CGImageRef)shotImageRef;
 - (NSData *)shotData;
 - (NSString *)shotName;
-- (void)screenshotUploadedWithName:(NSString *)name toURL:(NSURL *)url withShortURL:(NSURL*)shortURL forAction:(NSString *)action;
+- (void)screenshotUploadedWithName:(NSString *)name 
+                             toURL:(NSURL *)url 
+                      withShortURL:(NSURL*)shortURL 
+                         forAction:(NSString *)action;
 
 @end
 
