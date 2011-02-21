@@ -8,9 +8,6 @@
 #import "BBBouncePass.h"
 #import "BBBPDribbble.h"
 
-//TODO: move this into BBBPDribbble
-#import "TFHpple.h"
-
 //TODO: set good error code
 #define BBBPLoginError [NSError errorWithDomain:@"DribbbleEngine" code:100 \
                     userInfo:[NSDictionary dictionaryWithObjectsAndKeys: \
