@@ -7,6 +7,7 @@
 
 #import "BBBouncePass.h"
 #import "BBBPDribbble.h"
+#import "NSString+BBBP.h"
 
 #define BBBPLoginError \
     [NSError errorWithDomain:NSURLErrorDomain \
@@ -98,7 +99,9 @@
         [delegateData setObject:BBBPLoginError forKey:@"object"];
     }
     
-    [self performSelectorOnMainThread:@selector(callDelegateOnMainThread:) withObject:delegateData waitUntilDone:YES];
+    [self performSelectorOnMainThread:@selector(callDelegateOnMainThread:) 
+                           withObject:delegateData 
+                        waitUntilDone:YES];
 }
 
 #pragma -
@@ -143,7 +146,7 @@
 }
 
 - (BOOL)isReady{
-	return self.username != nil && [self.username length] > 0 && self.password != nil && [self.password length] > 0;
+	return (![self.username isBlank] && ![self.password isBlank]);
 }
 
 -(void)shootImageNamed:(NSString *)imageName withData:(NSData *)imageData name:(NSString *)name tags:(NSArray *)tags andIntroductoryComment:(NSString *)introductoryComment{

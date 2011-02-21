@@ -10,6 +10,7 @@
 + (NSString *)HTTPPOSTBoundryStringWithPrefix:(NSString *)prefix;
 + (NSString *)urlEncodedStringForArgs:(NSDictionary *)args;
 
+- (BOOL)isBlank;
 - (NSString *)stringWithURLEncoding;
 
 @end
