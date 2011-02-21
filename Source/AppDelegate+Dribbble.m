@@ -27,16 +27,22 @@ static NSImage *dribbbleUploadImage = nil;
     self.isUploading = YES;
     dribbbleUploadImage = [NSImage imageNamed:@"dribbble_upload.png"];
     [self showUploadCourtWithAnimationWithImage:dribbbleUploadImage];
-	[self.dribbble shootWithFileName:[self shotName] andData:[self shotData] withUserInfo:nil];
+    NSString *imageName = [self shotName];
+    //TODO: get values from fields
+    [self.dribbble shootImageNamed:imageName 
+                          withData:[self shotData] 
+                              name:[imageName stringByDeletingPathExtension] 
+                              tags:nil 
+            andIntroductoryComment:nil];
 }
 
-- (void)dribbbleRequestDidFailWithError:(NSError *)error connectionIdentifier:(NSString *)connectionIdentifier userInfo:(id)userInfo{
+- (void)dribbbleRequestDidFailWithError:(NSError *)error authenticationToken:(NSString *)authenticationToken shotInfo:(NSDictionary *)shotInfo{
     [self showFailedCourtWithError:error];
     self.isUploading = NO;
 }
 
-- (void)dribbbleShotUploadDidSucceedWithResultingItem:(DBWebItem *)item connectionIdentifier:(NSString *)connectionIdentifier userInfo:(id)userInfo{
-    [self screenshotUploadedWithName:item.name toURL:item.URL withShortURL:item.shortURL forAction:@"Screenshot dribbbled"];
+- (void)dribbbleShotUploadDidSucceedWithResultingShot:(BBBPShot *)shot authenticationToken:(NSString *)authenticationToken shotInfo:(NSDictionary *)shotInfo{
+    [self screenshotUploadedWithName:shot.name toURL:shot.URL withShortURL:shot.shortURL forAction:@"Screenshot dribbbled"];
     self.isUploading = NO;
 }
 

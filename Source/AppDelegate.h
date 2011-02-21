@@ -9,7 +9,7 @@
 
 #import "Keychain.h"
 #import "CLAPIEngine.h"
-#import "DribbbleEngine.h"
+#import "BBBouncePass.h"
 #import "PreferencesController.h"
 
 #define frameThinOffset 21.0f
@@ -17,7 +17,7 @@
 
 #define AppName [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"]
 
-@interface AppDelegate : NSObject <NSApplicationDelegate, GrowlApplicationBridgeDelegate, DribbbleEngineDelegate, CLAPIEngineDelegate> {
+@interface AppDelegate : NSObject <NSApplicationDelegate, GrowlApplicationBridgeDelegate, BBBouncePassDelegate, CLAPIEngineDelegate> {
     NSWindow *window;
     NSView *loupe;
     
@@ -29,7 +29,7 @@
     NSTextField *failedViewSmallLabel;
     NSButton *failedViewButton;
     
-    DribbbleEngine *dribbble;
+    BBBouncePass *dribbble;
     BOOL canUploadToDribbble;
     
     CLAPIEngine *cloudApp;
@@ -52,7 +52,7 @@
 @property (assign) IBOutlet NSTextField *failedViewSmallLabel;
 @property (assign) IBOutlet NSButton *failedViewButton;
 
-@property (retain, nonatomic) DribbbleEngine *dribbble;
+@property (retain, nonatomic) BBBouncePass *dribbble;
 @property (nonatomic) BOOL canUploadToDribbble;
 
 @property (retain, nonatomic) CLAPIEngine *cloudApp;

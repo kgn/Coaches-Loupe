@@ -65,7 +65,7 @@
     [GrowlApplicationBridge setGrowlDelegate:self];
     
     //dribbble
-    self.dribbble = [DribbbleEngine engineWithDelegate:self];
+    self.dribbble = [BBBouncePass engineWithDelegate:self];
     [self setupDribbble];
     [[NSNotificationCenter defaultCenter] addObserver:self 
                                              selector:@selector(changeDribbblePassword:) 

@@ -36,7 +36,7 @@
 }
 
 - (void)screenshotUploadedWithName:(NSString *)name toURL:(NSURL *)url withShortURL:(NSURL*)shortURL forAction:(NSString *)action{
-    [self performSelectorOnMainThread:@selector(doneWithUploadCourt) withObject:nil waitUntilDone:YES];
+    [self doneWithUploadCourt];
     
     if(shortURL == nil){
         shortURL = url;
