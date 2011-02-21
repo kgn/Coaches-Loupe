@@ -8,15 +8,17 @@
 #import "BBBouncePass.h"
 #import "BBBPDribbble.h"
 
-//TODO: set good error code
-#define BBBPLoginError [NSError errorWithDomain:@"DribbbleEngine" code:100 \
+#define BBBPLoginError \
+    [NSError errorWithDomain:NSURLErrorDomain \
+                        code:NSURLErrorBadServerResponse \
                     userInfo:[NSDictionary dictionaryWithObjectsAndKeys: \
-                    @"Login failed", NSLocalizedDescriptionKey, nil]]
+                              @"Login failed", NSLocalizedDescriptionKey, nil]]
 
-//TODO: set good error code
-#define BBBPUploadError [NSError errorWithDomain:@"DribbbleEngine" code:100 \
+#define BBBPUploadError \
+    [NSError errorWithDomain:NSURLErrorDomain \
+                        code:NSURLErrorBadServerResponse \
                     userInfo:[NSDictionary dictionaryWithObjectsAndKeys: \
-                    @"Upload failed", NSLocalizedDescriptionKey, nil]]
+                              @"Upload failed", NSLocalizedDescriptionKey, nil]]
 
 @implementation BBBouncePass
 
