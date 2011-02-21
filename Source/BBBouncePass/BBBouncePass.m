@@ -24,7 +24,7 @@
 @implementation BBBouncePass
 
 @synthesize username, password;
-@synthesize _authenticationToken;
+@synthesize _authenticityToken;
 @synthesize _isLoggedin;
 @synthesize delegate;
 @synthesize operationQueue;
@@ -35,13 +35,13 @@
 - (void)login{
     if(![self isReady]){
         self._isLoggedin = NO;
-        self._authenticationToken = nil;
+        self._authenticityToken = nil;
     }
     if(!self._isLoggedin){
-        self._authenticationToken = [BBBPDribbble authenticationToken];
+        self._authenticityToken = [BBBPDribbble authenticityToken];
         self._isLoggedin = [BBBPDribbble loginWithUsername:self.username 
                                                   password:self.password 
-                                    andAuthenticationToken:self._authenticationToken];
+                                      andAuthenticityToken:self._authenticityToken];
     }
 }
 
@@ -50,15 +50,15 @@
     NSDictionary *shotInfo = [data objectForKey:@"shotInfo"];
     
     if([object isKindOfClass:[BBBPShot class]]){
-        if([self.delegate respondsToSelector:@selector(dribbbleShotUploadDidSucceedWithResultingShot:authenticationToken:shotInfo:)]){
+        if([self.delegate respondsToSelector:@selector(dribbbleShotUploadDidSucceedWithResultingShot:authenticityToken:shotInfo:)]){
             [self.delegate dribbbleShotUploadDidSucceedWithResultingShot:object 
-                                                     authenticationToken:self._authenticationToken 
+                                                       authenticityToken:self._authenticityToken 
                                                                 shotInfo:shotInfo];
         }
     }else if([object isKindOfClass:[NSError class]]){
-        if([self.delegate respondsToSelector:@selector(dribbbleRequestDidFailWithError:authenticationToken:shotInfo:)]){        
+        if([self.delegate respondsToSelector:@selector(dribbbleRequestDidFailWithError:authenticityToken:shotInfo:)]){        
             [self.delegate dribbbleRequestDidFailWithError:object 
-                                       authenticationToken:self._authenticationToken 
+                                         authenticityToken:self._authenticityToken 
                                                   shotInfo:shotInfo];
         }
     }
@@ -89,7 +89,7 @@
                                                      name:name
                                                      tags:tags
                                       introductoryComment:introductoryComment
-                                  withAuthenticationToken:self._authenticationToken];
+                                    withAuthenticityToken:self._authenticityToken];
         if(shot){
             [delegateData setObject:shot forKey:@"object"];
         }else{
@@ -124,7 +124,7 @@
 - (id)initWithDelegate:(id<BBBouncePassDelegate>)aDelegate{
     if((self = [super init])){
         self.delegate = aDelegate;
-        self._authenticationToken = nil;
+        self._authenticityToken = nil;
         
         self.operationQueue = [[NSOperationQueue alloc] init];
         [self.operationQueue setMaxConcurrentOperationCount:1];        

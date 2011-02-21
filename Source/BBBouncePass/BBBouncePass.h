@@ -16,7 +16,7 @@
     id<BBBouncePassDelegate> delegate;
     
     @private
-    NSString *_authenticationToken;
+    NSString *_authenticityToken;
     BOOL _isLoggedin;
     
     NSOperationQueue *operationQueue;
@@ -24,7 +24,7 @@
 
 @property (copy, nonatomic) NSString *username, *password;
 @property (assign) id<BBBouncePassDelegate> delegate;
-@property (copy, nonatomic) NSString *_authenticationToken;
+@property (copy, nonatomic) NSString *_authenticityToken;
 @property (nonatomic) BOOL _isLoggedin;
 @property (retain) NSOperationQueue *operationQueue;
 
@@ -48,10 +48,10 @@ andIntroductoryComment:(NSString *)introductoryComment;
 
 @optional
 - (void)dribbbleRequestDidFailWithError:(NSError *)error 
-                    authenticationToken:(NSString *)authenticationToken 
+                      authenticityToken:(NSString *)authenticityToken 
                                shotInfo:(NSDictionary *)shotInfo;
 - (void)dribbbleShotUploadDidSucceedWithResultingShot:(BBBPShot *)shot 
-                                  authenticationToken:(NSString *)authenticationToken 
+                                    authenticityToken:(NSString *)authenticityToken 
                                              shotInfo:(NSDictionary *)shotInfo;
 
 @end

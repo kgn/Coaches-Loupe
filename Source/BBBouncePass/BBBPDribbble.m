@@ -14,7 +14,7 @@
 @implementation BBBPDribbble
 
 //find the authenticity_token from the login page
-+ (NSString *)authenticationToken{
++ (NSString *)authenticityToken{
     NSError *error;
     NSURLResponse *response;    
     NSString *token = nil;
@@ -42,7 +42,7 @@
     return token;
 }
 
-+ (BOOL)loginWithUsername:(NSString *)username password:(NSString *)password andAuthenticationToken:(NSString *)authenticationToken{
++ (BOOL)loginWithUsername:(NSString *)username password:(NSString *)password andAuthenticityToken:(NSString *)authenticityToken{
     BOOL didLoggedin = NO;
     NSURL *sessionURL = [NSURL URLWithString:@"http://dribbble.com/session"];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:sessionURL 
@@ -50,7 +50,7 @@
                                                             timeoutInterval:20.0f]; 
     [request setHTTPMethod:@"POST"];
     NSString *htmlBodyString = [NSString urlEncodedStringForArgs:[NSDictionary dictionaryWithObjectsAndKeys:
-                                                                  authenticationToken, @"authenticity_token", 
+                                                                  authenticityToken, @"authenticity_token", 
                                                                   username, @"login",
                                                                   password, @"password",
                                                                   nil]];
@@ -81,7 +81,7 @@
     return didLoggedin;
 }
 
-+ (NSString *)uploadImageWithName:(NSString *)imageName andData:(NSData *)imageData withAuthenticationToken:(NSString *)authenticationToken{
++ (NSString *)uploadImageWithName:(NSString *)imageName andData:(NSData *)imageData withAuthenticityToken:(NSString *)authenticityToken{
     NSString *newline = @"\r\n";
     NSString *boundry = [NSString HTTPPOSTBoundryStringWithPrefix:BBBPHTTPPOSTBoundryPrefix];
     //boundries lead with --
@@ -93,7 +93,7 @@
     [authenticityArray addObject:boundryHeader];
     [authenticityArray addObject:@"Content-Disposition: form-data; name=\"authenticity_token\""];
     [authenticityArray addObject:@""];
-    [authenticityArray addObject:authenticationToken];
+    [authenticityArray addObject:authenticityToken];
     [authenticityArray addObject:@""];
     NSString *authenticityString = [authenticityArray componentsJoinedByString:newline];
     [authenticityArray release];
@@ -177,7 +177,7 @@
     return shotPath;
 }
 
-+ (BBBPShot *)publishShotAtPath:(NSString *)shotPath name:(NSString *)name tags:(NSArray *)tags introductoryComment:(NSString *)introductoryComment withAuthenticationToken:(NSString *)authenticationToken{
++ (BBBPShot *)publishShotAtPath:(NSString *)shotPath name:(NSString *)name tags:(NSArray *)tags introductoryComment:(NSString *)introductoryComment withAuthenticityToken:(NSString *)authenticityToken{
     NSString *shotURLString = [NSString stringWithFormat:@"http://dribbble.com%@", shotPath];
     NSURL *shotURL = [NSURL URLWithString:shotURLString];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:shotURL
@@ -199,7 +199,7 @@
                                                               tagsString, @"screenshot[tag_list]",
                                                               introductoryComment, @"screenshot[introductory_comment_text]",
                                                               @"Publish", @"commit",
-                                                              authenticationToken, @"authenticity_token", 
+                                                              authenticityToken, @"authenticity_token", 
                                                               nil]];
     
     NSData *body = [bodyString dataUsingEncoding:NSUTF8StringEncoding];
@@ -249,9 +249,9 @@
     return [shot autorelease];
 }
 
-+ (BBBPShot *)shootImageWithName:(NSString *)imageName andData:(NSData *)imageData name:(NSString *)name tags:(NSArray *)tags introductoryComment:(NSString *)introductoryComment withAuthenticationToken:(NSString *)authenticationToken{
-    NSString *shotPath = [BBBPDribbble uploadImageWithName:imageName andData:imageData withAuthenticationToken:authenticationToken];
-    return [BBBPDribbble publishShotAtPath:shotPath name:name tags:tags introductoryComment:introductoryComment withAuthenticationToken:authenticationToken];
++ (BBBPShot *)shootImageWithName:(NSString *)imageName andData:(NSData *)imageData name:(NSString *)name tags:(NSArray *)tags introductoryComment:(NSString *)introductoryComment withAuthenticityToken:(NSString *)authenticityToken{
+    NSString *shotPath = [BBBPDribbble uploadImageWithName:imageName andData:imageData withAuthenticityToken:authenticityToken];
+    return [BBBPDribbble publishShotAtPath:shotPath name:name tags:tags introductoryComment:introductoryComment withAuthenticityToken:authenticityToken];
 }
 
 @end

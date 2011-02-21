@@ -9,19 +9,19 @@
 
 @interface BBBPDribbble : NSObject {}
 
-//Get the authentication token required for all actions.
-+ (NSString *)authenticationToken;
+//Get the authenticity token required for all actions.
++ (NSString *)authenticityToken;
 
 //Log a user into dribbble, if NO is returned the login failed.
 + (BOOL)loginWithUsername:(NSString *)username 
                  password:(NSString *)password 
-   andAuthenticationToken:(NSString *)authenticationToken;
+     andAuthenticityToken:(NSString *)authenticityToken;
 
 //Upload an image to dribbble, the image is not published.
 //Returns the shot path, if nil is returned the uploaded failed.
 + (NSString *)uploadImageWithName:(NSString *)imageName 
                           andData:(NSData *)imageData 
-          withAuthenticationToken:(NSString *)authenticationToken;
+            withAuthenticityToken:(NSString *)authenticityToken;
 
 //Publish a shot with a name, tags and introductory comment.
 //Pass nil to any field you do not wish to set.
@@ -31,7 +31,7 @@
                            name:(NSString *)name 
                            tags:(NSArray *)tags 
             introductoryComment:(NSString *)introductoryComment 
-        withAuthenticationToken:(NSString *)authenticationToken;
+          withAuthenticityToken:(NSString *)authenticityToken;
 
 
 //Shorthand function that uploads an image and publishes it.
@@ -40,6 +40,6 @@
                             name:(NSString *)name 
                             tags:(NSArray *)tags 
              introductoryComment:(NSString *)introductoryComment 
-         withAuthenticationToken:(NSString *)authenticationToken;
+           withAuthenticityToken:(NSString *)authenticityToken;
 
 @end

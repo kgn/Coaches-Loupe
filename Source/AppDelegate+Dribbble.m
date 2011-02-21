@@ -36,12 +36,12 @@ static NSImage *dribbbleUploadImage = nil;
             andIntroductoryComment:nil];
 }
 
-- (void)dribbbleRequestDidFailWithError:(NSError *)error authenticationToken:(NSString *)authenticationToken shotInfo:(NSDictionary *)shotInfo{
+- (void)dribbbleRequestDidFailWithError:(NSError *)error authenticityToken:(NSString *)authenticityToken shotInfo:(NSDictionary *)shotInfo{
     [self showFailedCourtWithError:error];
     self.isUploading = NO;
 }
 
-- (void)dribbbleShotUploadDidSucceedWithResultingShot:(BBBPShot *)shot authenticationToken:(NSString *)authenticationToken shotInfo:(NSDictionary *)shotInfo{
+- (void)dribbbleShotUploadDidSucceedWithResultingShot:(BBBPShot *)shot authenticityToken:(NSString *)authenticityToken shotInfo:(NSDictionary *)shotInfo{
     [self screenshotUploadedWithName:shot.name toURL:shot.URL withShortURL:shot.shortURL forAction:@"Screenshot dribbbled"];
     self.isUploading = NO;
 }
