@@ -26,8 +26,14 @@
 #define UserDefaultDribbbleUserKey @"dribbbleUser"
 #define UserDefaultDribbbleUserValue [[NSUserDefaults standardUserDefaults] valueForKey:UserDefaultDribbbleUserKey]
 
+#define UserDefaultDribbbleAddInfoKey @"dribbbleAddInfo"
+#define UserDefaultDribbbleAddInfoValue [[[NSUserDefaults standardUserDefaults] valueForKey:UserDefaultDribbbleAddInfoKey] boolValue]
+
 #define UserDefaultCloudUserKey @"cloudUser"
 #define UserDefaultCloudUserValue [[NSUserDefaults standardUserDefaults] valueForKey:UserDefaultCloudUserKey]
+
+#define UserDefaultCloudAddInfoKey @"cloudAddInfo"
+#define UserDefaultCloudAddInfoValue [[[NSUserDefaults standardUserDefaults] valueForKey:UserDefaultCloudAddInfoKey] boolValue]
 
 @interface PreferencesController : DBPrefsWindowController {
     NSView *cloudView;

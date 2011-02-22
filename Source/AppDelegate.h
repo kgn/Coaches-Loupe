@@ -31,6 +31,12 @@
     NSTextField *failedViewBigLabel;
     NSTextField *failedViewSmallLabel;
     NSButton *failedViewButton;
+                                       
+    NSView *dribbblePublishView;     
+    NSTextField *dribbblePublishName;
+    NSTextField *dribbblePublishTags;
+    NSTextField *dribbblePublishComment;
+    NSButton *dribbblePublishButton;
     
     BBBouncePass *dribbble;
     BOOL canUploadToDribbble;
@@ -38,7 +44,9 @@
     CLAPIEngine *cloudApp;
     BOOL canUploadToCloudApp;
     
-    
+    NSString *currentShotName;
+    NSData *currentShotData;
+                                       
     //TODO: disable actions when a shot is being uploaded
     BOOL isUploading;
 }
@@ -55,11 +63,20 @@
 @property (assign) IBOutlet NSTextField *failedViewSmallLabel;
 @property (assign) IBOutlet NSButton *failedViewButton;
 
+@property (assign) IBOutlet NSView *dribbblePublishView;
+@property (assign) IBOutlet NSTextField *dribbblePublishName;
+@property (assign) IBOutlet NSTextField *dribbblePublishTags;
+@property (assign) IBOutlet NSTextField *dribbblePublishComment;
+@property (assign) IBOutlet NSButton *dribbblePublishButton;
+
 @property (retain, nonatomic) BBBouncePass *dribbble;
 @property (nonatomic) BOOL canUploadToDribbble;
 
 @property (retain, nonatomic) CLAPIEngine *cloudApp;
 @property (nonatomic) BOOL canUploadToCloudApp;
+
+@property (retain, nonatomic) NSString *currentShotName;
+@property (retain, nonatomic) NSData *currentShotData;
 
 @property (nonatomic) BOOL isUploading;
 
@@ -93,6 +110,7 @@
 
 - (void)setupDribbble;
 - (IBAction)shoot:(id)sender;
+- (IBAction)publishToDribbble:(id)sender;
 - (void)changeDribbblePassword:(NSNotification *)aNoficication;
 
 @end
@@ -114,6 +132,10 @@
 - (void)hideUploadCourtWithAnimation:(BOOL)animation;
 - (void)hideUploadCourtWithAnimation;
 - (void)doneWithUploadCourt;
+
+- (void)showDribbbleInfoCourtWithAnimation:(BOOL)animation withName:(NSString *)name;
+- (void)showDribbbleInfoCourtWithAnimationWithName:(NSString *)name;
+- (void)hideDribbbleInfoCourtWithDelay:(BOOL)delay;
 
 - (void)showFailedCourtWithError:(NSError *)error;
 - (IBAction)hideFailedCourt:(id)sender;

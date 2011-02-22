@@ -81,6 +81,8 @@
                                             [NSNumber numberWithBool:YES], UserDefaultPlaySoundKey,
                                             [NSNumber numberWithBool:YES], UserDefaultGrowlKey,
                                             [NSNumber numberWithBool:YES], UserDefaultCopyToClipboardKey,
+                                            [NSNumber numberWithBool:YES], UserDefaultDribbbleAddInfoKey,
+                                            [NSNumber numberWithBool:YES], UserDefaultCloudAddInfoKey,
                                             nil];
     
     [[NSUserDefaults standardUserDefaults] registerDefaults:userDefaultsDictionary];

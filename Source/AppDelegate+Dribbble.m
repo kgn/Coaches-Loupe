@@ -25,15 +25,41 @@ static NSImage *dribbbleUploadImage = nil;
 
 - (IBAction)shoot:(id)sender{
     self.isUploading = YES;
+    self.currentShotName = [self shotName];
+    self.currentShotData = [self shotData];
+    
+    if(UserDefaultDribbbleAddInfoValue){
+        [self showDribbbleInfoCourtWithAnimationWithName:[self.currentShotName stringByDeletingPathExtension]];
+    }else{
+        [self publishToDribbble:nil];
+    }
+}
+
+- (IBAction)publishToDribbble:(id)sender{
     dribbbleUploadImage = [NSImage imageNamed:@"dribbble_upload.png"];
-    [self showUploadCourtWithAnimationWithImage:dribbbleUploadImage];
-    NSString *imageName = [self shotName];
-    //TODO: get values from fields
-    [self.dribbble shootImageNamed:imageName 
-                          withData:[self shotData] 
-                              name:[imageName stringByDeletingPathExtension] 
-                              tags:nil 
-            andIntroductoryComment:nil];
+    
+    //if sender is not nil then this call was made from the publish button, if it was don't do an animation
+    [self showUploadCourtWithAnimation:(sender == nil) withImage:dribbbleUploadImage];
+    
+    NSString *name = [self.currentShotName stringByDeletingPathExtension];
+    NSArray *tags = nil;
+    NSString *comment = nil;
+    if(sender != nil){
+        name = self.dribbblePublishName.stringValue;
+        comment = self.dribbblePublishComment.stringValue;
+        if(self.dribbblePublishTags.stringValue){
+            tags = [self.dribbblePublishTags.stringValue componentsSeparatedByString:@","];
+        }
+    }
+    
+    [self.dribbble shootImageNamed:self.currentShotName 
+                          withData:self.currentShotData
+                              name:name
+                              tags:tags
+            andIntroductoryComment:comment];
+    
+    self.currentShotName = nil;
+    self.currentShotData = nil;
 }
 
 - (void)dribbbleRequestDidFailWithError:(NSError *)error authenticityToken:(NSString *)authenticityToken shotInfo:(NSDictionary *)shotInfo{
