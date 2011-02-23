@@ -29,6 +29,12 @@
 #define UserDefaultDribbbleAddInfoKey @"dribbbleAddInfo"
 #define UserDefaultDribbbleAddInfoValue [[[NSUserDefaults standardUserDefaults] valueForKey:UserDefaultDribbbleAddInfoKey] boolValue]
 
+#define UserDefaultDribbbleCoachesLoupeTag @"dribbbleCoachesLoupeTag"
+#define UserDefaultDribbbleCoachesLoupeTagValue [[[NSUserDefaults standardUserDefaults] valueForKey:UserDefaultDribbbleCoachesLoupeTag] boolValue]
+
+#define UserDefaultDribbbleDefaultTags @"dribbbleDefaultTags"
+#define UserDefaultDribbbleDefaultTagsValue [[NSUserDefaults standardUserDefaults] valueForKey:UserDefaultDribbbleDefaultTags]
+
 #define UserDefaultCloudUserKey @"cloudUser"
 #define UserDefaultCloudUserValue [[NSUserDefaults standardUserDefaults] valueForKey:UserDefaultCloudUserKey]
 

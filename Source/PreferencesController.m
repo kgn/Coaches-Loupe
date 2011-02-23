@@ -83,6 +83,7 @@
                                             [NSNumber numberWithBool:YES], UserDefaultCopyToClipboardKey,
                                             [NSNumber numberWithBool:YES], UserDefaultDribbbleAddInfoKey,
                                             [NSNumber numberWithBool:YES], UserDefaultCloudAddInfoKey,
+                                            [NSNumber numberWithBool:YES], UserDefaultDribbbleCoachesLoupeTag,
                                             nil];
     
     [[NSUserDefaults standardUserDefaults] registerDefaults:userDefaultsDictionary];

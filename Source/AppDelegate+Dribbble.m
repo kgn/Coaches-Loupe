@@ -42,14 +42,16 @@ static NSImage *dribbbleUploadImage = nil;
     [self showUploadCourtWithAnimation:(sender == nil) withImage:dribbbleUploadImage];
     
     NSString *name = [self.currentShotName stringByDeletingPathExtension];
-    NSArray *tags = nil;
+    NSString *tagsString = UserDefaultDribbbleDefaultTagsValue;
     NSString *comment = nil;
     if(sender != nil){
         name = self.dribbblePublishName.stringValue;
         comment = self.dribbblePublishComment.stringValue;
-        if(self.dribbblePublishTags.stringValue){
-            tags = [self.dribbblePublishTags.stringValue componentsSeparatedByString:@","];
-        }
+        tagsString = self.dribbblePublishTags.stringValue;
+    }
+    NSMutableArray *tags = [NSMutableArray arrayWithArray:[tagsString componentsSeparatedByString:@","]];
+    if(UserDefaultDribbbleCoachesLoupeTagValue){
+        [tags addObject:AppName];
     }
     
     [self.dribbble shootImageNamed:self.currentShotName 
