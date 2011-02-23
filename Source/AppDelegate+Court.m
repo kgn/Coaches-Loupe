@@ -7,8 +7,6 @@
 
 #import "AppDelegate.h"
 
-#define fadeInDuration 0.25f
-
 @implementation AppDelegate (Court)
 
 - (void)removeCourt:(NSView *)court{

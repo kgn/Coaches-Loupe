@@ -16,6 +16,7 @@
 #define frameThickOffset 40.0f
 
 #define AppName [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"]
+#define fadeInDuration 0.25f
 
 @interface AppDelegate : NSObject <NSApplicationDelegate, 
                                    GrowlApplicationBridgeDelegate, 
@@ -51,7 +52,7 @@
     BOOL isUploading;
 }
 
-@property (retain, nonatomic) IBOutlet NSWindow *window;
+@property (assign) IBOutlet NSWindow *window;
 @property (assign) IBOutlet NSView *loupe;
 
 @property (assign) IBOutlet NSView *uploadView;

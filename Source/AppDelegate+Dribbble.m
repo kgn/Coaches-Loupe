@@ -38,7 +38,7 @@ static NSImage *dribbbleUploadImage = nil;
 - (IBAction)publishToDribbble:(id)sender{
     dribbbleUploadImage = [NSImage imageNamed:@"dribbble_upload.png"];
     
-    //if sender is not nil then this call was made from the publish button, if it was don't do an animation
+    //if sender is not nil then this call was made from the publish button
     [self showUploadCourtWithAnimation:(sender == nil) withImage:dribbbleUploadImage];
     
     NSString *name = [self.currentShotName stringByDeletingPathExtension];

@@ -72,6 +72,7 @@
 		7368B945131264A40031D13D /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 7326004A1312342B007A8623 /* Sparkle.framework */; };
 		738FD3A113091D380064C037 /* cloud_upload.png in Resources */ = {isa = PBXBuildFile; fileRef = 738FD39F13091D380064C037 /* cloud_upload.png */; };
 		738FD3A213091D380064C037 /* dribbble_upload.png in Resources */ = {isa = PBXBuildFile; fileRef = 738FD3A013091D380064C037 /* dribbble_upload.png */; };
+		73BA01861314CAE900C4EBD1 /* LoupeWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BA01851314CAE900C4EBD1 /* LoupeWindow.m */; };
 		73C3FA811309FFB9008B661F /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 73C3FA801309FFB8008B661F /* libxml2.2.dylib */; };
 		73D57C3713052E3600440072 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 73D57C3613052E3600440072 /* main.m */; };
 		73D57C3D13052E3600440072 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 73D57C3C13052E3600440072 /* AppDelegate.m */; };
@@ -215,6 +216,8 @@
 		7367886B1308F4D10090FF67 /* AppDelegate+Court.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Court.m"; sourceTree = "<group>"; };
 		738FD39F13091D380064C037 /* cloud_upload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cloud_upload.png; path = Images/cloud_upload.png; sourceTree = SOURCE_ROOT; };
 		738FD3A013091D380064C037 /* dribbble_upload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dribbble_upload.png; path = Images/dribbble_upload.png; sourceTree = SOURCE_ROOT; };
+		73BA01841314CAE900C4EBD1 /* LoupeWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoupeWindow.h; sourceTree = "<group>"; };
+		73BA01851314CAE900C4EBD1 /* LoupeWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoupeWindow.m; sourceTree = "<group>"; };
 		73C3FA801309FFB8008B661F /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = /usr/lib/libxml2.2.dylib; sourceTree = "<absolute>"; };
 		73D57C2513052E3600440072 /* Coaches Loupe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Coaches Loupe.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		73D57C3113052E3600440072 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -497,6 +500,8 @@
 				73284B1613054B4D0083654A /* AppDelegate+Screenshot.m */,
 				733E73E013075FBF002957D6 /* AppDelegate+Dribbble.m */,
 				731A2B2D130721490081A79E /* AppDelegate+CloudApp.m */,
+				73BA01841314CAE900C4EBD1 /* LoupeWindow.h */,
+				73BA01851314CAE900C4EBD1 /* LoupeWindow.m */,
 				7300B8701307AE0300DB56D0 /* Keychain.h */,
 				7300B8711307AE0300DB56D0 /* Keychain.m */,
 				733E73E813076091002957D6 /* PreferencesController.h */,
@@ -648,6 +653,7 @@
 				734A3FB21312117000900D19 /* NSMutableData+BBBP.m in Sources */,
 				735BAB92131213B70057BF8B /* BBBPShot.m in Sources */,
 				735BAB95131214310057BF8B /* BBBPDribbble.m in Sources */,
+				73BA01861314CAE900C4EBD1 /* LoupeWindow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

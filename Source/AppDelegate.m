@@ -47,27 +47,21 @@
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification{
-    self.window = [[NSWindow alloc] initWithContentRect:self.loupe.frame
-                                              styleMask:NSBorderlessWindowMask 
-                                                backing:NSBackingStoreBuffered 
-                                                  defer:NO];
-    //TODO: figure out how to allow the window to go over the status bar
-    [self.window setLevel:NSMainMenuWindowLevel];
-    [self.window setBackgroundColor:[NSColor clearColor]];
-    [self.window setMovableByWindowBackground:YES];
-    [self.window setOpaque:NO];
-    [self.window setHasShadow:NO];
-    [self.window useOptimizedDrawing:YES];
-    [[self.window contentView] addSubview:self.loupe];
-    
     //center the window
     [self.window center];
+    
     //move the window to accomidate the bottom right corner style
     NSPoint windowPoint = self.window.frame.origin;
     windowPoint.x += frameThinOffset;
     windowPoint.y += frameThinOffset;
     [self.window setFrameOrigin:windowPoint];
     [self.window makeKeyAndOrderFront:self];
+    
+    //fade in window
+    [NSAnimationContext beginGrouping];
+    [[NSAnimationContext currentContext] setDuration:fadeInDuration];
+    [(NSWindow *)[self.window animator] setAlphaValue:1.0f];
+    [NSAnimationContext endGrouping];    
     
     //setup growl
     [GrowlApplicationBridge setGrowlDelegate:self];
