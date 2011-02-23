@@ -42,7 +42,7 @@ static NSImage *cloupUploadImage = nil;
     //if sender is not nil then this call was made from the publish button
     [self showUploadCourtWithAnimation:(sender == nil) withImage:cloupUploadImage];
     
-    self.cloudShotName = self.currentShotName;
+    self.cloudShotName = nil;
     if(sender != nil){
         self.cloudShotName = self.cloudPublishName.stringValue;
     }   
