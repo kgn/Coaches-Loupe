@@ -32,19 +32,25 @@
     NSTextField *failedViewBigLabel;
     NSTextField *failedViewSmallLabel;
     NSButton *failedViewButton;
+    NSImageView *failedViewImage;
                                        
     NSView *dribbblePublishView;     
     NSTextField *dribbblePublishName;
     NSTextField *dribbblePublishTags;
     NSTextField *dribbblePublishComment;
     NSButton *dribbblePublishButton;
-    
+                                       
+    NSView *cloudPublishView;
+    NSTextField *cloudPublishName;
+    NSButton *cloudPublishButton;
+
     BBBouncePass *dribbble;
     BOOL canUploadToDribbble;
     
     CLAPIEngine *cloudApp;
     BOOL canUploadToCloudApp;
-    
+    NSString *cloudShotName;
+                                       
     NSString *currentShotName;
     NSData *currentShotData;
                                        
@@ -63,6 +69,7 @@
 @property (assign) IBOutlet NSTextField *failedViewBigLabel;
 @property (assign) IBOutlet NSTextField *failedViewSmallLabel;
 @property (assign) IBOutlet NSButton *failedViewButton;
+@property (assign) IBOutlet NSImageView *failedViewImage;
 
 @property (assign) IBOutlet NSView *dribbblePublishView;
 @property (assign) IBOutlet NSTextField *dribbblePublishName;
@@ -70,13 +77,18 @@
 @property (assign) IBOutlet NSTextField *dribbblePublishComment;
 @property (assign) IBOutlet NSButton *dribbblePublishButton;
 
+@property (assign) IBOutlet NSView *cloudPublishView;
+@property (assign) IBOutlet NSTextField *cloudPublishName;
+@property (assign) IBOutlet NSButton *cloudPublishButton;
+
 @property (retain, nonatomic) BBBouncePass *dribbble;
 @property (nonatomic) BOOL canUploadToDribbble;
 
 @property (retain, nonatomic) CLAPIEngine *cloudApp;
 @property (nonatomic) BOOL canUploadToCloudApp;
+@property (copy, nonatomic) NSString *cloudShotName;
 
-@property (retain, nonatomic) NSString *currentShotName;
+@property (copy, nonatomic) NSString *currentShotName;
 @property (retain, nonatomic) NSData *currentShotData;
 
 @property (nonatomic) BOOL isUploading;
@@ -120,6 +132,7 @@
 
 - (void)setupCloudApp;
 - (IBAction)precipitate:(id)sender;
+- (IBAction)publishToCloud:(id)sender;
 - (void)changeCloudAppPassword:(NSNotification *)aNoficication;
 
 @end
@@ -137,6 +150,10 @@
 - (void)showDribbbleInfoCourtWithAnimation:(BOOL)animation withName:(NSString *)name;
 - (void)showDribbbleInfoCourtWithAnimationWithName:(NSString *)name;
 - (void)hideDribbbleInfoCourtWithDelay:(BOOL)delay;
+
+- (void)showCloudInfoCourtWithAnimation:(BOOL)animation withName:(NSString *)name;
+- (void)showCloudInfoCourtWithAnimationWithName:(NSString *)name;
+- (void)hideCloudInfoCourtWithDelay:(BOOL)delay;
 
 - (void)showFailedCourtWithError:(NSError *)error;
 - (IBAction)hideFailedCourt:(id)sender;

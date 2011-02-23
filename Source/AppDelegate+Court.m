@@ -24,6 +24,10 @@
     [[self.dribbblePublishButton cell] setBackgroundStyle:NSBackgroundStyleLowered]; 
     [self.dribbblePublishView setFrameOrigin:NSMakePoint(frameThinOffset, frameThickOffset)];
     
+    [[self.cloudPublishName cell] setBackgroundStyle:NSBackgroundStyleLowered];
+    [[self.cloudPublishButton cell] setBackgroundStyle:NSBackgroundStyleLowered];
+    [self.cloudPublishView setFrameOrigin:NSMakePoint(frameThinOffset, frameThickOffset)];
+    
     [[self.failedViewBigLabel cell] setBackgroundStyle:NSBackgroundStyleLowered]; 
     [[self.failedViewSmallLabel cell] setBackgroundStyle:NSBackgroundStyleLowered]; 
     [self.failedView setFrameOrigin:NSMakePoint(frameThinOffset, frameThickOffset)];
@@ -42,9 +46,11 @@
 
 - (void)showUploadCourtWithAnimation:(BOOL)animation withImage:(NSImage *)image{
     [self hideDribbbleInfoCourtWithDelay:animation];
-    [self.uploadView setAlphaValue:0.0f];
+    [self hideCloudInfoCourtWithDelay:animation];
+    
     self.uploadViewLabel.stringValue = @"Drivin' to the net...";
     self.uploadViewImage.image = image;
+    self.failedViewImage.image = image;
     [self.loupe addSubview:self.uploadView];
     if(animation){
         //This is required for the animation to happen
@@ -70,8 +76,7 @@
                    withObject:self.uploadView 
                    afterDelay:fadeInDuration];        
     }else{
-        [self.uploadView setAlphaValue:0.0f];
-        [self.uploadView removeFromSuperview];
+        [self removeCourt:self.uploadView];
     }    
 }
 
@@ -116,6 +121,37 @@
                    afterDelay:fadeInDuration];
     }else{
         [self removeCourt:self.dribbblePublishView];
+    }
+}
+
+#pragma -
+#pragma Cloud
+
+- (void)showCloudInfoCourtWithAnimation:(BOOL)animation withName:(NSString *)name{
+    [self.cloudPublishView setAlphaValue:0.0f];
+    self.cloudPublishName.stringValue = name; 
+    [self.loupe addSubview:self.cloudPublishView];
+    if(animation){
+        //This is required for the animation to happen
+        [self performSelector:@selector(fadeInCourt:) 
+                   withObject:self.cloudPublishView
+                   afterDelay:0.0f];
+    }else{
+        [self.cloudPublishView setAlphaValue:1.0f];
+    }
+}
+
+- (void)showCloudInfoCourtWithAnimationWithName:(NSString *)name{
+    [self showCloudInfoCourtWithAnimation:YES withName:(NSString *)name];
+}
+
+- (void)hideCloudInfoCourtWithDelay:(BOOL)delay{
+    if(delay){
+        [self performSelector:@selector(removeCourt:) 
+                   withObject:self.cloudPublishView 
+                   afterDelay:fadeInDuration];
+    }else{
+        [self removeCourt:self.cloudPublishView];
     }
 }
 

@@ -19,17 +19,22 @@
 @synthesize failedViewBigLabel;
 @synthesize failedViewSmallLabel;
 @synthesize failedViewButton;
+@synthesize failedViewImage;
 @synthesize dribbblePublishView;
 @synthesize dribbblePublishName;
 @synthesize dribbblePublishTags;
 @synthesize dribbblePublishComment;
 @synthesize dribbblePublishButton;
+@synthesize cloudPublishView;
+@synthesize cloudPublishName;
+@synthesize cloudPublishButton;
 
 @synthesize dribbble;
 @synthesize canUploadToDribbble;
 
 @synthesize cloudApp;
 @synthesize canUploadToCloudApp;
+@synthesize cloudShotName;
 
 @synthesize currentShotName;
 @synthesize currentShotData;

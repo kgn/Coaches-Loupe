@@ -26,22 +26,55 @@ static NSImage *cloupUploadImage = nil;
 
 - (IBAction)precipitate:(id)sender{
     self.isUploading = YES;
+    self.currentShotName = [self shotName];
+    self.currentShotData = [self shotData];
+    
+    if(UserDefaultCloudAddInfoValue){
+        [self showCloudInfoCourtWithAnimationWithName:self.currentShotName];
+    }else{
+        [self publishToCloud:nil];
+    }
+}
+
+- (IBAction)publishToCloud:(id)sender{
     cloupUploadImage = [NSImage imageNamed:@"cloud_upload.png"];
-    [self showUploadCourtWithAnimationWithImage:cloupUploadImage];
-	[self.cloudApp uploadFileWithName:[self shotName] fileData:[self shotData] userInfo:nil];
+    
+    //if sender is not nil then this call was made from the publish button
+    [self showUploadCourtWithAnimation:(sender == nil) withImage:cloupUploadImage];
+    
+    self.cloudShotName = self.currentShotName;
+    if(sender != nil){
+        self.cloudShotName = self.cloudPublishName.stringValue;
+    }   
+    
+    [self.cloudApp uploadFileWithName:self.currentShotName fileData:self.currentShotData userInfo:nil];
+    
+    self.currentShotName = nil;
+    self.currentShotData = nil;
 }
 
 - (void)requestDidFailWithError:(NSError *)error connectionIdentifier:(NSString *)connectionIdentifier userInfo:(id)userInfo{
     [self showFailedCourtWithError:error];
-    self.isUploading = NO;    
+    self.isUploading = NO;
+    self.cloudShotName = nil;
 }
 
 - (void)fileUploadDidSucceedWithResultingItem:(CLWebItem *)item connectionIdentifier:(NSString *)connectionIdentifier userInfo:(id)userInfo{
+    //rename the item
+    if([self.cloudShotName length] > 0 && ![item.name isEqualToString:self.cloudShotName]){
+        NSString *result = [self.cloudApp changeNameOfItem:item toName:self.cloudShotName userInfo:nil];
+        if([result length] > 0){
+            item.name = self.cloudShotName;
+        }
+    }
+    
     [self screenshotUploadedWithName:item.name 
                                toURL:item.URL 
                         withShortURL:nil 
                            forAction:@"Screenshot precipitated"];
-    self.isUploading = NO;    
+    
+    self.isUploading = NO;
+    self.cloudShotName = nil;
 }
 
 @end
