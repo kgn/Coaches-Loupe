@@ -19,26 +19,31 @@
     }    
 }
 
-//TODO: it's anoying that the menu flashes when you use the hotkeys for this
-//TODO: move 10px if shift is down
 - (IBAction)moveWindow:(id)sender{
+    NSInteger mode = 10;
     NSInteger tag = [sender tag];
+    NSInteger modeTag = tag%mode;
+    
+    CGFloat move = 1.0f;
+    if(tag >= mode){
+        move = 10.0f;
+    }
+    
     NSPoint windowPoint = self.window.frame.origin;
-    if(tag == 0){
-        windowPoint.y += 1.0f;
-    }else if(tag == 1){
-        windowPoint.y -= 1.0f;
-    }else if(tag == 2){
-        windowPoint.x -= 1.0f;
-    }else if(tag == 3){
-        windowPoint.x += 1.0f;
+    if(modeTag == 0){
+        windowPoint.y += move;
+    }else if(modeTag == 1){
+        windowPoint.y -= move;
+    }else if(modeTag == 2){
+        windowPoint.x -= move;
+    }else if(modeTag == 3){
+        windowPoint.x += move;
     }
     [self.window setFrameOrigin:windowPoint];
 }
 
 - (IBAction)showPreferences:(id)sender{
     [[PreferencesController sharedPrefsWindowController] showWindow:nil];
-    (void)sender;
 }
 
 - (BOOL)validateUserInterfaceItem:(id<NSValidatedUserInterfaceItem>)anItem{
