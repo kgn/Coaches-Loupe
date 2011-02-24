@@ -97,8 +97,8 @@
 - (void)showDribbbleInfoCourtWithAnimation:(BOOL)animation withName:(NSString *)name{
     [self.dribbblePublishView setAlphaValue:0.0f];
     self.dribbblePublishName.stringValue = name;
-    self.dribbblePublishTags.stringValue = @"";
-    self.dribbblePublishComment.stringValue = @"";    
+    self.dribbblePublishTags.stringValue = UserDefaultDribbbleDefaultTagsValue;
+    self.dribbblePublishComment.stringValue = @"";
     [self.loupe addSubview:self.dribbblePublishView];
     if(animation){
         //This is required for the animation to happen
