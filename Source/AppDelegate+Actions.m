@@ -39,6 +39,8 @@
     }else if(modeTag == 3){
         windowPoint.x += move;
     }
+    
+    windowPoint = [AppDelegate clampLoupePointToScreen:windowPoint];
     [self.window setFrameOrigin:windowPoint];
 }
 

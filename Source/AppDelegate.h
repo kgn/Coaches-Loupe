@@ -93,6 +93,8 @@
 
 @property (nonatomic) BOOL isUploading;
 
++ (NSPoint)clampLoupePointToScreen:(NSPoint)point;
+
 @end
 
 @interface AppDelegate (Growl)

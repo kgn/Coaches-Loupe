@@ -6,6 +6,7 @@
 //
 
 #import "LoupeWindow.h"
+#import "AppDelegate.h"
 
 @implementation LoupeWindow
 
@@ -32,12 +33,13 @@
 }
 
 - (void)mouseDragged:(NSEvent *)theEvent{
-    NSRect windowFrame = [self frame];
-    NSPoint newOrigin = windowFrame.origin;
+    NSPoint newOrigin = self.frame.origin;
     
     NSPoint currentLocation = [theEvent locationInWindow];
-    newOrigin.x += (currentLocation.x - initialLocation.x);
-    newOrigin.y += (currentLocation.y - initialLocation.y);
+    newOrigin.x += currentLocation.x - initialLocation.x;
+    newOrigin.y += currentLocation.y - initialLocation.y;
+    
+    newOrigin = [AppDelegate clampLoupePointToScreen:newOrigin];
     
     [self setFrameOrigin:newOrigin];
 }
