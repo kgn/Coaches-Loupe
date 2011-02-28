@@ -11,9 +11,7 @@
 #import "CLAPIEngine.h"
 #import "BBBouncePass.h"
 #import "PreferencesController.h"
-
-#define frameThinOffset 21.0f
-#define frameThickOffset 40.0f
+#import "LoupeWindow.h"
 
 #define AppName [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"]
 #define fadeInDuration 0.25f
@@ -22,7 +20,7 @@
                                    GrowlApplicationBridgeDelegate, 
                                    BBBouncePassDelegate, 
                                    CLAPIEngineDelegate> {
-    NSWindow *window;
+    LoupeWindow *window;
     NSView *loupe;
     
     NSView *uploadView;
@@ -58,7 +56,7 @@
     BOOL isUploading;
 }
 
-@property (assign) IBOutlet NSWindow *window;
+@property (assign) IBOutlet LoupeWindow *window;
 @property (assign) IBOutlet NSView *loupe;
 
 @property (assign) IBOutlet NSView *uploadView;
@@ -92,8 +90,6 @@
 @property (retain, nonatomic) NSData *currentShotData;
 
 @property (nonatomic) BOOL isUploading;
-
-+ (NSPoint)clampLoupePointToScreen:(NSPoint)point;
 
 @end
 

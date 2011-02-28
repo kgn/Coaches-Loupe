@@ -88,22 +88,4 @@
                                                object:nil];    
 }
 
-+ (NSPoint)clampLoupePointToScreen:(NSPoint)point{
-    NSRect screenVisibleFrame = [[NSScreen mainScreen] visibleFrame];
-    
-    //y
-    if((point.y+frameThickOffset) >= (screenVisibleFrame.origin.y + screenVisibleFrame.size.height)){
-        point.y = screenVisibleFrame.origin.y + (screenVisibleFrame.size.height - frameThickOffset);
-    }else if(point.y-frameThinOffset <= -341.0f){
-        point.y = -341.0f;
-    }
-    
-    //x
-    if((point.x+frameThinOffset) >= (screenVisibleFrame.origin.x + screenVisibleFrame.size.width)){
-        point.x = screenVisibleFrame.origin.x + (screenVisibleFrame.size.width - frameThinOffset);
-    }
-    
-    return point;
-}
-
 @end

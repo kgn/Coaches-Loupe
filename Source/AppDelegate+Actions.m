@@ -40,8 +40,7 @@
         windowPoint.x += move;
     }
     
-    windowPoint = [AppDelegate clampLoupePointToScreen:windowPoint];
-    [self.window setFrameOrigin:windowPoint];
+    [self.window setWindowPosition:windowPoint];
 }
 
 - (IBAction)showPreferences:(id)sender{

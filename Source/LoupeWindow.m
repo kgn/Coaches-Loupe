@@ -39,9 +39,27 @@
     newOrigin.x += currentLocation.x - initialLocation.x;
     newOrigin.y += currentLocation.y - initialLocation.y;
     
-    newOrigin = [AppDelegate clampLoupePointToScreen:newOrigin];
+    [self setWindowPosition:newOrigin];
+}
+
+- (void)setWindowPosition:(NSPoint)point{
+    NSRect screenVisibleFrame = [[NSScreen mainScreen] visibleFrame];
+    NSRect windowFrame = [self frame];
     
-    [self setFrameOrigin:newOrigin];
+    //y
+    if((point.y+frameThickOffset) >= (screenVisibleFrame.origin.y + screenVisibleFrame.size.height)){
+        point.y = screenVisibleFrame.origin.y + (screenVisibleFrame.size.height - frameThickOffset);
+    }else if(point.y+windowFrame.size.height-frameThinOffset <= 0){
+        point.y = -windowFrame.size.height+frameThinOffset;
+    }
+    
+    //x
+    if((point.x+frameThinOffset) >= (screenVisibleFrame.origin.x + screenVisibleFrame.size.width)){
+        point.x = screenVisibleFrame.origin.x + (screenVisibleFrame.size.width - frameThinOffset);
+    }
+    NSLog(@"%f", point.x-screenVisibleFrame.origin.x);
+    
+    [self setFrameOrigin:point];
 }
 
 @end
