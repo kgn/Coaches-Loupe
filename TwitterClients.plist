@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>editorID</key>
+		<string>com.twitter.twitter-mac</string>
+		<key>editorName</key>
+		<string>Twitter</string>
+	</dict>
+	<dict>
+		<key>editorID</key>
+		<string>com.iconfactory.Twitterrific</string>
+		<key>editorName</key>
+		<string>Twitterrific</string>
+	</dict>
+</array>
+</plist>
