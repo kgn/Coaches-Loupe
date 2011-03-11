@@ -15,6 +15,8 @@
 @synthesize dribbblePassword;
 @synthesize generalView;
 @synthesize updatesView;
+@synthesize twitterView;
+@synthesize twitterPopup;
 
 @synthesize sounds;
 
@@ -42,17 +44,54 @@
     }
 }
 
+- (NSArray *)supportedTwitterClients{
+    static NSArray *kSupportedTwitterClients = nil;
+    if(!kSupportedTwitterClients){
+        NSString *path = [[NSBundle mainBundle] pathForResource: @"TwitterClients" ofType: @"plist"];
+        kSupportedTwitterClients = [[NSArray arrayWithContentsOfFile:path] retain];
+    }
+    return kSupportedTwitterClients;
+}
+
 - (void)awakeFromNib{
     self.cloudPassword.stringValue = [Keychain cloudPasswordForUser:UserDefaultCloudUserValue] ?: @"";
     self.dribbblePassword.stringValue = [Keychain dribbblePasswordForUser:UserDefaultDribbbleUserValue] ?: @"";    
     
     [self populateSounds];
+    
+    // update twitter popup
+    // modified from Murky https://bitbucket.org/snej/murky/wiki/Home
+    [self.twitterPopup removeAllItems];
+    [self.twitterPopup addItemsWithTitles:[[self supportedTwitterClients] valueForKeyPath:@"@unionOfObjects.editorName"]];
+    [self.twitterPopup setAutoenablesItems:NO];
+    
+    NSArray *twitterAppIds = [[self supportedTwitterClients] valueForKeyPath:@"@unionOfObjects.editorID"];
+    for(NSString *appId in twitterAppIds){
+        NSString *path = [[NSWorkspace sharedWorkspace] absolutePathForAppBundleWithIdentifier:appId];
+        NSMenuItem *menuItem = [self.twitterPopup itemAtIndex:[twitterAppIds indexOfObject:appId]];
+        NSImage *icon;
+        if(path){
+            icon = [[NSWorkspace sharedWorkspace] iconForFile:path];
+        }else{
+            icon = [[NSWorkspace sharedWorkspace] iconForFileType:NSFileTypeForHFSTypeCode(kGenericApplicationIcon)];
+            [menuItem setEnabled:NO];
+        }
+        [icon setSize:NSMakeSize(16, 16)];
+        [menuItem setImage:icon];
+    }
+    
+    NSInteger selectedItemIndex = [twitterAppIds indexOfObject:UserDefaultTwitterAppIdValue];
+    if(selectedItemIndex == NSNotFound){
+        selectedItemIndex = 0;       
+    }
+    [self.twitterPopup selectItemAtIndex:selectedItemIndex];
 }
 
 - (void)setupToolbar{
     [self addView:self.generalView label:@"General" image:[NSImage imageNamed:@"switch_toolbar.png"]];
 	[self addView:self.cloudView label:@"CloudApp" image:[NSImage imageNamed:@"cloud_toolbar.png"]];
     [self addView:self.dribbbleView label:@"Dribbble" image:[NSImage imageNamed:@"dribbble_toolbar.png"]];
+    [self addView:self.twitterView label:@"Twitter" image:[NSImage imageNamed:@"twitter_toolbar.png"]];
     [self addView:self.updatesView label:@"Updates" image:[NSImage imageNamed:@"updates_toolbar.png"]];
 	
 	[self setShiftSlowsAnimation:YES];
@@ -75,7 +114,26 @@
     [[NSSound soundNamed:UserDefaultDoneSoundValue] play];
 }
 
+- (IBAction)selectTwitterApp:(id)sender{
+    NSInteger selectedIndex = [self.twitterPopup indexOfSelectedItem];
+    NSString *editorID = [[[self supportedTwitterClients] valueForKeyPath:@"@unionOfObjects.editorID"] objectAtIndex:selectedIndex];
+    [[NSUserDefaults standardUserDefaults] setObject:editorID forKey:UserDefaultTwitterAppIdKey];
+}
+
 + (void)registerUserDefaults{
+    NSString *defaultTwitterAppId = UserDefaultTwitterAppIdValue;
+    //find the first twitter app that's installed
+    if(!UserDefaultTwitterAppIdValue){
+        NSString *path = [[NSBundle mainBundle] pathForResource: @"TwitterClients" ofType: @"plist"];
+        NSArray *twitterAppIds = [[NSArray arrayWithContentsOfFile:path] valueForKeyPath:@"@unionOfObjects.editorID"];
+        for(NSString *appId in twitterAppIds){
+            if([[NSWorkspace sharedWorkspace] absolutePathForAppBundleWithIdentifier:appId]){
+                defaultTwitterAppId =  appId;
+                break;
+            }        
+        }       
+    }  
+    
     NSDictionary *userDefaultsDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
                                             @"Glass", UserDefaultDoneSoundKey, 
                                             [NSNumber numberWithBool:YES], UserDefaultPlaySoundKey,
@@ -84,6 +142,8 @@
                                             [NSNumber numberWithBool:YES], UserDefaultDribbbleAddInfoKey,
                                             [NSNumber numberWithBool:YES], UserDefaultCloudAddInfoKey,
                                             [NSNumber numberWithBool:YES], UserDefaultDribbbleCoachesLoupeTag,
+                                            [NSNumber numberWithBool:YES], UserDefaultTweetShotKey,
+                                            defaultTwitterAppId, UserDefaultTwitterAppIdKey,
                                             nil];
     
     [[NSUserDefaults standardUserDefaults] registerDefaults:userDefaultsDictionary];

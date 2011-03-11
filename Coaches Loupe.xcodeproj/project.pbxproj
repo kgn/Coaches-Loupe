@@ -52,6 +52,7 @@
 		7326004B1312342B007A8623 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 732600491312342B007A8623 /* Growl.framework */; };
 		7326004C1312342B007A8623 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7326004A1312342B007A8623 /* Sparkle.framework */; };
 		73284B1713054B4D0083654A /* AppDelegate+Screenshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 73284B1613054B4D0083654A /* AppDelegate+Screenshot.m */; };
+		732B797F132A00CD0010F499 /* TwitterClients.plist in Resources */ = {isa = PBXBuildFile; fileRef = 732B797E132A00CD0010F499 /* TwitterClients.plist */; };
 		733E73E113075FBF002957D6 /* AppDelegate+Dribbble.m in Sources */ = {isa = PBXBuildFile; fileRef = 733E73E013075FBF002957D6 /* AppDelegate+Dribbble.m */; };
 		733E73EA13076091002957D6 /* PreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 733E73E913076091002957D6 /* PreferencesController.m */; };
 		733E73ED1307609F002957D6 /* DBPrefsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 733E73EC1307609F002957D6 /* DBPrefsWindowController.m */; };
@@ -191,6 +192,7 @@
 		732600491312342B007A8623 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Growl.framework; sourceTree = "<group>"; };
 		7326004A1312342B007A8623 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		73284B1613054B4D0083654A /* AppDelegate+Screenshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Screenshot.m"; sourceTree = "<group>"; };
+		732B797E132A00CD0010F499 /* TwitterClients.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TwitterClients.plist; sourceTree = SOURCE_ROOT; };
 		733E73E013075FBF002957D6 /* AppDelegate+Dribbble.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Dribbble.m"; sourceTree = "<group>"; };
 		733E73E813076091002957D6 /* PreferencesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesController.h; sourceTree = "<group>"; };
 		733E73E913076091002957D6 /* PreferencesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesController.m; sourceTree = "<group>"; };
@@ -531,6 +533,7 @@
 				731D2F3F1308849D009F3C7C /* InfoPlist.strings */,
 				731D2F45130884F1009F3C7C /* Credits.rtf */,
 				7323CA7A1310A15E00D73A6E /* dsa_pub.pem */,
+				732B797E132A00CD0010F499 /* TwitterClients.plist */,
 			);
 			name = Resources;
 			path = ../../../Dev/Projects/CoachesLoupe;
@@ -607,6 +610,7 @@
 				7323CA7D1310A1A300D73A6E /* updates_toolbar.png in Resources */,
 				734207911314F38F00DAF204 /* text_field.png in Resources */,
 				734207931314F41700DAF204 /* text_area.png in Resources */,
+				732B797F132A00CD0010F499 /* TwitterClients.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

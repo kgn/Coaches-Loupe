@@ -41,6 +41,12 @@
 #define UserDefaultCloudAddInfoKey @"cloudAddInfo"
 #define UserDefaultCloudAddInfoValue [[[NSUserDefaults standardUserDefaults] valueForKey:UserDefaultCloudAddInfoKey] boolValue]
 
+#define UserDefaultTweetShotKey @"tweetShot"
+#define UserDefaultTweetShotValue [[[NSUserDefaults standardUserDefaults] valueForKey:UserDefaultTweetShotKey] boolValue]
+
+#define UserDefaultTwitterAppIdKey @"twitterAppId"
+#define UserDefaultTwitterAppIdValue [[NSUserDefaults standardUserDefaults] valueForKey:UserDefaultTwitterAppIdKey]
+
 @interface PreferencesController : DBPrefsWindowController {
     NSView *cloudView;
     NSView *dribbbleView;
@@ -48,6 +54,8 @@
     NSSecureTextField *dribbblePassword;
     NSView *generalView;
     NSView *updatesView;
+    NSView *twitterView;
+    NSPopUpButton *twitterPopup;
     NSArray *sounds;
 }
 
@@ -57,6 +65,8 @@
 @property (assign) IBOutlet NSSecureTextField *dribbblePassword;
 @property (assign) IBOutlet NSView *generalView;
 @property (assign) IBOutlet NSView *updatesView;
+@property (assign) IBOutlet NSView *twitterView;
+@property (assign) IBOutlet NSPopUpButton *twitterPopup;
 
 @property (nonatomic, retain) NSArray *sounds;
 
@@ -65,5 +75,6 @@
 - (IBAction)dribbblePasswordChanged:(id)sender;
 - (IBAction)cloudAppPasswordChanged:(id)sender;
 - (IBAction)changePlaySound:(id)sender;
+- (IBAction)selectTwitterApp:(id)sender;
 
 @end

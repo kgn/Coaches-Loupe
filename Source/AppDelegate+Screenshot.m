@@ -71,6 +71,17 @@
                                        isSticky:NO 
                                    clickContext:urlString];
     }
+    
+    //tweet shot
+    if(UserDefaultTweetShotKey){
+//        [[NSWorkspace sharedWorkspace] openFile:@"tweet tweet" withApplication:@"Twitter"];        
+        
+//        [[NSWorkspace sharedWorkspace] openURLs:[NSArray arrayWithObject:@"tweet"]
+//                        withAppBundleIdentifier:UserDefaultTwitterAppIdValue
+//                                        options:NSWorkspaceLaunchDefault | NSWorkspaceLaunchWithoutAddingToRecents
+//                 additionalEventParamDescriptor:nil
+//                              launchIdentifiers:nil];
+    }
 }
 
 @end
