@@ -44,8 +44,8 @@
 #define UserDefaultTweetShotKey @"tweetShot"
 #define UserDefaultTweetShotValue [[[NSUserDefaults standardUserDefaults] valueForKey:UserDefaultTweetShotKey] boolValue]
 
-#define UserDefaultTwitterAppIdKey @"twitterAppId"
-#define UserDefaultTwitterAppIdValue [[NSUserDefaults standardUserDefaults] valueForKey:UserDefaultTwitterAppIdKey]
+#define UserDefaultTwitterAppURLKey @"twitterAppURL"
+#define UserDefaultTwitterAppURLValue [[NSUserDefaults standardUserDefaults] valueForKey:UserDefaultTwitterAppURLKey]
 
 @interface PreferencesController : DBPrefsWindowController {
     NSView *cloudView;

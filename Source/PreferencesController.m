@@ -62,10 +62,10 @@
     // update twitter popup
     // modified from Murky https://bitbucket.org/snej/murky/wiki/Home
     [self.twitterPopup removeAllItems];
-    [self.twitterPopup addItemsWithTitles:[[self supportedTwitterClients] valueForKeyPath:@"@unionOfObjects.editorName"]];
+    [self.twitterPopup addItemsWithTitles:[[self supportedTwitterClients] valueForKeyPath:@"@unionOfObjects.name"]];
     [self.twitterPopup setAutoenablesItems:NO];
     
-    NSArray *twitterAppIds = [[self supportedTwitterClients] valueForKeyPath:@"@unionOfObjects.editorID"];
+    NSArray *twitterAppIds = [[self supportedTwitterClients] valueForKeyPath:@"@unionOfObjects.id"];
     for(NSString *appId in twitterAppIds){
         NSString *path = [[NSWorkspace sharedWorkspace] absolutePathForAppBundleWithIdentifier:appId];
         NSMenuItem *menuItem = [self.twitterPopup itemAtIndex:[twitterAppIds indexOfObject:appId]];
@@ -80,7 +80,8 @@
         [menuItem setImage:icon];
     }
     
-    NSInteger selectedItemIndex = [twitterAppIds indexOfObject:UserDefaultTwitterAppIdValue];
+    NSArray *twitterAppURLs = [[self supportedTwitterClients] valueForKeyPath:@"@unionOfObjects.url"];
+    NSInteger selectedItemIndex = [twitterAppURLs indexOfObject:UserDefaultTwitterAppURLValue];
     if(selectedItemIndex == NSNotFound){
         selectedItemIndex = 0;       
     }
@@ -116,19 +117,19 @@
 
 - (IBAction)selectTwitterApp:(id)sender{
     NSInteger selectedIndex = [self.twitterPopup indexOfSelectedItem];
-    NSString *editorID = [[[self supportedTwitterClients] valueForKeyPath:@"@unionOfObjects.editorID"] objectAtIndex:selectedIndex];
-    [[NSUserDefaults standardUserDefaults] setObject:editorID forKey:UserDefaultTwitterAppIdKey];
+    NSString *appUrl = [[[self supportedTwitterClients] valueForKeyPath:@"@unionOfObjects.url"] objectAtIndex:selectedIndex];
+    [[NSUserDefaults standardUserDefaults] setObject:appUrl forKey:UserDefaultTwitterAppURLKey];
 }
 
 + (void)registerUserDefaults{
-    NSString *defaultTwitterAppId = UserDefaultTwitterAppIdValue;
+    NSString *defaultTwitterAppURL = UserDefaultTwitterAppURLValue;
     //find the first twitter app that's installed
-    if(!UserDefaultTwitterAppIdValue){
+    if(!UserDefaultTwitterAppURLValue){
         NSString *path = [[NSBundle mainBundle] pathForResource: @"TwitterClients" ofType: @"plist"];
-        NSArray *twitterAppIds = [[NSArray arrayWithContentsOfFile:path] valueForKeyPath:@"@unionOfObjects.editorID"];
-        for(NSString *appId in twitterAppIds){
+        for(NSDictionary *appDict in [NSArray arrayWithContentsOfFile:path]){
+            NSString *appId = [appDict objectForKey:@"id"];
             if([[NSWorkspace sharedWorkspace] absolutePathForAppBundleWithIdentifier:appId]){
-                defaultTwitterAppId =  appId;
+                defaultTwitterAppURL =  [appDict objectForKey:@"url"];
                 break;
             }        
         }       
@@ -143,7 +144,7 @@
                                             [NSNumber numberWithBool:YES], UserDefaultCloudAddInfoKey,
                                             [NSNumber numberWithBool:YES], UserDefaultDribbbleCoachesLoupeTag,
                                             [NSNumber numberWithBool:YES], UserDefaultTweetShotKey,
-                                            defaultTwitterAppId, UserDefaultTwitterAppIdKey,
+                                            defaultTwitterAppURL, UserDefaultTwitterAppURLKey,
                                             nil];
     
     [[NSUserDefaults standardUserDefaults] registerDefaults:userDefaultsDictionary];

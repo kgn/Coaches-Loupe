@@ -3,16 +3,20 @@
 <plist version="1.0">
 <array>
 	<dict>
-		<key>editorID</key>
+		<key>id</key>
 		<string>com.twitter.twitter-mac</string>
-		<key>editorName</key>
+		<key>name</key>
 		<string>Twitter</string>
+		<key>url</key>
+		<string>twitter</string>
 	</dict>
 	<dict>
-		<key>editorID</key>
+		<key>id</key>
 		<string>com.iconfactory.Twitterrific</string>
-		<key>editorName</key>
+		<key>name</key>
 		<string>Twitterrific</string>
+		<key>url</key>
+		<string>twitterific</string>
 	</dict>
 </array>
 </plist>

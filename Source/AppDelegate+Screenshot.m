@@ -6,6 +6,7 @@
 //
 
 #import "AppDelegate.h"
+#import "NSString+BBBP.h"
 
 @implementation AppDelegate (Screenshot)
 
@@ -44,7 +45,7 @@
     }
     
     NSString *urlString = [url absoluteString];
-    NSString *shortUrlString = [shortURL absoluteString];    
+    NSString *shortUrlString = [shortURL absoluteString];
     
     //copy to pasteboard
     if(UserDefaultCopyToClipboardValue){
@@ -73,14 +74,25 @@
     }
     
     //tweet shot
-    if(UserDefaultTweetShotKey){
-//        [[NSWorkspace sharedWorkspace] openFile:@"tweet tweet" withApplication:@"Twitter"];        
-        
-//        [[NSWorkspace sharedWorkspace] openURLs:[NSArray arrayWithObject:@"tweet"]
-//                        withAppBundleIdentifier:UserDefaultTwitterAppIdValue
-//                                        options:NSWorkspaceLaunchDefault | NSWorkspaceLaunchWithoutAddingToRecents
-//                 additionalEventParamDescriptor:nil
-//                              launchIdentifiers:nil];
+    //reference: http://twitterrific.com/ipad/poweruser
+    if(UserDefaultTweetShotValue && UserDefaultTwitterAppURLValue){
+        //TODO: launch app if it's not running
+        //TODO: figure out why twitterific isn't working
+        NSString *newShot = @"New Shot: ";
+        NSInteger urlLength = [shortUrlString length];
+        if(UserDefaultTwitterAppURLValue == @"twitter"){
+            //Twitter.app always count's urls as 20 characters
+            urlLength = 20;
+        }
+        NSString *tweetName = name;        
+        NSInteger maxTweetLength = 140;
+        NSInteger remainingTweetLength = maxTweetLength-(urlLength+[newShot length]+3);//3 for space and two quotes
+        if((NSInteger)(remainingTweetLength-[tweetName length]) <= 0){
+            tweetName = [NSString stringWithFormat:@"%@...", [tweetName substringToIndex:remainingTweetLength-3]];//3 for ...
+        }
+        NSString *tweet = [NSString stringWithFormat:@"%@\"%@\" %@", newShot, tweetName, shortUrlString];
+        NSString *tweetURLString = [NSString stringWithFormat:@"%@:///post?message=%@", UserDefaultTwitterAppURLValue, [tweet stringWithURLEncoding]];
+        [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:tweetURLString]];
     }
 }
 
