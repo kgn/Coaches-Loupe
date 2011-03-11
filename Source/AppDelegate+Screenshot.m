@@ -17,8 +17,9 @@
     shotRect.origin.x += frameThinOffset;
     shotRect.size = NSMakeSize(400.0f, 300.0f);
     return CGWindowListCreateImage(NSRectToCGRect(shotRect), 
-                                   kCGWindowListOptionOnScreenOnly, 
-                                   kCGNullWindowID, kCGWindowImageDefault);
+                                   kCGWindowListOptionOnScreenBelowWindow, 
+                                   [self.window windowNumber], 
+                                   kCGWindowImageDefault);
 }
 
 - (NSData *)shotData{
