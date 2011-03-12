@@ -75,9 +75,8 @@
     
     //tweet shot
     //reference: http://twitterrific.com/ipad/poweruser
+    //TODO: figure out why twitterific isn't working    
     if(UserDefaultTweetShotValue && UserDefaultTwitterAppURLValue){
-        //TODO: launch app if it's not running
-        //TODO: figure out why twitterific isn't working
         NSString *newShot = @"New Shot: ";
         NSInteger urlLength = [shortUrlString length];
         if(UserDefaultTwitterAppURLValue == @"twitter"){
@@ -91,7 +90,9 @@
             tweetName = [NSString stringWithFormat:@"%@...", [tweetName substringToIndex:remainingTweetLength-3]];//3 for ...
         }
         NSString *tweet = [NSString stringWithFormat:@"%@\"%@\" %@", newShot, tweetName, shortUrlString];
-        NSString *tweetURLString = [NSString stringWithFormat:@"%@:///post?message=%@", UserDefaultTwitterAppURLValue, [tweet stringWithURLEncoding]];
+        NSString *tweetURLString = [NSString stringWithFormat:@"%@://post?message=%@", UserDefaultTwitterAppURLValue, [tweet stringWithURLEncoding]];
+        //call the plan url first to lauch the app
+        [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@://", UserDefaultTwitterAppURLValue]]];
         [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:tweetURLString]];
     }
 }
