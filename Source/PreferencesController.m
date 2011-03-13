@@ -143,7 +143,6 @@
                                             [NSNumber numberWithBool:YES], UserDefaultDribbbleAddInfoKey,
                                             [NSNumber numberWithBool:YES], UserDefaultCloudAddInfoKey,
                                             [NSNumber numberWithBool:YES], UserDefaultDribbbleCoachesLoupeTag,
-                                            [NSNumber numberWithBool:YES], UserDefaultTweetShotKey,
                                             defaultTwitterAppURL, UserDefaultTwitterAppURLKey,
                                             nil];
     
