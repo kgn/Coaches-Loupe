@@ -9,12 +9,12 @@
 		<item>
 			<title>Version 0.8</title>
 			<sparkle:releaseNotesLink>http://appcast.inscopeapps.com/CoachesLoupe/0.8.html</sparkle:releaseNotesLink>
-			<pubDate>Sat, 12 Mar 2011 17:13:50 -0800</pubDate>
+			<pubDate>Sat, 12 Mar 2011 18:06:05 -0800</pubDate>
 			<enclosure url="https://github.com/downloads/InScopeApps/Coaches-Loupe/CoachesLoupe-0.8.zip"
 				sparkle:version="10"
 				sparkle:shortVersionString="0.8"
-				sparkle:dsaSignature="MC4CFQCgYDvhgeVPGqNJldGDSBXDCQJ+jgIVAK+JnPpH2+wPBbiyV1RP4Ueiz31J"
-				length="1398829"
+				sparkle:dsaSignature="MC0CFQCp7xVhc5pJaa+9rNztLOE0NGu1LgIUPR0AsXEnolc0p26nYzM+jrCNpKQ="
+				length="1398756"
 				type="application/octet-stream"/>
 		</item>
 
