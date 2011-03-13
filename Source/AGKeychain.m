@@ -64,8 +64,7 @@
     SecKeychainAttributeList list;
     SecKeychainItemRef item;
 	SecKeychainSearchRef search;
-    OSStatus status;
-	OSErr result;
+    OSStatus status = 0;
 	int numberOfItemsFound = 0;
 	
     attributes[0].tag = kSecAccountItemAttr;
@@ -83,7 +82,7 @@
     list.count = 3;
     list.attr = attributes;
 	
-	result = SecKeychainSearchCreateFromAttributes(NULL, kSecGenericPasswordItemClass, &list, &search);
+	SecKeychainSearchCreateFromAttributes(NULL, kSecGenericPasswordItemClass, &list, &search);
 	while (SecKeychainSearchCopyNext (search, &item) == noErr) {
         numberOfItemsFound++;
     }
@@ -106,7 +105,6 @@
     SecKeychainItemRef item;
 	SecKeychainSearchRef search;
     OSStatus status;
-	OSErr result;
 	
     attributes[0].tag = kSecAccountItemAttr;
     attributes[0].data = (void *)[username UTF8String];
@@ -123,7 +121,7 @@
     list.count = 3;
     list.attr = attributes;
 	
-	result = SecKeychainSearchCreateFromAttributes(NULL, kSecGenericPasswordItemClass, &list, &search);
+	SecKeychainSearchCreateFromAttributes(NULL, kSecGenericPasswordItemClass, &list, &search);
 	SecKeychainSearchCopyNext (search, &item);
     status = SecKeychainItemModifyContent(item, &list, [newPassword length], [newPassword UTF8String]);
 	
@@ -171,7 +169,6 @@
     SecKeychainAttributeList list;
     SecKeychainAttribute attributes[3];
     OSErr result;
-    int i = 0;
 
 	attributes[0].tag = kSecAccountItemAttr;
     attributes[0].data = (void *)[username UTF8String];
@@ -255,6 +252,8 @@
         printf("Error = %d\n", (int)status);
 		return @"Error getting password";
     }
+    
+    return nil;
 }
 
 
