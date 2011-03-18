@@ -47,6 +47,9 @@
 #define UserDefaultTwitterAppURLKey @"twitterAppURL"
 #define UserDefaultTwitterAppURLValue [[NSUserDefaults standardUserDefaults] valueForKey:UserDefaultTwitterAppURLKey]
 
+#define UserDefaultWindowTransparencyKey @"windowTransparency"
+#define UserDefaultWindowTransparencyValue [[[NSUserDefaults standardUserDefaults] valueForKey:UserDefaultWindowTransparencyKey] floatValue]
+
 @interface PreferencesController : DBPrefsWindowController {
     NSView *cloudView;
     NSView *dribbbleView;

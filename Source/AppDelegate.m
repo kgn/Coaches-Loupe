@@ -11,6 +11,7 @@
 
 @synthesize window;
 @synthesize loupe;
+@synthesize loupeImageView;
 
 @synthesize uploadView;
 @synthesize uploadViewLabel;
@@ -47,8 +48,16 @@
     }
 }
 
+- (void)setLoupeTransperency{
+    [self.loupeImageView setAlphaValue:UserDefaultWindowTransparencyValue/100.0f];
+}
+
 - (void)awakeFromNib{
     [self setupCourts];
+}
+
+- (void)userDefaultsChanged:(NSNotification *)aNoficication{
+    [self setLoupeTransperency];
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification{
@@ -61,6 +70,8 @@
     windowPoint.y += frameThinOffset;
     [self.window setFrameOrigin:windowPoint];
     [self.window makeKeyAndOrderFront:self];
+    
+    [self setLoupeTransperency];
     
     //fade in window
     [NSAnimationContext beginGrouping];
@@ -85,7 +96,13 @@
     [[NSNotificationCenter defaultCenter] addObserver:self 
                                              selector:@selector(changeCloudAppPassword:) 
                                                  name:CloudAppPasswordChangeNotification 
-                                               object:nil];    
+                                               object:nil];
+    
+    //watch user defaults
+    [[NSNotificationCenter defaultCenter] addObserver:self 
+                                             selector:@selector(userDefaultsChanged:) 
+                                                 name:NSUserDefaultsDidChangeNotification 
+                                               object:nil];     
 }
 
 @end

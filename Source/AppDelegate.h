@@ -11,6 +11,7 @@
 #import "CLAPIEngine.h"
 #import "BBBouncePass.h"
 #import "PreferencesController.h"
+#import "PassMouseViews.h"
 
 #define frameThinOffset 21.0f
 #define frameThickOffset 40.0f
@@ -24,6 +25,7 @@
                                    CLAPIEngineDelegate> {
     NSWindow *window;
     NSView *loupe;
+                                       LoupeImageView *loupeImageView;
     
     NSView *uploadView;
     NSTextField *uploadViewLabel;
@@ -60,6 +62,7 @@
 
 @property (assign) IBOutlet NSWindow *window;
 @property (assign) IBOutlet NSView *loupe;
+@property (assign) IBOutlet LoupeImageView *loupeImageView;
 
 @property (assign) IBOutlet NSView *uploadView;
 @property (assign) IBOutlet NSTextField *uploadViewLabel;

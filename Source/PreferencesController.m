@@ -144,6 +144,7 @@
                                             [NSNumber numberWithBool:YES], UserDefaultCloudAddInfoKey,
                                             [NSNumber numberWithBool:YES], UserDefaultDribbbleCoachesLoupeTag,
                                             defaultTwitterAppURL, UserDefaultTwitterAppURLKey,
+                                            [NSNumber numberWithFloat:100.0f], UserDefaultWindowTransparencyKey,
                                             nil];
     
     [[NSUserDefaults standardUserDefaults] registerDefaults:userDefaultsDictionary];
