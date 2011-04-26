@@ -26,9 +26,11 @@
 @synthesize dribbblePublishTags;
 @synthesize dribbblePublishComment;
 @synthesize dribbblePublishButton;
+@synthesize dribbblePublishPreview;
 @synthesize cloudPublishView;
 @synthesize cloudPublishName;
 @synthesize cloudPublishButton;
+@synthesize cloudPublishPreview;
 
 @synthesize dribbble;
 @synthesize canUploadToDribbble;

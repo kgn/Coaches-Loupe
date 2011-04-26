@@ -51,6 +51,7 @@
 		7323CA7D1310A1A300D73A6E /* updates_toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 7323CA7C1310A1A300D73A6E /* updates_toolbar.png */; };
 		7326004B1312342B007A8623 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 732600491312342B007A8623 /* Growl.framework */; };
 		7326004C1312342B007A8623 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7326004A1312342B007A8623 /* Sparkle.framework */; };
+		7326F1431366832D00352D01 /* image_shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 7326F1421366832D00352D01 /* image_shadow.png */; };
 		73284B1713054B4D0083654A /* AppDelegate+Screenshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 73284B1613054B4D0083654A /* AppDelegate+Screenshot.m */; };
 		732B797F132A00CD0010F499 /* TwitterClients.plist in Resources */ = {isa = PBXBuildFile; fileRef = 732B797E132A00CD0010F499 /* TwitterClients.plist */; };
 		733E73E113075FBF002957D6 /* AppDelegate+Dribbble.m in Sources */ = {isa = PBXBuildFile; fileRef = 733E73E013075FBF002957D6 /* AppDelegate+Dribbble.m */; };
@@ -194,6 +195,7 @@
 		7323CA7C1310A1A300D73A6E /* updates_toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = updates_toolbar.png; path = Images/updates_toolbar.png; sourceTree = SOURCE_ROOT; };
 		732600491312342B007A8623 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Growl.framework; sourceTree = "<group>"; };
 		7326004A1312342B007A8623 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
+		7326F1421366832D00352D01 /* image_shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = image_shadow.png; path = Images/image_shadow.png; sourceTree = SOURCE_ROOT; };
 		73284B1613054B4D0083654A /* AppDelegate+Screenshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "AppDelegate+Screenshot.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		732B797E132A00CD0010F499 /* TwitterClients.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TwitterClients.plist; sourceTree = SOURCE_ROOT; };
 		733E73E013075FBF002957D6 /* AppDelegate+Dribbble.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Dribbble.m"; sourceTree = "<group>"; };
@@ -469,6 +471,7 @@
 				731D2F4F13088521009F3C7C /* frame.png */,
 				731D2F5013088521009F3C7C /* Icon.icns */,
 				731D2F5113088521009F3C7C /* switch_toolbar.png */,
+				7326F1421366832D00352D01 /* image_shadow.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -623,6 +626,7 @@
 				739FD52C132B254E00351A45 /* twitter_toolbar.png in Resources */,
 				738559AB1333314700842250 /* full_transperency.png in Resources */,
 				738559AC1333314700842250 /* low_transperency.png in Resources */,
+				7326F1431366832D00352D01 /* image_shadow.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

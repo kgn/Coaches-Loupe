@@ -41,10 +41,12 @@
     NSTextField *dribbblePublishTags;
     NSTextField *dribbblePublishComment;
     NSButton *dribbblePublishButton;
+    NSImageView *dribbblePublishPreview;
                                        
     NSView *cloudPublishView;
     NSTextField *cloudPublishName;
     NSButton *cloudPublishButton;
+    NSImageView *cloudPublishPreview;
 
     BBBouncePass *dribbble;
     BOOL canUploadToDribbble;
@@ -79,10 +81,12 @@
 @property (assign) IBOutlet NSTextField *dribbblePublishTags;
 @property (assign) IBOutlet NSTextField *dribbblePublishComment;
 @property (assign) IBOutlet NSButton *dribbblePublishButton;
+@property (assign) IBOutlet NSImageView *dribbblePublishPreview;
 
 @property (assign) IBOutlet NSView *cloudPublishView;
 @property (assign) IBOutlet NSTextField *cloudPublishName;
 @property (assign) IBOutlet NSButton *cloudPublishButton;
+@property (assign) IBOutlet NSImageView *cloudPublishPreview;
 
 @property (retain, nonatomic) BBBouncePass *dribbble;
 @property (nonatomic) BOOL canUploadToDribbble;

@@ -99,6 +99,7 @@
     self.dribbblePublishName.stringValue = name;
     self.dribbblePublishTags.stringValue = UserDefaultDribbbleDefaultTagsValue ?: @"";
     self.dribbblePublishComment.stringValue = @"";
+    self.dribbblePublishPreview.image = [[[NSImage alloc] initWithData:self.currentShotData] autorelease];
     [self.loupe addSubview:self.dribbblePublishView];
     if(animation){
         //This is required for the animation to happen
@@ -129,7 +130,8 @@
 
 - (void)showCloudInfoCourtWithAnimation:(BOOL)animation withName:(NSString *)name{
     [self.cloudPublishView setAlphaValue:0.0f];
-    self.cloudPublishName.stringValue = name; 
+    self.cloudPublishName.stringValue = name;
+    self.cloudPublishPreview.image = [[[NSImage alloc] initWithData:self.currentShotData] autorelease];
     [self.loupe addSubview:self.cloudPublishView];
     if(animation){
         //This is required for the animation to happen
