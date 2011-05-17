@@ -243,6 +243,31 @@
 									<reference key="NSOnImage" ref="35465992"/>
 									<reference key="NSMixedImage" ref="502551668"/>
 								</object>
+								<object class="NSMenuItem" id="889450675">
+									<reference key="NSMenu" ref="720053764"/>
+									<bool key="NSIsDisabled">YES</bool>
+									<bool key="NSIsSeparator">YES</bool>
+									<string key="NSTitle"/>
+									<string key="NSKeyEquiv"/>
+									<int key="NSMnemonicLoc">2147483647</int>
+									<reference key="NSOnImage" ref="35465992"/>
+									<reference key="NSMixedImage" ref="502551668"/>
+								</object>
+								<object class="NSMenuItem" id="355182936">
+									<reference key="NSMenu" ref="720053764"/>
+									<string key="NSTitle">Recent Uploads</string>
+									<string key="NSKeyEquiv"/>
+									<int key="NSMnemonicLoc">2147483647</int>
+									<reference key="NSOnImage" ref="35465992"/>
+									<reference key="NSMixedImage" ref="502551668"/>
+									<string key="NSAction">submenuAction:</string>
+									<object class="NSMenu" key="NSSubmenu" id="319484745">
+										<string key="NSTitle"/>
+										<object class="NSMutableArray" key="NSMenuItems">
+											<bool key="EncodedWithXMLCoder">YES</bool>
+										</object>
+									</object>
+								</object>
 							</object>
 						</object>
 					</object>
@@ -1504,6 +1529,7 @@
 						<string key="NSFrame">{{93, 63}, {210, 159}}</string>
 						<reference key="NSSuperview" ref="525010363"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="115855730"/>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSImageCell" key="NSCell" id="185416947">
 							<int key="NSCellFlags">130560</int>
@@ -1522,7 +1548,7 @@
 						<string key="NSFrame">{{28, 238}, {341, 22}}</string>
 						<reference key="NSSuperview" ref="525010363"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="115855730"/>
+						<reference key="NSNextKeyView" ref="686660404"/>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSTextFieldCell" key="NSCell" id="267611996">
 							<int key="NSCellFlags">-1808662975</int>
@@ -2275,6 +2301,14 @@
 					</object>
 					<int key="connectionID">1160</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">recentUploadMenu</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="319484745"/>
+					</object>
+					<int key="connectionID">1179</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -2544,6 +2578,8 @@
 							<reference ref="705341025"/>
 							<reference ref="77255709"/>
 							<reference ref="898607261"/>
+							<reference ref="355182936"/>
+							<reference ref="889450675"/>
 						</object>
 						<reference key="parent" ref="379814623"/>
 					</object>
@@ -2555,6 +2591,9 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">552</int>
 						<reference key="object" ref="77255709"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+						</object>
 						<reference key="parent" ref="720053764"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -3344,6 +3383,28 @@
 						<reference key="object" ref="185416947"/>
 						<reference key="parent" ref="686660404"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">1169</int>
+						<reference key="object" ref="355182936"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="319484745"/>
+						</object>
+						<reference key="parent" ref="720053764"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">1171</int>
+						<reference key="object" ref="889450675"/>
+						<reference key="parent" ref="720053764"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">1172</int>
+						<reference key="object" ref="319484745"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+						</object>
+						<reference key="parent" ref="355182936"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -3392,6 +3453,11 @@
 					<string>1162.IBPluginDependency</string>
 					<string>1163.IBPluginDependency</string>
 					<string>1164.IBPluginDependency</string>
+					<string>1169.IBAttributePlaceholdersKey</string>
+					<string>1169.IBPluginDependency</string>
+					<string>1169.ImportedFromIB2</string>
+					<string>1171.IBPluginDependency</string>
+					<string>1172.IBPluginDependency</string>
 					<string>129.IBPluginDependency</string>
 					<string>129.ImportedFromIB2</string>
 					<string>130.IBPluginDependency</string>
@@ -3583,6 +3649,18 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<object class="NSMutableDictionary">
+						<string key="NS.key.0">ToolTip</string>
+						<object class="IBToolTipAttribute" key="NS.object.0">
+							<string key="name">ToolTip</string>
+							<reference key="object" ref="355182936"/>
+							<string key="toolTip">View recently uploaded shots</string>
+						</object>
+					</object>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<integer value="1"/>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3764,7 +3842,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">1164</int>
+			<int key="maxID">1179</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -3867,6 +3945,7 @@
 							<string>failedViewSmallLabel</string>
 							<string>loupe</string>
 							<string>loupeImageView</string>
+							<string>recentUploadMenu</string>
 							<string>uploadView</string>
 							<string>uploadViewImage</string>
 							<string>uploadViewLabel</string>
@@ -3891,6 +3970,7 @@
 							<string>NSTextField</string>
 							<string>NSView</string>
 							<string>LoupeImageView</string>
+							<string>NSMenu</string>
 							<string>NSView</string>
 							<string>NSImageView</string>
 							<string>NSTextField</string>
@@ -3918,6 +3998,7 @@
 							<string>failedViewSmallLabel</string>
 							<string>loupe</string>
 							<string>loupeImageView</string>
+							<string>recentUploadMenu</string>
 							<string>uploadView</string>
 							<string>uploadViewImage</string>
 							<string>uploadViewLabel</string>
@@ -3992,6 +4073,10 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">loupeImageView</string>
 								<string key="candidateClassName">LoupeImageView</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">recentUploadMenu</string>
+								<string key="candidateClassName">NSMenu</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">uploadView</string>

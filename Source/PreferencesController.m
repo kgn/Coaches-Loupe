@@ -150,4 +150,25 @@
     [[NSUserDefaults standardUserDefaults] registerDefaults:userDefaultsDictionary];
 }
 
++ (void)addRecentUpload:(NSString *)url{
+    NSInteger keepCount = 6;
+    keepCount -= 1;
+    NSInteger arrayCount = [UserDefaultRecentUploadsValue count];
+    if(arrayCount > keepCount){
+        arrayCount = keepCount;
+    }
+    NSMutableArray *recentUploads = [NSMutableArray arrayWithCapacity:arrayCount];
+    [recentUploads addObject:url];
+    NSAutoreleasePool *pool =  [[NSAutoreleasePool alloc] init];
+    for(NSUInteger i = 0; i < arrayCount; ++i){
+        [recentUploads addObject:[UserDefaultRecentUploadsValue objectAtIndex:i]];
+    }
+    [pool drain];
+    [[NSUserDefaults standardUserDefaults] setValue:recentUploads forKey:UserDefaultRecentUploadsKey];
+}
+
++ (void)clearRecentUploads{
+    [[NSUserDefaults standardUserDefaults] setValue:nil forKey:UserDefaultRecentUploadsKey];
+}
+
 @end

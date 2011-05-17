@@ -50,6 +50,9 @@
 #define UserDefaultWindowTransparencyKey @"windowTransparency"
 #define UserDefaultWindowTransparencyValue [[[NSUserDefaults standardUserDefaults] valueForKey:UserDefaultWindowTransparencyKey] floatValue]
 
+#define UserDefaultRecentUploadsKey @"recentUploads"
+#define UserDefaultRecentUploadsValue [[NSUserDefaults standardUserDefaults] valueForKey:UserDefaultRecentUploadsKey]
+
 @interface PreferencesController : DBPrefsWindowController {
     NSView *cloudView;
     NSView *dribbbleView;
@@ -74,6 +77,9 @@
 @property (nonatomic, retain) NSArray *sounds;
 
 + (void)registerUserDefaults;
+
++ (void)addRecentUpload:(NSString *)url;
++ (void)clearRecentUploads;
 
 - (IBAction)dribbblePasswordChanged:(id)sender;
 - (IBAction)cloudAppPasswordChanged:(id)sender;

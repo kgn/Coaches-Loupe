@@ -25,7 +25,9 @@
                                    CLAPIEngineDelegate> {
     NSWindow *window;
     NSView *loupe;
-                                       LoupeImageView *loupeImageView;
+    LoupeImageView *loupeImageView;
+                                       
+    NSMenu *recentUploadMenu;
     
     NSView *uploadView;
     NSTextField *uploadViewLabel;
@@ -66,6 +68,8 @@
 @property (assign) IBOutlet NSView *loupe;
 @property (assign) IBOutlet LoupeImageView *loupeImageView;
 
+@property (assign) IBOutlet NSMenu *recentUploadMenu;
+
 @property (assign) IBOutlet NSView *uploadView;
 @property (assign) IBOutlet NSTextField *uploadViewLabel;
 @property (assign) IBOutlet NSImageView *uploadViewImage;
@@ -99,6 +103,8 @@
 @property (retain, nonatomic) NSData *currentShotData;
 
 @property (nonatomic) BOOL isUploading;
+
+- (void)rebuildRecentUploadMenu;
 
 @end
 

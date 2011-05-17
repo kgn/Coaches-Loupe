@@ -47,6 +47,10 @@
     NSString *urlString = [url absoluteString];
     NSString *shortUrlString = [shortURL absoluteString];
     
+    //add to recent uploads
+    [PreferencesController addRecentUpload:shortUrlString];
+    [self rebuildRecentUploadMenu];
+    
     //copy to pasteboard
     if(UserDefaultCopyToClipboardValue){
         NSString *htmlString = [NSString stringWithFormat:@"<a href=\"%@\">%@</a>", shortUrlString, name];
