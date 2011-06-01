@@ -38,9 +38,11 @@
 
 @synthesize dribbble;
 @synthesize canUploadToDribbble;
+@synthesize enableUploadToDribbble;
 
 @synthesize cloudApp;
 @synthesize canUploadToCloudApp;
+@synthesize enableUploadToCloudApp;
 @synthesize cloudShotName;
 
 @synthesize currentShotName;
@@ -52,6 +54,20 @@
     if([self class] == [AppDelegate class]){
         [PreferencesController registerUserDefaults];
     }
+}
+
+- (void)setIsUploading:(BOOL)value{
+    if(!value && self.canUploadToDribbble){
+        self.enableUploadToDribbble = YES;
+    }else{
+        self.enableUploadToDribbble = NO;
+    }
+    if(!value && self.canUploadToCloudApp){
+        self.enableUploadToCloudApp = YES;
+    }else{
+        self.enableUploadToCloudApp = NO;
+    }
+    isUploading = value;
 }
 
 - (void)setLoupeTransperency{

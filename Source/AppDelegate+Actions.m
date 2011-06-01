@@ -26,9 +26,11 @@
 - (BOOL)validateUserInterfaceItem:(id<NSValidatedUserInterfaceItem>)anItem{
     SEL action = [anItem action];
     if(action == @selector(shoot:)){
-        return self.canUploadToDribbble;
+        return self.canUploadToDribbble && !self.isUploading;
     }else if(action == @selector(precipitate:)){
-        return self.canUploadToCloudApp;
+        return self.canUploadToCloudApp && !self.isUploading;
+    }else if(action == @selector(save:)){
+        return !self.isUploading;
     }
     return YES;
 }

@@ -49,14 +49,14 @@
     NSView *cloudPublishView;
     NSTextField *cloudPublishName;
     NSButton *cloudPublishButton;
-                                       NSButton *cloudCancelButton;
+    NSButton *cloudCancelButton;
     NSImageView *cloudPublishPreview;
 
     BBBouncePass *dribbble;
-    BOOL canUploadToDribbble;
+    BOOL canUploadToDribbble, enableUploadToDribbble;
     
     CLAPIEngine *cloudApp;
-    BOOL canUploadToCloudApp;
+    BOOL canUploadToCloudApp, enableUploadToCloudApp;
     NSString *cloudShotName;
                                        
     NSString *currentShotName;
@@ -97,10 +97,10 @@
 @property (assign) IBOutlet NSImageView *cloudPublishPreview;
 
 @property (retain, nonatomic) BBBouncePass *dribbble;
-@property (nonatomic) BOOL canUploadToDribbble;
+@property (nonatomic) BOOL canUploadToDribbble, enableUploadToDribbble;
 
 @property (retain, nonatomic) CLAPIEngine *cloudApp;
-@property (nonatomic) BOOL canUploadToCloudApp;
+@property (nonatomic) BOOL canUploadToCloudApp, enableUploadToCloudApp;
 @property (copy, nonatomic) NSString *cloudShotName;
 
 @property (copy, nonatomic) NSString *currentShotName;

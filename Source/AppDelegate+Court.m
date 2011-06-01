@@ -139,6 +139,7 @@
     [self performSelector:@selector(removeCourt:) 
                withObject:self.dribbblePublishView 
                afterDelay:fadeInDuration];
+    self.isUploading = NO;
 }
 
 #pragma -
@@ -178,6 +179,7 @@
     [self performSelector:@selector(removeCourt:) 
                withObject:self.cloudPublishView 
                afterDelay:fadeInDuration];
+    self.isUploading = NO;
 }
 
 #pragma -
@@ -199,6 +201,7 @@
     [self performSelector:@selector(removeCourt:) 
                withObject:self.failedView 
                afterDelay:fadeInDuration];
+    self.isUploading = NO;
 }
 
 @end

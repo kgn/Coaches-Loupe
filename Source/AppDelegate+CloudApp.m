@@ -11,6 +11,15 @@ static NSImage *cloupUploadImage = nil;
 
 @implementation AppDelegate (CloudApp)
 
+- (void)setCanUploadToCloudApp:(BOOL)value{
+    if(value && !self.isUploading){
+        self.enableUploadToCloudApp = YES;
+    }else{
+        self.enableUploadToCloudApp = NO;
+    }
+    canUploadToCloudApp = value;
+}
+
 - (void)setupCloudApp{
     self.cloudApp.email = UserDefaultCloudUserValue;
     self.cloudApp.password = [Keychain cloudPasswordForUser:self.cloudApp.email];
@@ -55,7 +64,6 @@ static NSImage *cloupUploadImage = nil;
 
 - (void)requestDidFailWithError:(NSError *)error connectionIdentifier:(NSString *)connectionIdentifier userInfo:(id)userInfo{
     [self showFailedCourtWithError:error];
-    self.isUploading = NO;
     self.cloudShotName = nil;
 }
 

@@ -805,7 +805,7 @@
 				<string key="NSClassName">LoupeView</string>
 			</object>
 			<object class="NSCustomView" id="235469283">
-				<nil key="NSNextResponder"/>
+				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">268</int>
 				<object class="NSMutableArray" key="NSSubviews">
 					<bool key="EncodedWithXMLCoder">YES</bool>
@@ -814,6 +814,7 @@
 						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{17, 47}, {366, 49}}</string>
 						<reference key="NSSuperview" ref="235469283"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="390848353"/>
 						<int key="NSViewLayerContentsRedrawPolicy">2</int>
 						<bool key="NSEnabled">YES</bool>
@@ -836,6 +837,7 @@
 						<int key="NSvFlags">290</int>
 						<string key="NSFrame">{{17, 104}, {366, 22}}</string>
 						<reference key="NSSuperview" ref="235469283"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="371377754"/>
 						<int key="NSViewLayerContentsRedrawPolicy">2</int>
 						<bool key="NSEnabled">YES</bool>
@@ -852,8 +854,10 @@
 					<object class="NSButton" id="390848353">
 						<reference key="NSNextResponder" ref="235469283"/>
 						<int key="NSvFlags">289</int>
-						<string key="NSFrame">{{140, 10}, {119, 29}}</string>
+						<string key="NSFrame">{{118, 10}, {163, 29}}</string>
 						<reference key="NSSuperview" ref="235469283"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<int key="NSViewLayerContentsRedrawPolicy">2</int>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSButtonCell" key="NSCell" id="247008026">
@@ -899,6 +903,7 @@
 						</object>
 						<string key="NSFrame">{{176, 131}, {48, 48}}</string>
 						<reference key="NSSuperview" ref="235469283"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="548791971"/>
 						<int key="NSViewLayerContentsRedrawPolicy">2</int>
 						<bool key="NSEnabled">YES</bool>
@@ -930,6 +935,7 @@
 						</object>
 						<string key="NSFrameSize">{400, 300}</string>
 						<reference key="NSSuperview" ref="235469283"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="467792283"/>
 						<int key="NSViewLayerContentsRedrawPolicy">2</int>
 						<bool key="NSEnabled">YES</bool>
@@ -946,6 +952,8 @@
 					</object>
 				</object>
 				<string key="NSFrameSize">{400, 300}</string>
+				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="720989669"/>
 				<int key="NSViewLayerContentsRedrawPolicy">2</int>
 				<string key="NSClassName">LoupeView</string>
@@ -1304,11 +1312,11 @@
 									<bool key="NSEnabled">YES</bool>
 									<object class="NSButtonCell" key="NSCell" id="678880298">
 										<int key="NSCellFlags">67239424</int>
-										<int key="NSCellFlags2">134217728</int>
+										<int key="NSCellFlags2">134250496</int>
 										<string key="NSContents"/>
 										<reference key="NSSupport" ref="743812628"/>
 										<reference key="NSControlView" ref="484748325"/>
-										<int key="NSButtonFlags">138690815</int>
+										<int key="NSButtonFlags">139215103</int>
 										<int key="NSButtonFlags2">2</int>
 										<object class="NSCustomResource" key="NSNormalImage">
 											<string key="NSClassName">NSImage</string>
@@ -1330,7 +1338,7 @@
 									<bool key="NSEnabled">YES</bool>
 									<object class="NSButtonCell" key="NSCell" id="574262351">
 										<int key="NSCellFlags">67239424</int>
-										<int key="NSCellFlags2">134217728</int>
+										<int key="NSCellFlags2">134250496</int>
 										<string key="NSContents"/>
 										<reference key="NSSupport" ref="743812628"/>
 										<reference key="NSControlView" ref="905801261"/>
@@ -1720,38 +1728,6 @@
 						<reference key="destination" ref="609285721"/>
 					</object>
 					<int key="connectionID">592</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">enabled: canUploadToCloudApp</string>
-						<reference key="source" ref="484748325"/>
-						<reference key="destination" ref="976324537"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="484748325"/>
-							<reference key="NSDestination" ref="976324537"/>
-							<string key="NSLabel">enabled: canUploadToCloudApp</string>
-							<string key="NSBinding">enabled</string>
-							<string key="NSKeyPath">canUploadToCloudApp</string>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">594</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">enabled: canUploadToDribbble</string>
-						<reference key="source" ref="905801261"/>
-						<reference key="destination" ref="976324537"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="905801261"/>
-							<reference key="NSDestination" ref="976324537"/>
-							<string key="NSLabel">enabled: canUploadToDribbble</string>
-							<string key="NSBinding">enabled</string>
-							<string key="NSKeyPath">canUploadToDribbble</string>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">598</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
@@ -2224,6 +2200,38 @@
 						<reference key="destination" ref="203723168"/>
 					</object>
 					<int key="connectionID">1190</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: self.enableUploadToCloudApp</string>
+						<reference key="source" ref="484748325"/>
+						<reference key="destination" ref="976324537"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="484748325"/>
+							<reference key="NSDestination" ref="976324537"/>
+							<string key="NSLabel">enabled: self.enableUploadToCloudApp</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">self.enableUploadToCloudApp</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">1192</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: self.enableUploadToDribbble</string>
+						<reference key="source" ref="905801261"/>
+						<reference key="destination" ref="976324537"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="905801261"/>
+							<reference key="NSDestination" ref="976324537"/>
+							<string key="NSLabel">enabled: self.enableUploadToDribbble</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">self.enableUploadToDribbble</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">1194</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -3606,7 +3614,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">1190</int>
+			<int key="maxID">1194</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -3627,11 +3635,9 @@
 							<string>save:</string>
 							<string>shoot:</string>
 							<string>showPreferences:</string>
-							<string>togglePreviewPanel:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -3656,7 +3662,6 @@
 							<string>save:</string>
 							<string>shoot:</string>
 							<string>showPreferences:</string>
-							<string>togglePreviewPanel:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -3694,10 +3699,6 @@
 							</object>
 							<object class="IBActionInfo">
 								<string key="name">showPreferences:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">togglePreviewPanel:</string>
 								<string key="candidateClassName">id</string>
 							</object>
 						</object>

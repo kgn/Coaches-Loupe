@@ -11,6 +11,15 @@ static NSImage *dribbbleUploadImage = nil;
 
 @implementation AppDelegate (Dribbble)
 
+- (void)setCanUploadToDribbble:(BOOL)value{
+    if(value && !self.isUploading){
+        self.enableUploadToDribbble = YES;
+    }else{
+        self.enableUploadToDribbble = NO;
+    }
+    canUploadToDribbble = value;
+}
+
 - (void)setupDribbble{
     self.dribbble.username = UserDefaultDribbbleUserValue;
     self.dribbble.password = [Keychain dribbblePasswordForUser:self.dribbble.username];
@@ -66,7 +75,6 @@ static NSImage *dribbbleUploadImage = nil;
 
 - (void)dribbbleRequestDidFailWithError:(NSError *)error authenticityToken:(NSString *)authenticityToken shotInfo:(NSDictionary *)shotInfo{
     [self showFailedCourtWithError:error];
-    self.isUploading = NO;
 }
 
 - (void)dribbbleShotUploadDidSucceedWithResultingShot:(BBBPShot *)shot authenticityToken:(NSString *)authenticityToken shotInfo:(NSDictionary *)shotInfo{
