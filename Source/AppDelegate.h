@@ -115,7 +115,6 @@
 @interface AppDelegate (Actions)
 
 - (IBAction)save:(id)sender;
-- (IBAction)moveWindow:(id)sender;
 - (IBAction)showPreferences:(id)sender;
 
 @end

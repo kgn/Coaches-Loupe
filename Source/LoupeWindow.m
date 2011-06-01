@@ -42,4 +42,35 @@
     [self setFrameOrigin:newOrigin];
 }
 
+- (void)keyDown:(NSEvent *)theEvent{
+    NSString *keys = [theEvent charactersIgnoringModifiers];
+    NSUInteger modFlags = [NSEvent modifierFlags];
+    
+    if(NSNumericPadKeyMask & modFlags){//arrow keys
+        if ([keys length] == 1){
+            CGFloat move = 1.0f;
+            //if the cmd key is down move the loupe by 10
+            if(NSCommandKeyMask & modFlags){
+                move = 10.0f;
+            }
+            NSPoint windowPoint = self.frame.origin;
+            
+            unichar keyChar = [keys characterAtIndex:0];
+            if (keyChar == NSLeftArrowFunctionKey){
+                windowPoint.x -= move;
+            }else if (keyChar == NSRightArrowFunctionKey){
+                windowPoint.x += move;
+            }else if (keyChar == NSUpArrowFunctionKey){
+                windowPoint.y += move;
+            }else if (keyChar == NSDownArrowFunctionKey){
+                windowPoint.y -= move;
+            }
+            
+            [self setFrameOrigin:windowPoint];
+        }
+    }else{
+        [super keyDown:theEvent];
+    }
+}
+
 @end
