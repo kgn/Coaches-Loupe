@@ -108,11 +108,15 @@
 
 @property (nonatomic) BOOL isUploading;
 
-- (void)rebuildRecentUploadMenu;
-
 @end
 
 @interface AppDelegate (Growl)
+
+@end
+
+@interface AppDelegate (RecentUploads)
+
+- (void)rebuildRecentUploadMenu;
 
 @end
 

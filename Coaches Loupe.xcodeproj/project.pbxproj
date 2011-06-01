@@ -88,6 +88,7 @@
 		73DAAF7E130900D800814EA2 /* court_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DAAF7B130900D800814EA2 /* court_button.png */; };
 		73DAAF7F130900D800814EA2 /* court.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DAAF7C130900D800814EA2 /* court.png */; };
 		73F3FE2E130A83F700B0FCCC /* AppDelegate+Growl.m in Sources */ = {isa = PBXBuildFile; fileRef = 73F3FE2D130A83F700B0FCCC /* AppDelegate+Growl.m */; };
+		73F6E89E139618340015476D /* AppDelegate+RecentUploads.m in Sources */ = {isa = PBXBuildFile; fileRef = 73F6E89D139618340015476D /* AppDelegate+RecentUploads.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -244,6 +245,7 @@
 		73DAAF7B130900D800814EA2 /* court_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = court_button.png; path = Images/court_button.png; sourceTree = SOURCE_ROOT; };
 		73DAAF7C130900D800814EA2 /* court.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = court.png; path = Images/court.png; sourceTree = SOURCE_ROOT; };
 		73F3FE2D130A83F700B0FCCC /* AppDelegate+Growl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Growl.m"; sourceTree = "<group>"; };
+		73F6E89D139618340015476D /* AppDelegate+RecentUploads.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+RecentUploads.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -520,6 +522,7 @@
 				7367886B1308F4D10090FF67 /* AppDelegate+Court.m */,
 				73F3FE2D130A83F700B0FCCC /* AppDelegate+Growl.m */,
 				730448AF1307650B0044B510 /* AppDelegate+Actions.m */,
+				73F6E89D139618340015476D /* AppDelegate+RecentUploads.m */,
 				73284B1613054B4D0083654A /* AppDelegate+Screenshot.m */,
 				733E73E013075FBF002957D6 /* AppDelegate+Dribbble.m */,
 				731A2B2D130721490081A79E /* AppDelegate+CloudApp.m */,
@@ -686,6 +689,7 @@
 				735BAB92131213B70057BF8B /* BBBPShot.m in Sources */,
 				735BAB95131214310057BF8B /* BBBPDribbble.m in Sources */,
 				73BA01861314CAE900C4EBD1 /* LoupeWindow.m in Sources */,
+				73F6E89E139618340015476D /* AppDelegate+RecentUploads.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
