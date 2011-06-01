@@ -78,6 +78,7 @@
 		738559AC1333314700842250 /* low_transperency.png in Resources */ = {isa = PBXBuildFile; fileRef = 738559AA1333314700842250 /* low_transperency.png */; };
 		738FD3A113091D380064C037 /* cloud_upload.png in Resources */ = {isa = PBXBuildFile; fileRef = 738FD39F13091D380064C037 /* cloud_upload.png */; };
 		738FD3A213091D380064C037 /* dribbble_upload.png in Resources */ = {isa = PBXBuildFile; fileRef = 738FD3A013091D380064C037 /* dribbble_upload.png */; };
+		73904D8413960E6E001C7727 /* text_field_long.png in Resources */ = {isa = PBXBuildFile; fileRef = 73904D8313960E6E001C7727 /* text_field_long.png */; };
 		739FD52C132B254E00351A45 /* twitter_toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 739FD52B132B254E00351A45 /* twitter_toolbar.png */; };
 		73BA01861314CAE900C4EBD1 /* LoupeWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BA01851314CAE900C4EBD1 /* LoupeWindow.m */; };
 		73C3FA811309FFB9008B661F /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 73C3FA801309FFB8008B661F /* libxml2.2.dylib */; };
@@ -229,6 +230,7 @@
 		738559AA1333314700842250 /* low_transperency.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = low_transperency.png; path = Images/low_transperency.png; sourceTree = SOURCE_ROOT; };
 		738FD39F13091D380064C037 /* cloud_upload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cloud_upload.png; path = Images/cloud_upload.png; sourceTree = SOURCE_ROOT; };
 		738FD3A013091D380064C037 /* dribbble_upload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dribbble_upload.png; path = Images/dribbble_upload.png; sourceTree = SOURCE_ROOT; };
+		73904D8313960E6E001C7727 /* text_field_long.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = text_field_long.png; path = Images/text_field_long.png; sourceTree = SOURCE_ROOT; };
 		739FD52B132B254E00351A45 /* twitter_toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = twitter_toolbar.png; path = Images/twitter_toolbar.png; sourceTree = SOURCE_ROOT; };
 		73BA01841314CAE900C4EBD1 /* LoupeWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoupeWindow.h; sourceTree = "<group>"; };
 		73BA01851314CAE900C4EBD1 /* LoupeWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoupeWindow.m; sourceTree = "<group>"; };
@@ -453,6 +455,7 @@
 		739DC8CA13052FDA00F12692 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				73904D8313960E6E001C7727 /* text_field_long.png */,
 				738559A91333314700842250 /* full_transperency.png */,
 				738559AA1333314700842250 /* low_transperency.png */,
 				739FD52B132B254E00351A45 /* twitter_toolbar.png */,
@@ -627,6 +630,7 @@
 				738559AB1333314700842250 /* full_transperency.png in Resources */,
 				738559AC1333314700842250 /* low_transperency.png in Resources */,
 				7326F1431366832D00352D01 /* image_shadow.png in Resources */,
+				73904D8413960E6E001C7727 /* text_field_long.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

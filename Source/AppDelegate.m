@@ -28,10 +28,12 @@
 @synthesize dribbblePublishTags;
 @synthesize dribbblePublishComment;
 @synthesize dribbblePublishButton;
+@synthesize dribbbleCancelButton;
 @synthesize dribbblePublishPreview;
 @synthesize cloudPublishView;
 @synthesize cloudPublishName;
 @synthesize cloudPublishButton;
+@synthesize cloudCancelButton;
 @synthesize cloudPublishPreview;
 
 @synthesize dribbble;

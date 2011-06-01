@@ -43,11 +43,13 @@
     NSTextField *dribbblePublishTags;
     NSTextField *dribbblePublishComment;
     NSButton *dribbblePublishButton;
+    NSButton *dribbbleCancelButton;
     NSImageView *dribbblePublishPreview;
                                        
     NSView *cloudPublishView;
     NSTextField *cloudPublishName;
     NSButton *cloudPublishButton;
+                                       NSButton *cloudCancelButton;
     NSImageView *cloudPublishPreview;
 
     BBBouncePass *dribbble;
@@ -85,11 +87,13 @@
 @property (assign) IBOutlet NSTextField *dribbblePublishTags;
 @property (assign) IBOutlet NSTextField *dribbblePublishComment;
 @property (assign) IBOutlet NSButton *dribbblePublishButton;
+@property (assign) IBOutlet NSButton *dribbbleCancelButton;
 @property (assign) IBOutlet NSImageView *dribbblePublishPreview;
 
 @property (assign) IBOutlet NSView *cloudPublishView;
 @property (assign) IBOutlet NSTextField *cloudPublishName;
 @property (assign) IBOutlet NSButton *cloudPublishButton;
+@property (assign) IBOutlet NSButton *cloudCancelButton;
 @property (assign) IBOutlet NSImageView *cloudPublishPreview;
 
 @property (retain, nonatomic) BBBouncePass *dribbble;
@@ -162,10 +166,12 @@
 - (void)showDribbbleInfoCourtWithAnimation:(BOOL)animation withName:(NSString *)name;
 - (void)showDribbbleInfoCourtWithAnimationWithName:(NSString *)name;
 - (void)hideDribbbleInfoCourtWithDelay:(BOOL)delay;
+- (IBAction)cancelDribbbleUpload:(id)sender;
 
 - (void)showCloudInfoCourtWithAnimation:(BOOL)animation withName:(NSString *)name;
 - (void)showCloudInfoCourtWithAnimationWithName:(NSString *)name;
 - (void)hideCloudInfoCourtWithDelay:(BOOL)delay;
+- (IBAction)cancelCloudUpload:(id)sender;
 
 - (void)showFailedCourtWithError:(NSError *)error;
 - (IBAction)hideFailedCourt:(id)sender;

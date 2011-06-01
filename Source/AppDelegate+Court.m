@@ -22,10 +22,12 @@
     [[self.dribbblePublishTags cell] setBackgroundStyle:NSBackgroundStyleLowered]; 
     [[self.dribbblePublishComment cell] setBackgroundStyle:NSBackgroundStyleLowered]; 
     [[self.dribbblePublishButton cell] setBackgroundStyle:NSBackgroundStyleLowered]; 
+    [[self.dribbbleCancelButton cell] setBackgroundStyle:NSBackgroundStyleLowered];
     [self.dribbblePublishView setFrameOrigin:NSMakePoint(frameThinOffset, frameThickOffset)];
     
     [[self.cloudPublishName cell] setBackgroundStyle:NSBackgroundStyleLowered];
     [[self.cloudPublishButton cell] setBackgroundStyle:NSBackgroundStyleLowered];
+    [[self.cloudCancelButton cell] setBackgroundStyle:NSBackgroundStyleLowered];
     [self.cloudPublishView setFrameOrigin:NSMakePoint(frameThinOffset, frameThickOffset)];
     
     [[self.failedViewBigLabel cell] setBackgroundStyle:NSBackgroundStyleLowered]; 
@@ -38,6 +40,13 @@
     [NSAnimationContext beginGrouping];
     [[NSAnimationContext currentContext] setDuration:fadeInDuration];
     [(NSView *)[court animator] setAlphaValue:1.0f];
+    [NSAnimationContext endGrouping];
+}
+
+- (void)fadeOutCourt:(NSView *)court{
+    [NSAnimationContext beginGrouping];
+    [[NSAnimationContext currentContext] setDuration:fadeInDuration];
+    [(NSView *)[court animator] setAlphaValue:0.0f];
     [NSAnimationContext endGrouping];
 }
 
@@ -125,6 +134,13 @@
     }
 }
 
+- (IBAction)cancelDribbbleUpload:(id)sender{
+    [self fadeOutCourt:self.dribbblePublishView];
+    [self performSelector:@selector(removeCourt:) 
+               withObject:self.dribbblePublishView 
+               afterDelay:fadeInDuration];
+}
+
 #pragma -
 #pragma Cloud
 
@@ -157,6 +173,13 @@
     }
 }
 
+- (IBAction)cancelCloudUpload:(id)sender{
+    [self fadeOutCourt:self.cloudPublishView];
+    [self performSelector:@selector(removeCourt:) 
+               withObject:self.cloudPublishView 
+               afterDelay:fadeInDuration];
+}
+
 #pragma -
 #pragma Failed
 
@@ -172,10 +195,7 @@
 }
 
 - (IBAction)hideFailedCourt:(id)sender{
-    [NSAnimationContext beginGrouping];
-    [[NSAnimationContext currentContext] setDuration:fadeInDuration];
-    [(NSView *)[self.failedView animator] setAlphaValue:0.0f];
-    [NSAnimationContext endGrouping];
+    [self fadeOutCourt:self.failedView];
     [self performSelector:@selector(removeCourt:) 
                withObject:self.failedView 
                afterDelay:fadeInDuration];
