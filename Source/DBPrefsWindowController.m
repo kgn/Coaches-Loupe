@@ -56,7 +56,7 @@ static DBPrefsWindowController *_sharedPrefsWindowController = nil;
 		viewAnimation = [[NSViewAnimation alloc] init];
 		[viewAnimation setAnimationBlockingMode:NSAnimationNonblocking];
 		[viewAnimation setAnimationCurve:NSAnimationEaseInOut];
-		[viewAnimation setDelegate:self];
+		[viewAnimation setDelegate:(id<NSAnimationDelegate>)self];
 		
 		[self setCrossFade:YES]; 
 		[self setShiftSlowsAnimation:YES];
@@ -206,7 +206,7 @@ static DBPrefsWindowController *_sharedPrefsWindowController = nil;
 		[toolbar setAutosavesConfiguration:NO];
 		[toolbar setSizeMode:NSToolbarSizeModeDefault];
 		[toolbar setDisplayMode:NSToolbarDisplayModeIconAndLabel];
-		[toolbar setDelegate:self];
+		[toolbar setDelegate:(id<NSToolbarDelegate>)self];
 		[[self window] setToolbar:toolbar];
 		[toolbar release];
 	}
