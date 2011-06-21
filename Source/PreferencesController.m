@@ -153,10 +153,7 @@
 + (void)addRecentUpload:(NSString *)url{
     NSInteger keepCount = 6;
     keepCount -= 1;
-    NSInteger arrayCount = [UserDefaultRecentUploadsValue count];
-    if(arrayCount > keepCount){
-        arrayCount = keepCount;
-    }
+    NSInteger arrayCount = MIN([UserDefaultRecentUploadsValue count], keepCount);
     NSMutableArray *recentUploads = [NSMutableArray arrayWithCapacity:arrayCount];
     [recentUploads addObject:url];
     NSAutoreleasePool *pool =  [[NSAutoreleasePool alloc] init];
