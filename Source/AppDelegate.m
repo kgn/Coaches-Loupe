@@ -80,6 +80,8 @@
 
 - (void)userDefaultsChanged:(NSNotification *)aNoficication{
     [self setLoupeTransperency];
+    [self setupDribbble];
+    [self setupCloudApp];    
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification{
