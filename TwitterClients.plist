@@ -10,5 +10,13 @@
 		<key>url</key>
 		<string>twitter</string>
 	</dict>
+	<dict>
+		<key>id</key>
+		<string>com.iconfactory.Twitterrific</string>
+		<key>name</key>
+		<string>Twitterrific</string>
+		<key>url</key>
+		<string>twitterrific</string>
+	</dict>	
 </array>
 </plist>

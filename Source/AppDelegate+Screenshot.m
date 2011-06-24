@@ -78,8 +78,6 @@
     }
     
     //tweet shot
-    //reference: http://twitterrific.com/ipad/poweruser
-    //TODO: figure out why twitterific isn't working    
     if(UserDefaultTweetShotValue && UserDefaultTwitterAppURLValue){
         NSString *newShot = @"New Shot: ";
         NSInteger urlLength = [shortUrlString length];
