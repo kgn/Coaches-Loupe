@@ -9,20 +9,20 @@ Uploads screenshots to [Dribbble](http://dribbble.com) and [CloudApp](http://get
 
 Head Coach [Ian Tearle](http://iantearle.com)
 
-Technical Coach [David Keegan](http://inscopeapps.com)
+Technical Coach [David Keegan](http://kgn.com)
 
 Assistant Coach [Jonathan Badeen](http://www.badeen.com)
 
-![Screenshot](https://github.com/InScopeApps/Coaches-Loupe/raw/master/Screenshots/Main.png "Screenshot")
+![Screenshot](https://github.com/kgn/Coaches-Loupe/raw/master/Screenshots/Main.png "Screenshot")
 
-![Uploading](https://github.com/InScopeApps/Coaches-Loupe/raw/master/Screenshots/Uploading.png "Uploading")
+![Uploading](https://github.com/kgn/Coaches-Loupe/raw/master/Screenshots/Uploading.png "Uploading")
 
-![Preferences](https://github.com/InScopeApps/Coaches-Loupe/raw/master/Screenshots/Preferences.png "Preferences")
+![Preferences](https://github.com/kgn/Coaches-Loupe/raw/master/Screenshots/Preferences.png "Preferences")
 
 Libraries used:
 ========
 
-* [BBBouncePass](https://github.com/InScopeApps/BBBouncePass)
+* [BBBouncePass](https://github.com/kgn/BBBouncePass)
 * [CloudApp](https://github.com/cloudapp/objective-c)
 * [TouchJSON](https://github.com/TouchCode/TouchJSON)
 * [DBPrefsWindowController](http://www.mere-mortal-software.com/blog/details.php?d=2007-03-11)
