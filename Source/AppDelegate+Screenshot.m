@@ -10,8 +10,8 @@
 
 @implementation AppDelegate (Screenshot)
 
-- (CGImageRef)shotImageRef{
-    NSRect shotRect = self.window.frame;
+static CGImageRef createShotImageRef(NSWindow *window){
+    NSRect shotRect = window.frame;
     NSRect screenRect = [[NSScreen mainScreen] frame];
     //convert into screen shot space: 0, 0 = top left of main screen
     shotRect.origin.y = screenRect.size.height-NSMaxY(shotRect)+frameThinOffset;
@@ -19,13 +19,14 @@
     shotRect.size = NSMakeSize(400.0f, 300.0f);
     return CGWindowListCreateImage(NSRectToCGRect(shotRect), 
                                    kCGWindowListOptionOnScreenBelowWindow, 
-                                   [self.window windowNumber], 
+                                   [window windowNumber], 
                                    kCGWindowImageDefault);
 }
 
 - (NSData *)shotData{
-    CGImageRef image = [self shotImageRef];
+    CGImageRef image = createShotImageRef(self.window);
     NSBitmapImageRep *bits = [[[NSBitmapImageRep alloc] initWithCGImage:image] autorelease];
+    CGImageRelease(image);
     return [bits representationUsingType:NSPNGFileType properties:nil];
 }
 

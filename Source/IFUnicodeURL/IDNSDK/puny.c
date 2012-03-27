@@ -77,7 +77,7 @@ static char encode_digit(DWORD d, int flag)
 ** returns 1 if all basic otherwise 0
 */
 
-int is_all_basic(DWORD input_length, const DWORD input[])
+static int is_all_basic(DWORD input_length, const DWORD input[])
 {
   int j;
   for(j = 0; j < input_length; j++) 
@@ -96,7 +96,7 @@ int is_all_basic(DWORD input_length, const DWORD input[])
 
 /*** Main encode function ***/
 
-int punycode_encode( unsigned int input_length,
+static int punycode_encode( unsigned int input_length,
                      const DWORD input[],
                      unsigned int *output_length,
                      char output[] )
@@ -195,7 +195,7 @@ int punycode_encode( unsigned int input_length,
 /*** Main decode function ***/
 
 
-int punycode_decode( unsigned int input_length,
+static int punycode_decode( unsigned int input_length,
                      const char input[],
                      unsigned int *output_length,
                      DWORD output[] )

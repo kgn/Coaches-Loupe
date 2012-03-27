@@ -129,7 +129,6 @@
 
 @interface AppDelegate (Screenshot)
 
-- (CGImageRef)shotImageRef;
 - (NSData *)shotData;
 - (NSString *)shotName;
 - (void)screenshotUploadedWithName:(NSString *)name 

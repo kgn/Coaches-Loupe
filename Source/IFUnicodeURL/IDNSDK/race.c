@@ -39,7 +39,7 @@
  * Xcode_race_RaceCompress - Employ RACE compression on a utf-16 string
  */
 
-int Xcode_race_RaceCompress( const UTF16CHAR *  uncompressed,
+static int Xcode_race_RaceCompress( const UTF16CHAR *  uncompressed,
                              const size_t       uncompressed_size,
                              UCHAR8 *           compressed,
                              size_t *           compressed_size ) 
@@ -140,7 +140,7 @@ int Xcode_race_RaceCompress( const UTF16CHAR *  uncompressed,
  * Xcode_race_RaceDecompress - Employ RACE decompression on a utf-16 string
  */
 
-int Xcode_race_RaceDecompress( const UCHAR8* compressed,
+static int Xcode_race_RaceDecompress( const UCHAR8* compressed,
                                const size_t compressed_size,
                                UTF16CHAR* decompressed,
                                size_t* decompressed_size ) 
@@ -287,7 +287,7 @@ int Xcode_race_RaceDecompress( const UCHAR8* compressed,
  * Xcode_enmap32_race - Map 5 bit chunk to dns friendly octet
  */
 
-UCHAR8 Xcode_enmap32_race(const UCHAR8 input) 
+static UCHAR8 Xcode_enmap32_race(const UCHAR8 input) 
 {
   if (input <= 0x19) {return input+0x61;}
   if (input <= 0x1F) {return input+0x18;}
@@ -298,7 +298,7 @@ UCHAR8 Xcode_enmap32_race(const UCHAR8 input)
  * Xcode_demap32_race - Demap dns friendly octet to 5 bit chunk
  */
 
-UCHAR8 Xcode_demap32_race(const UCHAR8 input) 
+static UCHAR8 Xcode_demap32_race(const UCHAR8 input) 
 {
   if (input >= 0x32 && input <= 0x37) {return input-0x18;}
   if (input >= 0x61 && input <= 0x7A) {return input-0x61;}
@@ -309,7 +309,7 @@ UCHAR8 Xcode_demap32_race(const UCHAR8 input)
  * Xcode_enbase32_race - Convert compressed multilingual octets to dns friendly octets
  */
 
-int Xcode_enbase32_race( const UCHAR8* input,
+static int Xcode_enbase32_race( const UCHAR8* input,
                          const size_t input_size,
                          UCHAR8* output,
                          size_t* output_size ) 
@@ -389,7 +389,7 @@ int Xcode_enbase32_race( const UCHAR8* input,
  * Xcode_debase32_race - Deconvert dns friendly octets to compressed multilingual octets
  */
 
-int Xcode_debase32_race( const UCHAR8* input,
+static int Xcode_debase32_race( const UCHAR8* input,
                          const size_t input_size,
                          UCHAR8* output,
                          size_t* output_size ) 
